@@ -56,7 +56,7 @@ ifeq ($(OS),Darwin)
 endif
 
 # Optimization flags specific to compiler/CFG combination
-$ifeq ($(CFG), release)
+#ifeq ($(CFG), release)
 	# With gcc 4.6.3, engine.so went from 7,383,765 to 8,429,109 when building with -O3.
 	#  There also was no speed difference running at 1280x1024. May 2012, mikesart.
 	#  tonyp: The size increase was likely caused by -finline-functions and -fipa-cp-clone getting switched on with -O3.
@@ -69,7 +69,7 @@ $ifeq ($(CFG), release)
 #	else
 #		OptimizerLevel_CompilerSpecific += -fpredictive-commoning -funswitch-loops
 #	endif
-$else
+#else
 	OptimizerLevel_CompilerSpecific = -O0
 	#-O1 -finline-functions
 #endif
