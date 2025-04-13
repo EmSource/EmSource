@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Var
+      run: export VALVE_NO_AUTO_P4
     - name: Install dependencies
       run: sudo apt-get install emscripten build-essential gcc-multilib g++-multilib pkg-config ccache #codelite
     - name: Build Makefile
