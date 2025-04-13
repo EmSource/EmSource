@@ -1,0 +1,21 @@
+name: EmSource CI for Linux
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: sudo apt-get install sudo apt-get install emscripten build-essential gcc-multilib g++-multilib pkg-config ccache codelite
+    - name: Build Makefile
+      run: git submodule init && ./createallprojects.sh
+    - name: Compile Makefile
+      run: make

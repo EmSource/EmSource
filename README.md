@@ -72,7 +72,7 @@ Unfortunately, yes we do use leaked code, but this is required for us to fully p
 
 - [ ] Windows support
 
-- [ ] CI
+- [X] CI
 ## Optimizations
 
 > What optimizations did you make in your code?
