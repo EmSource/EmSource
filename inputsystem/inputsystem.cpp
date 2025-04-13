@@ -21,6 +21,15 @@ static void initKeymap(void);
 #ifdef _X360
 #include "xbox/xbox_win32stubs.h"
 #endif
+
+#include "../thirdparty/imgui/imgui.h"
+
+#ifndef __EMSCRIPTEN__
+#include "../thirdparty/imgui/backends/imgui_impl_win32.h"
+#else
+#include "../thirdparty/imgui/backends/imgui_impl_opengl3.h"
+#endif
+
 ConVar joy_xcontroller_found( "joy_xcontroller_found", "1", FCVAR_HIDDEN, "Automatically set to 1 if an xcontroller has been detected." );
 
 //-----------------------------------------------------------------------------
@@ -1263,6 +1272,9 @@ void CInputSystem::UpdateMousePositionState( InputState_t &state, short x, short
 //-----------------------------------------------------------------------------
 LRESULT CInputSystem::WindowProc( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
+	if (ImGui_ImplWin32_WndProcHandler(hwnd, uMsg, wParam, lParam))
+		return true;
+
 #if defined( PLATFORM_WINDOWS ) // We use this even for SDL to handle mouse move.
 	if ( !m_bEnabled )
 		return ChainWindowMessage( hwnd, uMsg, wParam, lParam );

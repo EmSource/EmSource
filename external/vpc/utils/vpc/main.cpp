@@ -1998,6 +1998,7 @@ void CVPC::SetMacrosAndConditionals()
 		SetMacro( "_EMSCRIPTEN", "1", true );
 		SetMacro( "POSIX", "1", true );
 		SetMacro( "_POSIX", "1", true );
+		SetMacro( "NO_STEAM", "1", true);
 
 		const char *str3264 = IsEmscripten ? "" : "64";
 		const char *strSrv = m_bAppendSrvToDedicated ? "_srv" : "";

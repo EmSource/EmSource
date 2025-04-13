@@ -23,6 +23,11 @@
 #include <vgui_controls/ListPanel.h>
 #include <KeyValues.h>
 
+#include "../launcher/ifilesystem.h"
+#include <string>
+#include "launcher.h"
+ 
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include <tier0/memdbgon.h>
 
