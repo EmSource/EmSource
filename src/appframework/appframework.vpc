@@ -26,7 +26,7 @@ $Project "appframework"
 	$Folder	"Source Files"
 	{
 		$File	"AppSystemGroup.cpp"
-		$File	"$SRCDIR\public\filesystem_init.cpp"
+		$File	"../public/filesystem_init.cpp"
 		$File	"vguimatsysapp.cpp"	[$WIN32]
 		$File	"winapp.cpp"		[$WIN32]
 		$File	"posixapp.cpp"		[$POSIX]

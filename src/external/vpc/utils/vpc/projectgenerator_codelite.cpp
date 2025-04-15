@@ -23,8 +23,11 @@ void CProjectGenerator_CodeLite::GenerateCodeLiteProject( CBaseProjectDataCollec
 	char szProjectFile[MAX_PATH];
 	sprintf( szProjectFile, "%s.project", pOutFilename );
 
+#if !defined(EMSCRIPTEN)
 	g_pVPC->VPCStatus( true, "Saving CodeLite project for: '%s' File: '%s'", pCollector->GetProjectName().String(), szProjectFile );
-
+#else
+	g_pVPC->VPCStatus( true, "Saving Emscripten project for: '%s' File: '%s'", pCollector->GetProjectName().String(), szProjectFile );
+#endif
 	m_fp = fopen( szProjectFile, "wt" );
 
 	m_nIndent = 0;

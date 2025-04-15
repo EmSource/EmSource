@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="itemtest_com" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f itemtest_com_emscripten.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f itemtest_com_emscripten.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f itemtest_com_emscripten.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f itemtest_com_emscripten.mak clean all</RebuildCommand>
+        <CleanCommand>make -f itemtest_com_emscripten.mak clean</CleanCommand>
+        <BuildCommand>make -f itemtest_com_emscripten.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../public/interpolatortypes.cpp"/>
+      <File Name="../../public/movieobjects/movieobjects.cpp"/>
+      <File Name="../../public/tier0/memoverride.cpp"/>
+      <File Name="../../public/XUnzip.cpp"/>
+      <File Name="../../public/XZip.cpp"/>
+      <File Name="itemtestapp.cpp"/>
+      <File Name="itemtest_con.cpp"/>
+      <File Name="runexe.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../public/interpolatortypes.h"/>
+      <File Name="itemtestapp.h"/>
+      <File Name="runexe.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../utils/itemtest_lib/itemtest_lib_support.vpc"/>
+      <File Name="../../vpc_scripts/fbx.vpc"/>
+      <File Name="../../vpc_scripts/fbx_base.vpc"/>
+      <File Name="../../vpc_scripts/loadaddress.vpc"/>
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_exe_con_base.vpc"/>
+      <File Name="../../vpc_scripts/source_exe_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="itemtest_com.vpc"/>
+      <File Name="itemtest_com.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>
