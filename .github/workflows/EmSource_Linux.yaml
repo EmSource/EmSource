@@ -16,7 +16,8 @@ jobs:
     - name: Var
       run: export VALVE_NO_AUTO_P4
     - name: Install dependencies
-      run: sudo apt-get install emscripten build-essential gcc-multilib g++-multilib pkg-config ccache #codelite
+      run: git clone https://github.com/emscripten-core/emsdk && cd emsdk && ./emsdk install latest && ./emsdk activate latest && cd ../ && rm -rf emsdk/
+      run: sudo apt-get install build-essential gcc-multilib g++-multilib pkg-config ccache #codelite
     - name: Build Makefile
       run: git submodule init && ./createallprojects.sh
     - name: Compile Makefile
