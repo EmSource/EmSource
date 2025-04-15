@@ -1,0 +1,1322 @@
+[
+    // ===========================================
+    // libc
+    // ===========================================
+    {
+        "file": "pthread.h",
+        "defines": [
+          "PTHREAD_CANCELED"
+        ]
+    },
+    {
+        "file": "dirent.h",
+        "structs": {
+            "dirent": [
+                "d_ino",
+                "d_off",
+                "d_reclen",
+                "d_type",
+                "d_name"
+            ]
+        }
+    },
+    {
+        "file": "sys/stat.h",
+        "defines": [
+            "S_IALLUGO",
+            "S_IWUSR",
+            "S_IWUGO",
+            "S_IRUGO",
+            "S_IRWXUGO",
+            "S_IXUGO",
+            "S_IFDIR",
+            "S_IFREG",
+            "S_IFMT",
+            "S_IFIFO",
+            "S_IFSOCK",
+            "S_IFBLK",
+            "S_IFLNK",
+            "S_IFCHR",
+            "S_IRUSR",
+            "S_IRGRP",
+            "S_IROTH",
+            "UTIME_OMIT",
+            "UTIME_NOW"
+        ],
+        "structs": {
+            "stat": [
+                "st_dev",
+                "st_mode",
+                "st_nlink",
+                "st_uid",
+                "st_gid",
+                "st_rdev",
+                "st_size",
+                "st_blksize",
+                "st_blocks",
+                {
+                    "st_atim": [
+                        "tv_sec",
+                        "tv_nsec"
+                    ]
+                },
+                {
+                    "st_mtim": [
+                        "tv_sec",
+                        "tv_nsec"
+                    ]
+                },
+                {
+                    "st_ctim": [
+                        "tv_sec",
+                        "tv_nsec"
+                    ]
+                },
+                "st_ino"
+            ]
+        }
+    },
+    {
+        "file": "sys/statfs.h",
+        "structs": {
+            "statfs": [
+                "f_bsize",
+                "f_frsize",
+                "f_blocks",
+                "f_bfree",
+                "f_bavail",
+                "f_files",
+                "f_ffree",
+                "f_fsid",
+                "f_flags",
+                "f_namelen"
+            ]
+        }
+    },
+    {
+        "file": "fcntl.h",
+        "defines": [
+            "F_UNLCK",
+            "O_RDWR",
+            "S_IRWXO",
+            "F_SETLKW",
+            "F_GETLK",
+            "S_ISVTX",
+            "O_RDONLY",
+            "O_ACCMODE",
+            "F_DUPFD",
+            "F_SETLK",
+            "O_WRONLY",
+            "AT_EACCESS",
+            "AT_FDCWD",
+            "AT_SYMLINK_NOFOLLOW",
+            "AT_REMOVEDIR",
+            "AT_EMPTY_PATH",
+            "AT_NO_AUTOMOUNT"
+        ],
+        "structs": {
+            "flock": [
+                "l_type"
+            ]
+        }
+    },
+    {
+        "file": "poll.h",
+        "defines": [
+            "POLLHUP",
+            "POLLERR",
+            "POLLRDNORM",
+            "POLLWRNORM",
+            "POLLPRI",
+            "POLLIN",
+            "POLLOUT",
+            "POLLNVAL"
+        ],
+        "structs": {
+            "pollfd": [
+                "fd",
+                "events",
+                "revents"
+            ]
+        }
+    },
+    {
+        "file": "time.h",
+        "defines": [
+            "CLOCK_REALTIME"
+        ],
+        "structs": {
+            "tm": [
+                "tm_sec",
+                "tm_min",
+                "tm_hour",
+                "tm_mday",
+                "tm_mon",
+                "tm_year",
+                "tm_wday",
+                "tm_yday",
+                "tm_isdst",
+                "tm_gmtoff",
+                "tm_zone"
+            ],
+            "timeval": [
+                "tv_sec",
+                "tv_usec"
+            ],
+            "timespec": [
+                "tv_sec",
+                "tv_nsec"
+            ]
+        }
+    },
+    {
+        "file": "netdb.h",
+        "defines": [
+            "AI_V4MAPPED",
+            "EAI_SERVICE",
+            "EAI_FAMILY",
+            "AI_ALL",
+            "AI_ADDRCONFIG",
+            "AI_NUMERICSERV",
+            "NI_NUMERICHOST",
+            "EAI_OVERFLOW",
+            "AI_NUMERICHOST",
+            "AI_CANONNAME",
+            "AI_PASSIVE",
+            "NI_NAMEREQD",
+            "EAI_NONAME",
+            "EAI_AGAIN",
+            "EAI_FAIL",
+            "EAI_MEMORY",
+            "EAI_SYSTEM",
+            "EAI_SOCKTYPE",
+            "EAI_BADFLAGS"
+        ],
+        "structs": {
+            "hostent": [
+                "h_name",
+                "h_aliases",
+                "h_addrtype",
+                "h_length",
+                "h_addr_list"
+            ],
+            "addrinfo": [
+                "ai_flags",
+                "ai_family",
+                "ai_socktype",
+                "ai_protocol",
+                "ai_addrlen",
+                "ai_addr",
+                "ai_canonname",
+                "ai_next"
+            ],
+            "protoent": [
+                "p_name",
+                "p_aliases",
+                "p_proto"
+            ],
+            "sockaddr_in": [
+                "sin_family",
+                "sin_port",
+                {
+                    "sin_addr": [
+                        "s_addr"
+                    ]
+                }
+            ],
+            "iovec": [
+                "iov_base",
+                "iov_len"
+            ],
+            "sockaddr_in6": [
+                "sin6_family",
+                "sin6_port",
+                {
+                    "sin6_addr": [
+                        {
+                            "__in6_union": [
+                                "__s6_addr",
+                                "__s6_addr16",
+                                "__s6_addr32"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "msghdr": [
+                "msg_name",
+                "msg_namelen",
+                "msg_iov",
+                "msg_iovlen"
+            ]
+        }
+    },
+    {
+        "file": "netinet/in.h",
+        "defines": [
+            "IPPROTO_UDP",
+            "IPPROTO_TCP",
+            "INADDR_LOOPBACK"
+        ]
+    },
+    {
+        "file": "bits/fcntl.h",
+        "defines": [
+            "O_CREAT",
+            "O_DSYNC",
+            "F_GETFD",
+            "F_SETFL",
+            "O_NOFOLLOW",
+            "O_APPEND",
+            "F_SETOWN",
+            "O_TRUNC",
+            "O_DIRECTORY",
+            "O_PATH",
+            "O_NONBLOCK",
+            "O_CLOEXEC",
+            "F_GETOWN",
+            "F_GETOWN_EX",
+            "F_SETFD",
+            "O_EXCL",
+            "F_GETFL",
+            "O_LARGEFILE",
+            "O_NOCTTY"
+        ]
+    },
+    {
+        "file": "signal.h",
+        "defines": [
+            "SIGALRM",
+            "SIGFPE",
+            "SIGHUP",
+            "SIGINT",
+            "SIGKILL",
+            "SIGQUIT",
+            "SIGTERM"
+        ]
+    },
+    {
+        "file": "sys/socket.h",
+        "defines": [
+            "SOCK_DGRAM",
+            "SOCK_STREAM",
+            "SOCK_CLOEXEC",
+            "SOCK_NONBLOCK",
+            "AF_INET",
+            "AF_UNSPEC",
+            "AF_INET6",
+            "SOL_SOCKET",
+            "SO_ERROR"
+        ]
+    },
+    {
+        "file": "bits/ioctl.h",
+        "defines": [
+            "FIONREAD",
+            "TCGETA",
+            "TCGETS",
+            "TCSETA",
+            "TCSETAW",
+            "TCSETAF",
+            "TCSETS",
+            "TCSETSW",
+            "TCSETSF",
+            "TIOCGPGRP",
+            "TIOCSPGRP",
+            "TIOCGWINSZ",
+            "TIOCSWINSZ",
+            "TCFLSH"
+        ]
+    },
+    {
+        "file": "unistd.h",
+        "defines": [
+            "R_OK",
+            "W_OK",
+            "X_OK"
+        ]
+    },
+    {
+        "file": "limits.h",
+        "defines": [
+            "TZNAME_MAX"
+        ]
+    },
+    {
+        "file": "bits/errno.h",
+        "defines": [
+            "ETXTBSY",
+            "ETOOMANYREFS",
+            "ENAMETOOLONG",
+            "ENOPKG",
+            "EL3HLT",
+            "EINPROGRESS",
+            "ENOTSOCK",
+            "ENOTSUP",
+            "EFBIG",
+            "ENOLINK",
+            "EL3RST",
+            "ENOTUNIQ",
+            "ELNRNG",
+            "ENOANO",
+            "ENOPROTOOPT",
+            "E2BIG",
+            "EHOSTDOWN",
+            "EBFONT",
+            "ENOTEMPTY",
+            "EBUSY",
+            "EADDRINUSE",
+            "ELIBACC",
+            "EDQUOT",
+            "ENOENT",
+            "ECOMM",
+            "EXFULL",
+            "ENOTDIR",
+            "ENETRESET",
+            "EAFNOSUPPORT",
+            "EINVAL",
+            "ENODEV",
+            "ENOCSI",
+            "EPROTONOSUPPORT",
+            "ETIME",
+            "ENOTTY",
+            "EAGAIN",
+            "EMSGSIZE",
+            "ELIBEXEC",
+            "EMLINK",
+            "ECANCELED",
+            "EDESTADDRREQ",
+            "EADDRNOTAVAIL",
+            "EPERM",
+            "EPROTOTYPE",
+            "ENOMEDIUM",
+            "ELOOP",
+            "EREMOTE",
+            "ELIBMAX",
+            "EMULTIHOP",
+            "ECONNABORTED",
+            "EFAULT",
+            "EBADMSG",
+            "EDOM",
+            "EILSEQ",
+            "EPFNOSUPPORT",
+            "ENONET",
+            "ECHRNG",
+            "ESRCH",
+            "EHOSTUNREACH",
+            "EL2HLT",
+            "EL2NSYNC",
+            "ENOMSG",
+            "EISDIR",
+            "EDEADLOCK",
+            "ECONNRESET",
+            "ESTRPIPE",
+            "ESHUTDOWN",
+            "EDEADLK",
+            "EBADRQC",
+            "EUNATCH",
+            "ECHILD",
+            "ETIMEDOUT",
+            "EALREADY",
+            "ENXIO",
+            "EMFILE",
+            "ENFILE",
+            "EREMCHG",
+            "ENOMEM",
+            "ENOSR",
+            "EOWNERDEAD",
+            "ELIBSCN",
+            "EPIPE",
+            "EBADSLT",
+            "ENOSTR",
+            "EIO",
+            "EWOULDBLOCK",
+            "EBADE",
+            "ENODATA",
+            "ESOCKTNOSUPPORT",
+            "ENOLCK",
+            "EPROTO",
+            "ESRMNT",
+            "EXDEV",
+            "ENOSPC",
+            "ELIBBAD",
+            "ERANGE",
+            "ESTALE",
+            "ENOTRECOVERABLE",
+            "ENOBUFS",
+            "EIDRM",
+            "EINTR",
+            "EADV",
+            "ENOSYS",
+            "EUSERS",
+            "EOPNOTSUPP",
+            "ENOTCONN",
+            "ENETUNREACH",
+            "ESPIPE",
+            "EROFS",
+            "ECONNREFUSED",
+            "ENETDOWN",
+            "ENOEXEC",
+            "EBADF",
+            "EDOTDOT",
+            "EBADFD",
+            "EBADR",
+            "EISCONN",
+            "ENOTBLK",
+            "EOVERFLOW",
+            "EACCES",
+            "EEXIST"
+        ]
+    },
+    {
+        "file": "stdio.h",
+        "defines": [
+            "SEEK_END",
+            "SEEK_CUR",
+            "SEEK_SET"
+        ]
+    },
+    {
+        "file": "sys/mman.h",
+        "defines": [
+            "MAP_ANONYMOUS",
+            "MAP_FIXED",
+            "MAP_PRIVATE",
+            "PROT_WRITE"
+        ]
+    },
+    {
+        "file": "dlfcn.h",
+        "defines": [
+            "RTLD_NOW",
+            "RTLD_LAZY",
+            "RTLD_DEFAULT",
+            "RTLD_GLOBAL",
+            "RTLD_NODELETE"
+        ]
+    },
+    {
+        "file": "termios.h",
+        "defines": [
+            "NCCS",
+            "ICRNL",
+            "IXON",
+            "IMAXBEL",
+            "IUTF8",
+            "OPOST",
+            "ONLCR",
+            "B38400",
+            "CSIZE",
+            "CREAD",
+            "ISIG",
+            "ICANON",
+            "ECHO",
+            "ECHOE",
+            "ECHOK",
+            "ECHOCTL",
+            "ECHOKE",
+            "IEXTEN"
+        ],
+        "structs": {
+            "termios": [
+                "c_iflag",
+                "c_oflag",
+                "c_cflag",
+                "c_lflag",
+                "c_line",
+                "c_cc",
+                "__c_ispeed",
+                "__c_ospeed"
+            ]
+        }
+    },
+    // ===========================================
+    // SDL
+    // ===========================================
+    {
+        "file": "SDL/SDL.h",
+        "defines": [
+          "SDL_INIT_JOYSTICK"
+        ]
+    },
+    {
+        "file": "SDL/SDL_compat.h",
+        "structs": {
+            "SDL_VideoInfo": [
+                "current_w",
+                "current_h"
+            ]
+        },
+        "defines": [
+          "SDL_APPMOUSEFOCUS",
+          "SDL_APPINPUTFOCUS",
+          "SDL_APPACTIVE",
+          "SDL_VIDEORESIZE",
+          "SDL_SRCALPHA",
+          "SDL_HWPALETTE",
+          "SDL_HWSURFACE",
+          "SDL_OPENGL",
+          "SDL_BUTTON_WHEELUP",
+          "SDL_BUTTON_WHEELDOWN"
+        ]
+    },
+    {
+        "file": "SDL/SDL_rect.h",
+        "structs": {
+            "SDL_Rect": [
+                "x",
+                "y",
+                "w",
+                "h"
+            ]
+        }
+    },
+    {
+        "file": "SDL/SDL_keyboard.h",
+        "structs": {
+            "SDL_Keysym": [
+                "scancode",
+                "sym",
+                "mod",
+                "unicode"
+            ]
+        }
+    },
+    {
+        "file": "SDL/SDL_pixels.h",
+        "defines": ["SDL_PIXELFORMAT_RGBA8888"],
+        "structs": {
+            "SDL_PixelFormat": [
+                "format",
+                "palette",
+                "BitsPerPixel",
+                "BytesPerPixel",
+                "Rmask",
+                "Gmask",
+                "Bmask",
+                "Amask"
+            ]
+        }
+    },
+    {
+        "file": "SDL/SDL_surface.h",
+        "structs": {
+            "SDL_Surface": [
+                "flags",
+                "format",
+                "w",
+                "h",
+                "pitch",
+                "pixels",
+                "clip_rect",
+                "refcount"
+            ]
+        }
+    },
+    {
+        "file": "SDL/SDL_events.h",
+        "structs": {
+            "SDL_WindowEvent": [
+                "type",
+                "windowID",
+                "event"
+            ],
+            "SDL_KeyboardEvent": [
+                "type",
+                "state",
+                "repeat",
+                "keysym"
+            ],
+            "SDL_TextInputEvent": [
+                "type",
+                "text"
+            ],
+            "SDL_MouseMotionEvent": [
+                "type",
+                "timestamp",
+                "windowID",
+                "which",
+                "state",
+                "x",
+                "y",
+                "xrel",
+                "yrel"
+            ],
+            "SDL_MouseButtonEvent": [
+                "type",
+                "timestamp",
+                "windowID",
+                "which",
+                "button",
+                "state",
+                "x",
+                "y"
+            ],
+            "SDL_MouseWheelEvent": [
+                "type",
+                "x",
+                "y"
+            ],
+            "SDL_JoyAxisEvent": [
+                "type",
+                "which",
+                "axis",
+                "value"
+            ],
+            "SDL_JoyButtonEvent": [
+                "type",
+                "which",
+                "button",
+                "state"
+            ],
+            "SDL_TouchFingerEvent": [
+                "type",
+                "timestamp",
+                "touchId",
+                "fingerId",
+                "x",
+                "y",
+                "dx",
+                "dy",
+                "pressure"
+            ],
+            "SDL_ResizeEvent": [
+                "w",
+                "h"
+            ]
+        },
+        "defines": [
+          "SDL_VIDEORESIZE",
+          "SDL_WINDOWEVENT",
+          "SDL_MOUSEBUTTONDOWN",
+          "SDL_MOUSEBUTTONUP",
+          "SDL_MOUSEMOTION",
+          "SDL_MOUSEWHEEL",
+          "SDL_FINGERDOWN",
+          "SDL_FINGERUP",
+          "SDL_FINGERMOTION",
+          "SDL_QUIT",
+          "SDL_JOYBUTTONUP",
+          "SDL_JOYBUTTONDOWN",
+          "SDL_JOYAXISMOTION",
+          "SDL_TEXTINPUT",
+          "SDL_KEYUP",
+          "SDL_KEYDOWN"
+        ]
+    },
+    {
+        "file": "SDL/SDL_touch.h",
+        "defines": ["SDL_TOUCH_MOUSEID"]
+    },
+    {
+        "file": "SDL/SDL_audio.h",
+        "defines": [
+            "AUDIO_U8",
+            "AUDIO_F32",
+            "AUDIO_S16LSB"
+        ],
+        "structs": {
+            "SDL_AudioSpec": [
+                "freq",
+                "format",
+                "channels",
+                "silence",
+                "samples",
+                "callback",
+                "userdata"
+            ]
+        }
+    },
+    {
+        "file": "SDL/SDL_version.h",
+        "structs": {
+            "SDL_version": [
+                "major",
+                "minor",
+                "patch"
+            ]
+        }
+    },
+    {
+        "file": "SDL/SDL_rwops.h",
+        "structs": {
+            "SDL_RWops": [
+                "type",
+                {
+                  "hidden": [
+                    {
+                      "mem": [
+                         "base",
+                         "stop"
+                      ]
+                    },
+                    {
+                      "stdio": [
+                         "fp"
+                      ]
+                    }
+                  ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "SDL/SDL_keycode.h",
+        "defines": [
+          "KMOD_LCTRL",
+          "KMOD_RCTRL",
+          "KMOD_LALT",
+          "KMOD_RALT",
+          "KMOD_LSHIFT",
+          "KMOD_RSHIFT",
+          "SDLK_LCTRL",
+          "SDLK_LSHIFT",
+          "SDLK_LALT",
+          "SDLK_RCTRL",
+          "SDLK_RSHIFT",
+          "SDLK_RALT"
+        ]
+    },
+    {
+        "file": "SDL/SDL_video.h",
+        "defines": [
+          "SDL_GL_DEPTH_SIZE",
+          "SDL_GL_STENCIL_SIZE",
+          "SDL_GL_ALPHA_SIZE",
+          "SDL_GL_MULTISAMPLEBUFFERS",
+          "SDL_GL_MULTISAMPLESAMPLES",
+          "SDL_WINDOWEVENT_HIDDEN",
+          "SDL_WINDOWEVENT_SHOWN",
+          "SDL_WINDOWEVENT_FOCUS_LOST",
+          "SDL_WINDOWEVENT_FOCUS_GAINED"
+        ]
+    },
+    {
+        "file": "uuid/uuid.h",
+        "defines": [
+            "UUID_VARIANT_DCE",
+            "UUID_TYPE_DCE_RANDOM"
+        ]
+    },
+    // ===========================================
+    // emscripten html5 library
+    // ===========================================
+    {
+        "file": "emscripten/html5.h",
+        "defines": [
+            "EMSCRIPTEN_EVENT_KEYPRESS",
+            "EMSCRIPTEN_EVENT_KEYDOWN",
+            "EMSCRIPTEN_EVENT_KEYUP",
+            "EMSCRIPTEN_EVENT_CLICK",
+            "EMSCRIPTEN_EVENT_MOUSEDOWN",
+            "EMSCRIPTEN_EVENT_MOUSEUP",
+            "EMSCRIPTEN_EVENT_DBLCLICK",
+            "EMSCRIPTEN_EVENT_MOUSEMOVE",
+            "EMSCRIPTEN_EVENT_WHEEL",
+            "EMSCRIPTEN_EVENT_RESIZE",
+            "EMSCRIPTEN_EVENT_SCROLL",
+            "EMSCRIPTEN_EVENT_BLUR",
+            "EMSCRIPTEN_EVENT_FOCUS",
+            "EMSCRIPTEN_EVENT_FOCUSIN",
+            "EMSCRIPTEN_EVENT_FOCUSOUT",
+            "EMSCRIPTEN_EVENT_DEVICEORIENTATION",
+            "EMSCRIPTEN_EVENT_DEVICEMOTION",
+            "EMSCRIPTEN_EVENT_ORIENTATIONCHANGE",
+            "EMSCRIPTEN_EVENT_FULLSCREENCHANGE",
+            "EMSCRIPTEN_EVENT_POINTERLOCKCHANGE",
+            "EMSCRIPTEN_EVENT_VISIBILITYCHANGE",
+            "EMSCRIPTEN_EVENT_TOUCHSTART",
+            "EMSCRIPTEN_EVENT_TOUCHEND",
+            "EMSCRIPTEN_EVENT_TOUCHMOVE",
+            "EMSCRIPTEN_EVENT_TOUCHCANCEL",
+            "EMSCRIPTEN_EVENT_GAMEPADCONNECTED",
+            "EMSCRIPTEN_EVENT_GAMEPADDISCONNECTED",
+            "EMSCRIPTEN_EVENT_BEFOREUNLOAD",
+            "EMSCRIPTEN_EVENT_BATTERYCHARGINGCHANGE",
+            "EMSCRIPTEN_EVENT_BATTERYLEVELCHANGE",
+            "EMSCRIPTEN_EVENT_WEBGLCONTEXTLOST",
+            "EMSCRIPTEN_EVENT_WEBGLCONTEXTRESTORED",
+            "EMSCRIPTEN_EVENT_MOUSEENTER",
+            "EMSCRIPTEN_EVENT_MOUSELEAVE",
+            "EMSCRIPTEN_EVENT_MOUSEOVER",
+            "EMSCRIPTEN_EVENT_MOUSEOUT",
+            "EMSCRIPTEN_EVENT_CANVASRESIZED",
+            "EMSCRIPTEN_EVENT_POINTERLOCKERROR",
+
+            "EMSCRIPTEN_RESULT_SUCCESS",
+            "EMSCRIPTEN_RESULT_DEFERRED",
+            "EMSCRIPTEN_RESULT_FAILED_NOT_DEFERRED",
+            "EMSCRIPTEN_RESULT_INVALID_TARGET",
+            "EMSCRIPTEN_RESULT_UNKNOWN_TARGET",
+            "EMSCRIPTEN_RESULT_INVALID_PARAM",
+            "EMSCRIPTEN_RESULT_NOT_SUPPORTED",
+            "EMSCRIPTEN_RESULT_FAILED",
+            "EMSCRIPTEN_RESULT_NO_DATA",
+            "EMSCRIPTEN_RESULT_TIMED_OUT",
+
+            "EMSCRIPTEN_EVENT_TARGET_INVALID",
+            "EMSCRIPTEN_EVENT_TARGET_DOCUMENT",
+            "EMSCRIPTEN_EVENT_TARGET_WINDOW",
+            "EMSCRIPTEN_EVENT_TARGET_SCREEN",
+
+            "EMSCRIPTEN_FULLSCREEN_SCALE_DEFAULT",
+            "EMSCRIPTEN_FULLSCREEN_SCALE_STRETCH",
+            "EMSCRIPTEN_FULLSCREEN_SCALE_ASPECT",
+            "EMSCRIPTEN_FULLSCREEN_SCALE_CENTER",
+            "EMSCRIPTEN_FULLSCREEN_CANVAS_SCALE_NONE",
+            "EMSCRIPTEN_FULLSCREEN_CANVAS_SCALE_STDDEF",
+            "EMSCRIPTEN_FULLSCREEN_CANVAS_SCALE_HIDEF",
+            "EMSCRIPTEN_FULLSCREEN_FILTERING_DEFAULT",
+            "EMSCRIPTEN_FULLSCREEN_FILTERING_NEAREST",
+            "EMSCRIPTEN_FULLSCREEN_FILTERING_BILINEAR",
+
+            "EM_HTML5_SHORT_STRING_LEN_BYTES",
+            "EM_HTML5_MEDIUM_STRING_LEN_BYTES",
+            "EM_HTML5_LONG_STRING_LEN_BYTES",
+
+            "EMSCRIPTEN_WEBGL_CONTEXT_PROXY_DISALLOW",
+            "EMSCRIPTEN_WEBGL_CONTEXT_PROXY_FALLBACK",
+            "EMSCRIPTEN_WEBGL_CONTEXT_PROXY_ALWAYS",
+
+            "EM_CALLBACK_THREAD_CONTEXT_MAIN_RUNTIME_THREAD",
+            "EM_CALLBACK_THREAD_CONTEXT_CALLING_THREAD",
+
+            "EMSCRIPTEN_DEVICE_MOTION_EVENT_SUPPORTS_ACCELERATION",
+            "EMSCRIPTEN_DEVICE_MOTION_EVENT_SUPPORTS_ACCELERATION_INCLUDING_GRAVITY",
+            "EMSCRIPTEN_DEVICE_MOTION_EVENT_SUPPORTS_ROTATION_RATE",
+
+            "EMSCRIPTEN_ORIENTATION_UNSUPPORTED"
+        ],
+        "structs": {
+            "EmscriptenKeyboardEvent": [
+              "timestamp",
+              "key",
+              "code",
+              "location",
+              "ctrlKey",
+              "shiftKey",
+              "altKey",
+              "metaKey",
+              "repeat",
+              "locale",
+              "charValue",
+              "charCode",
+              "keyCode",
+              "which"
+            ],
+            "EmscriptenMouseEvent": [
+              "timestamp",
+              "screenX",
+              "screenY",
+              "clientX",
+              "clientY",
+              "ctrlKey",
+              "shiftKey",
+              "altKey",
+              "metaKey",
+              "button",
+              "buttons",
+              "movementX",
+              "movementY",
+              "targetX",
+              "targetY",
+              "canvasX",
+              "canvasY"
+            ],
+            "EmscriptenWheelEvent": [
+              "mouse",
+              "deltaX",
+              "deltaY",
+              "deltaZ",
+              "deltaMode"
+            ],
+            "EmscriptenUiEvent": [
+              "detail",
+              "documentBodyClientWidth",
+              "documentBodyClientHeight",
+              "windowInnerWidth",
+              "windowInnerHeight",
+              "windowOuterWidth",
+              "windowOuterHeight",
+              "scrollTop",
+              "scrollLeft"
+            ],
+            "EmscriptenFocusEvent": [
+              "nodeName",
+              "id"
+            ],
+            "EmscriptenDeviceOrientationEvent": [
+              "alpha",
+              "beta",
+              "gamma",
+              "absolute"
+            ],
+            "EmscriptenDeviceMotionEvent": [
+              "accelerationX",
+              "accelerationY",
+              "accelerationZ",
+              "accelerationIncludingGravityX",
+              "accelerationIncludingGravityY",
+              "accelerationIncludingGravityZ",
+              "rotationRateAlpha",
+              "rotationRateBeta",
+              "rotationRateGamma"
+            ],
+            "EmscriptenOrientationChangeEvent": [
+              "orientationIndex",
+              "orientationAngle"
+            ],
+            "EmscriptenFullscreenChangeEvent": [
+              "isFullscreen",
+              "fullscreenEnabled",
+              "nodeName",
+              "id",
+              "elementWidth",
+              "elementHeight",
+              "screenWidth",
+              "screenHeight"
+            ],
+            "EmscriptenPointerlockChangeEvent": [
+              "isActive",
+              "nodeName",
+              "id"
+            ],
+            "EmscriptenVisibilityChangeEvent": [
+              "hidden",
+              "visibilityState"
+            ],
+            "EmscriptenTouchPoint": [
+              "identifier",
+              "screenX",
+              "screenY",
+              "clientX",
+              "clientY",
+              "pageX",
+              "pageY",
+              "isChanged",
+              "onTarget",
+              "targetX",
+              "targetY",
+              "canvasX",
+              "canvasY"
+            ],
+            "EmscriptenTouchEvent": [
+              "timestamp",
+              "numTouches",
+              "ctrlKey",
+              "shiftKey",
+              "altKey",
+              "metaKey",
+              "touches"
+            ],
+            "EmscriptenGamepadEvent": [
+              "timestamp",
+              "axis",
+              "analogButton",
+              "digitalButton",
+              "connected",
+              "index",
+              "numAxes",
+              "numButtons",
+              "id",
+              "mapping"
+            ],
+            "EmscriptenBatteryEvent": [
+              "chargingTime",
+              "dischargingTime",
+              "level",
+              "charging"
+            ],
+            "EmscriptenWebGLContextAttributes": [
+              "alpha",
+              "depth",
+              "stencil",
+              "antialias",
+              "premultipliedAlpha",
+              "preserveDrawingBuffer",
+              "powerPreference",
+              "failIfMajorPerformanceCaveat",
+              "majorVersion",
+              "minorVersion",
+              "enableExtensionsByDefault",
+              "explicitSwapControl",
+              "proxyContextToMainThread",
+              "renderViaOffscreenBackBuffer"
+            ],
+            "EmscriptenFullscreenStrategy": [
+              "scaleMode",
+              "canvasResolutionScaleMode",
+              "filteringMode",
+              "canvasResizedCallback",
+              "canvasResizedCallbackUserData",
+              "canvasResizedCallbackTargetThread"
+            ]
+        }
+    },
+    {
+        "file": "emscripten/threading.h",
+        "defines": [
+            "EM_FUNC_SIG_PARAM_I",
+            "EM_FUNC_SIG_PARAM_J",
+            "EM_FUNC_SIG_PARAM_F",
+            "EM_FUNC_SIG_PARAM_D",
+            "EM_FUNC_SIG_PARAM_B",
+            "EM_FUNC_SIG_PARAM_F2I"
+        ]
+    },
+    {
+        "file": "emscripten/wasm_worker.h",
+        "defines": [
+            "ATOMICS_WAIT_NOT_EQUAL",
+            "ATOMICS_WAIT_TIMED_OUT"
+        ]
+    },
+    {
+        "file": "emscripten/emscripten.h",
+        "defines": [
+            "EM_LOG_CONSOLE",
+            "EM_LOG_WARN",
+            "EM_LOG_ERROR",
+            "EM_LOG_C_STACK",
+            "EM_LOG_JS_STACK",
+            "EM_LOG_NO_PATHS",
+            "EM_LOG_DEBUG",
+            "EM_LOG_INFO",
+            "EM_TIMING_SETTIMEOUT",
+            "EM_TIMING_RAF",
+            "EM_TIMING_SETIMMEDIATE"
+        ]
+    },
+    {
+        "file": "wasi/api.h",
+        "structs": {
+            "__wasi_fdstat_t": [
+                "fs_filetype",
+                "fs_flags",
+                "fs_rights_base",
+                "fs_rights_inheriting"
+            ],
+            "__wasi_prestat_t": [
+               "pr_type",
+               "u"
+            ],
+            "__wasi_prestat_dir_t": [
+               "pr_name_len"
+            ],
+            "__wasi_filestat_t": [
+               "dev",
+               "ino",
+               "filetype",
+               "nlink",
+               "size",
+               "atim",
+               "mtim",
+               "ctim"
+            ]
+        },
+        "defines": [
+            "__WASI_FILETYPE_CHARACTER_DEVICE",
+            "__WASI_FILETYPE_DIRECTORY",
+            "__WASI_FILETYPE_REGULAR_FILE",
+            "__WASI_FILETYPE_SYMBOLIC_LINK",
+            "__WASI_CLOCKID_REALTIME",
+            "__WASI_CLOCKID_MONOTONIC",
+            "__WASI_CLOCKID_PROCESS_CPUTIME_ID",
+            "__WASI_CLOCKID_THREAD_CPUTIME_ID",
+            "__WASI_FDFLAGS_APPEND",
+            "__WASI_FDFLAGS_DSYNC",
+            "__WASI_FDFLAGS_NONBLOCK",
+            "__WASI_FDFLAGS_RSYNC",
+            "__WASI_FDFLAGS_SYNC",
+            "__WASI_OFLAGS_CREAT",
+            "__WASI_OFLAGS_DIRECTORY",
+            "__WASI_OFLAGS_EXCL",
+            "__WASI_OFLAGS_TRUNC",
+            "__WASI_RIGHTS_FD_DATASYNC",
+            "__WASI_RIGHTS_FD_READ",
+            "__WASI_RIGHTS_FD_SEEK",
+            "__WASI_RIGHTS_FD_FDSTAT_SET_FLAGS",
+            "__WASI_RIGHTS_FD_SYNC",
+            "__WASI_RIGHTS_FD_TELL",
+            "__WASI_RIGHTS_FD_WRITE",
+            "__WASI_RIGHTS_FD_ADVISE",
+            "__WASI_RIGHTS_FD_ALLOCATE",
+            "__WASI_RIGHTS_PATH_CREATE_DIRECTORY",
+            "__WASI_RIGHTS_PATH_CREATE_FILE",
+            "__WASI_RIGHTS_PATH_LINK_SOURCE",
+            "__WASI_RIGHTS_PATH_LINK_TARGET",
+            "__WASI_RIGHTS_PATH_OPEN",
+            "__WASI_RIGHTS_FD_READDIR",
+            "__WASI_RIGHTS_PATH_READLINK",
+            "__WASI_RIGHTS_PATH_RENAME_SOURCE",
+            "__WASI_RIGHTS_PATH_RENAME_TARGET",
+            "__WASI_RIGHTS_PATH_FILESTAT_GET",
+            "__WASI_RIGHTS_PATH_FILESTAT_SET_SIZE",
+            "__WASI_RIGHTS_PATH_FILESTAT_SET_TIMES",
+            "__WASI_RIGHTS_FD_FILESTAT_GET",
+            "__WASI_RIGHTS_FD_FILESTAT_SET_SIZE",
+            "__WASI_RIGHTS_FD_FILESTAT_SET_TIMES",
+            "__WASI_RIGHTS_PATH_SYMLINK",
+            "__WASI_RIGHTS_PATH_REMOVE_DIRECTORY",
+            "__WASI_RIGHTS_PATH_UNLINK_FILE",
+            "__WASI_RIGHTS_POLL_FD_READWRITE",
+            "__WASI_RIGHTS_SOCK_SHUTDOWN",
+            "__WASI_PREOPENTYPE_DIR"
+        ]
+    },
+    {
+        "file": "emscripten/fetch.h",
+        "structs": {
+            "emscripten_fetch_attr_t": [
+                "requestMethod",
+                "userData",
+                "onsuccess",
+                "onerror",
+                "onprogress",
+                "onreadystatechange",
+                "attributes",
+                "timeoutMSecs",
+                "withCredentials",
+                "destinationPath",
+                "userName",
+                "password",
+                "requestHeaders",
+                "overriddenMimeType",
+                "requestData",
+                "requestDataSize"
+            ],
+            "emscripten_fetch_t": [
+                "id",
+                "userData",
+                "url",
+                "data",
+                "numBytes",
+                "dataOffset",
+                "totalBytes",
+                "readyState",
+                "status",
+                "statusText",
+                "__attributes"
+            ]
+        },
+        "defines": [
+            "EMSCRIPTEN_FETCH_LOAD_TO_MEMORY",
+            "EMSCRIPTEN_FETCH_STREAM_DATA",
+            "EMSCRIPTEN_FETCH_PERSIST_FILE",
+            "EMSCRIPTEN_FETCH_APPEND",
+            "EMSCRIPTEN_FETCH_REPLACE",
+            "EMSCRIPTEN_FETCH_NO_DOWNLOAD",
+            "EMSCRIPTEN_FETCH_SYNCHRONOUS",
+            "EMSCRIPTEN_FETCH_WAITABLE"
+        ]
+    },
+    {
+        "file": "emscripten/fiber.h",
+        "structs": {
+            "asyncify_data_s": [
+                "stack_ptr",
+                "stack_limit",
+                "rewind_id"
+            ],
+            "emscripten_fiber_s": [
+                "stack_base",
+                "stack_limit",
+                "stack_ptr",
+                "entry",
+                "user_data",
+                "asyncify_data"
+            ]
+        }
+    },
+    {
+        "file": "emscripten/promise.h",
+        "defines": [
+            "EM_PROMISE_FULFILL",
+            "EM_PROMISE_MATCH",
+            "EM_PROMISE_MATCH_RELEASE",
+            "EM_PROMISE_REJECT"
+        ],
+        "structs": {
+            "em_settled_result_t": [
+                "result",
+                "value"
+            ]
+        }
+    },
+    {
+        "file": "emscripten/websocket.h",
+        "structs": {
+            "EmscriptenWebSocketCloseEvent": [
+                "wasClean",
+                "code",
+                "reason"
+            ],
+            "EmscriptenWebSocketMessageEvent": [
+                "data",
+                "numBytes",
+                "isText"
+            ],
+            "EmscriptenWebSocketCreateAttributes": [
+                "protocols"
+            ]
+        }
+    },
+    {
+        "file": "emscripten/webaudio.h",
+        "structs": {
+            "AudioSampleFrame": [
+              "numberOfChannels",
+              "samplesPerChannel",
+              "data"
+            ],
+            "AudioParamFrame": [
+              "length",
+              "data"
+            ]
+        }
+    },
+    {
+        "file": "AL/al.h",
+        "defines": [
+          "AL_TRUE",
+          "AL_FALSE",
+          "AL_NONE",
+          "AL_NO_ERROR",
+          "AL_DOPPLER_FACTOR",
+          "AL_SPEED_OF_SOUND",
+          "AL_POSITION",
+          "AL_DIRECTION",
+          "AL_ORIENTATION",
+          "AL_VELOCITY",
+          "AL_GAIN",
+          "AL_DISTANCE_MODEL",
+          "AL_INVALID_ENUM",
+          "AL_INVALID_NAME",
+          "AL_INVALID_OPERATION",
+          "AL_INVALID_VALUE",
+          "AL_PLAYING",
+          "AL_PAUSED",
+          "AL_STOPPED",
+          "AL_INITIAL",
+          "AL_STATIC"
+        ]
+    },
+    {
+        "file": "AL/alc.h",
+        "defines": [
+          "ALC_TRUE",
+          "ALC_FALSE",
+          "ALC_NO_ERROR",
+          "ALC_INVALID_DEVICE",
+          "ALC_INVALID_VALUE",
+          "ALC_INVALID_ENUM"
+        ]
+    },
+    {
+        "file": "GL/gl.h",
+        "defines": [
+          "GL_UNPACK_ALIGNMENT",
+          "GL_UNPACK_ROW_LENGTH"
+        ]
+    }
+]
