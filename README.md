@@ -1,6 +1,6 @@
 
-# Emscripten Source
-EmSource is a fan-made port of the Source Engine to the WASM platform. It's an attempt of porting all Source 2013 engine based games such as: Half-Life: Source, Counter-Strike: Source, Half-Life 2 (and its episodic releases), and almost every Source 2013 game you can think of!.
+# NeoSource
+NeoSource (formerly EmSource) is a fan-made port of the Source Engine to the WASM platform with additional features. It's an attempt of porting all Source 2013 engine based games such as: Half-Life: Source, Counter-Strike: Source, Half-Life 2 (and its episodic releases), and almost every Source 2013 game you can think of!.
 
 
 ## Acknowledgements
@@ -43,7 +43,7 @@ emmake make -f Makefile
 
 We are currently only supporting Linux, specifically Debian-based distributions and Arch Linux-distributions. We have no plan of supporting Windows 7, 8, 10, etc.
 
-#### Add <insert feature here>
+#### Add `insert feature here`
 
 If you want a feature to get implemented, please create an issue in the GitHub, or fork the repository, add the feature, and create a pull request.
 
