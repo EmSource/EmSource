@@ -77,6 +77,11 @@
   #define __RADDETECTED__ __RADLINUX__
 #endif
 
+#if defined(__EMSCRIPTEN__)
+	#define __RADEMSCRIPTEN__ 3
+	#define __RADDETECTED __RADEMSCRIPTEN__
+#endif
+
 #if defined(__native_client__)
   #define __RADNACL__ 4
   #define __RADDETECTED__ __RADNACL__
@@ -162,6 +167,7 @@
   #endif
 #endif
 
+// This usually happens for emscripten. We should fix this!
 #if !defined(__RADDETECTED__)
   #error "radtypes.h did not detect your platform."
 #endif

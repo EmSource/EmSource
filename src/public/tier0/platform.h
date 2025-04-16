@@ -25,6 +25,7 @@
 #if defined( __EMSCRIPTEN__ )
 #define COMPILER_EMSCRIPTEN 1
 #define COMPILER_CLANG 1
+#endif
 
 // Get this to avoid Steam API shit
 #define NO_STEAM 1
@@ -46,6 +47,11 @@
 #include <XMAHardwareAbstraction.h>
 	#undef _XBOX
 #endif
+
+#if defined(__EMSCRIPTEN__)
+//#include <x86intrin.h>
+#endif
+
 
 #define __STDC_LIMIT_MACROS
 #include <stdint.h>
@@ -243,8 +249,8 @@ typedef signed char int8;
 			// warning: 'override' keyword is a C++11 extension [-Wc++11-extensions]
 			// Disabling this warning is less intrusive than enabling C++11 extensions
 			#pragma GCC diagnostic ignored "-Wc++11-extensions"
-		#elif defined( __EMSCRIPTEN__ )
-			#pragma GCC diagnostic ignored "-Wc++11-extensions"
+		#elif defined(_EMSCRIPTEN__ )
+			#pragma CLANG diagnostic ignored "-Wc++11-extensions"
 		#endif
 	#else
 		#define OVERRIDE
@@ -924,7 +930,7 @@ inline T WordSwapC( T w )
 }
 
 template <typename T>
-inline T DWordSwapC( T dw )
+inline T DWordSwapC(T dw)
 {
    uint32 temp;
 
@@ -1194,24 +1200,22 @@ inline uint64 Plat_Rdtsc()
 #if defined( _X360 )
 	return ( uint64 )__mftb32();
 #elif defined( _WIN64 )
-	return ( uint64 )__rdtsc();
-#elif defined( _WIN32 )
-  #if defined( _MSC_VER ) && ( _MSC_VER >= 1400 )
-	return ( uint64 )__rdtsc();
-  #else
-    __asm rdtsc;
-	__asm ret;
-  #endif
-#elif defined( __i386__ )
+	#if defined( _MSC_VER ) && ( _MSC_VER >= 1400 )
+		return ( uint64 )__rdtsc();
+  	#else
+		__asm rdtsc;
+		__asm ret;
+  	#endif
+#elif defined( __i386__ ) && defined( __EMSCRIPTEN__ )
 	uint64 val;
 	__asm__ __volatile__ ( "rdtsc" : "=A" (val) );
-	return val;
+	return val
 #elif defined( __x86_64__ )
 	uint32 lo, hi;
 	__asm__ __volatile__ ( "rdtsc" : "=a" (lo), "=d" (hi));
 	return ( ( ( uint64 )hi ) << 32 ) | lo;
 #else
-	#error
+	#error Unknown shit
 #endif
 }
 

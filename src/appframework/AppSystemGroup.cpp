@@ -7,6 +7,10 @@
 // $NoKeywords: $
 //=============================================================================//
 
+#if defined(__EMSCRIPTEN__)
+#pragma CLANG diagnostic ignored "-Wunused-command-line-argument"
+#endif
+
 #include "appframework/IAppSystemGroup.h"
 #include "appframework/IAppSystem.h"
 #include "interface.h"

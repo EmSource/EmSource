@@ -10,6 +10,10 @@
 #undef fopen
 #endif
 
+#if defined(__EMSCRIPTEN__)
+#pragma CLANG diagnostic ignored "-Wunused-command-line-argument"
+#endif
+
 #if defined( _WIN32 ) && !defined( _X360 )
 #include <windows.h>
 #include <direct.h>
