@@ -7,6 +7,9 @@
 #ifndef MATH_LIB_H
 #define MATH_LIB_H
 
+#if defined(__EMSCRIPTEN__)
+#include <cmath>
+#endif
 #include <math.h>
 #include "minmax.h"
 #include "tier0/basetypes.h"
@@ -457,12 +460,17 @@ void inline SinCos( float radians, float *sine, float *cosine )
 #elif defined( PLATFORM_WINDOWS_PC64 )
 	*sine = sin( radians );
 	*cosine = cos( radians );
-#elif defined( POSIX )
+#elif defined( POSIX ) && !defined(__EMSCRIPTEN__)
 	double __cosr, __sinr;
 	__asm ("fsincos" : "=t" (__cosr), "=u" (__sinr) : "0" (radians));
 
   	*sine = __sinr;
   	*cosine = __cosr;
+#elif defined(__EMSCRIPTEN__)
+	double __cosr;
+	double __sinr;
+	__cosr = cos(radians);
+	__sinr = sin(radians);
 #endif
 }
 
@@ -1217,6 +1225,8 @@ FORCEINLINE int RoundFloatToInt(float f)
 	};
 	flResult = __fctiw( f );
 	return pResult[1];
+#elif defined( __EMSCRIPTEN__ )
+	return lrintf(f);
 #else
 #error Unknown architecture
 #endif
@@ -1266,18 +1276,22 @@ FORCEINLINE unsigned long RoundFloatToUnsignedLong(float f)
 	}
 	return nRet;
 #else // PLATFORM_WINDOWS_PC64
-	unsigned char nResult[8];
 
+#if !defined(__EMSCRIPTEN__)
+	unsigned char nResult[8];
+#endif
 	#if defined( _WIN32 )
 		__asm
 		{
 			fld f
 			fistp       qword ptr nResult
 		}
-	#elif POSIX
+	#elif POSIX && !defined(__EMSCRIPTEN__)
 		__asm __volatile__ (
 			"fistpl %0;": "=m" (nResult): "t" (f) : "st"
 		);
+	#elif defined( __EMSCRIPTEN__ )
+		unsigned char nResult = lrintf(f);
 	#endif
 
 		return *((unsigned long*)nResult);

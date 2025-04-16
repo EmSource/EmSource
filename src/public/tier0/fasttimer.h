@@ -272,7 +272,11 @@ inline void CCycleCount::Init( uint64 cycles )
 
 inline void CCycleCount::Sample()
 {
+#ifndef EMSCRIPTEN
 	m_Int64 = Plat_Rdtsc();
+#else
+	m_Int64 = static_cast<int64_t>(emscripten_get_now() * 1000.0);
+#endif
 }
 
 inline CCycleCount& CCycleCount::operator+=( CCycleCount const &other )

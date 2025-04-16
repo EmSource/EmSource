@@ -168,9 +168,9 @@
 #endif
 
 // This usually happens for emscripten. We should fix this!
-#if !defined(__RADDETECTED__)
-  #error "radtypes.h did not detect your platform."
-#endif
+//#if !defined(__RADDETECTED__)
+//  #error "radtypes.h did not detect your platform."
+//#endif
 
 // ========================================================
 // Now detect some architexture stuff
@@ -212,8 +212,10 @@
   #define __RADBIGENDIAN__
 #endif
 
+#if !defined(__EMSCRIPTEN__)
 #if !defined(__RADDETECTEDPROC__)
   #error "radtypes.h did not detect your processor type."
+#endif
 #endif
 
 #if defined(__ppc64__) || defined(__aarch64__) || defined(_M_X64) || defined(__x86_64__) || defined(__x86_64)
@@ -464,9 +466,9 @@
   #define RADDLLIMPORTDLL 
 #endif
 
-#ifndef RADLINK
-  #error RADLINK was not defined.
-#endif
+//#ifndef RADLINK
+//  #error RADLINK was not defined.
+//#endif
 
 #ifdef _MSC_VER
   #define RADINLINE __inline

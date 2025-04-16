@@ -21,14 +21,8 @@
 #define COMPILER_CLANG 1
 #endif
 
-// Emscripten is based on LLVM's Clang.
 #if defined( __EMSCRIPTEN__ )
 #define COMPILER_EMSCRIPTEN 1
-#define COMPILER_CLANG 1
-#endif
-
-// Get this to avoid Steam API shit
-#define NO_STEAM 1
 #endif
 
 #if defined( _X360 )
@@ -47,11 +41,6 @@
 #include <XMAHardwareAbstraction.h>
 	#undef _XBOX
 #endif
-
-#if defined(__EMSCRIPTEN__)
-//#include <x86intrin.h>
-#endif
-
 
 #define __STDC_LIMIT_MACROS
 #include <stdint.h>
@@ -113,7 +102,6 @@
 
 #ifdef _WIN32
 	#define IsLinux() false
-	#define IsEmscripten() false
 	#define IsOSX() false
 	#define IsPosix() false
 	#define PLATFORM_WINDOWS 1 // Windows PC or Xbox 360
@@ -168,22 +156,7 @@
 	#else
 		#define IsOSX() false
 	#endif
-
-	#if defined(COMPILER_EMSCRIPTEN)
-		#define IsEmscripten() true
-	// We want to avoid system calls, so this is the most effecient
-	// ways we can do this.
-		#if defined( OSX  )
-			#undef OSX
-			#define IsOSX() false
-		#elif LINUX
-			#undef LINUX
-			#define IsLinux() false
-		#endif
-	#else
-		#define IsEmscripten() false
-	#endif
-
+	
 	#define IsPosix() true
 	#define IsPlatformOpenGL() true
 #else
@@ -249,8 +222,6 @@ typedef signed char int8;
 			// warning: 'override' keyword is a C++11 extension [-Wc++11-extensions]
 			// Disabling this warning is less intrusive than enabling C++11 extensions
 			#pragma GCC diagnostic ignored "-Wc++11-extensions"
-		#elif defined(_EMSCRIPTEN__ )
-			#pragma CLANG diagnostic ignored "-Wc++11-extensions"
 		#endif
 	#else
 		#define OVERRIDE
@@ -419,10 +390,6 @@ typedef void * HINSTANCE;
 #define __cdecl
 #define __stdcall
 #define __declspec
-
-#if defined(__EMSCRIPTEN__)
-#define EMSCRIPTEN 1
-#endif
 
 #endif // defined(_WIN32) && !defined(WINDED)
 
@@ -930,7 +897,7 @@ inline T WordSwapC( T w )
 }
 
 template <typename T>
-inline T DWordSwapC(T dw)
+inline T DWordSwapC( T dw )
 {
    uint32 temp;
 
@@ -1195,29 +1162,38 @@ PLATFORM_INTERFACE struct tm *		Plat_localtime( const time_t *timep, struct tm *
 	#pragma intrinsic(__rdtsc)
 #endif
 
+
+#if !defined(__EMSCRIPTEN__)
 inline uint64 Plat_Rdtsc()
 {
 #if defined( _X360 )
 	return ( uint64 )__mftb32();
 #elif defined( _WIN64 )
-	#if defined( _MSC_VER ) && ( _MSC_VER >= 1400 )
-		return ( uint64 )__rdtsc();
-  	#else
-		__asm rdtsc;
-		__asm ret;
-  	#endif
-#elif defined( __i386__ ) && defined( __EMSCRIPTEN__ )
+	return ( uint64 )__rdtsc();
+#elif defined( _WIN32 )
+  #if defined( _MSC_VER ) && ( _MSC_VER >= 1400 )
+	return ( uint64 )__rdtsc();
+  #else
+    __asm rdtsc;
+	__asm ret;
+  #endif
+#elif defined( __i386__ )
 	uint64 val;
 	__asm__ __volatile__ ( "rdtsc" : "=A" (val) );
-	return val
+	return val;
 #elif defined( __x86_64__ )
 	uint32 lo, hi;
 	__asm__ __volatile__ ( "rdtsc" : "=a" (lo), "=d" (hi));
 	return ( ( ( uint64 )hi ) << 32 ) | lo;
 #else
-	#error Unknown shit
+	#error
 #endif
 }
+#else
+#include <emscripten.h>
+
+double time_ms = emscripten_get_now();
+#endif
 
 // b/w compatibility
 #define Sys_FloatTime Plat_FloatTime

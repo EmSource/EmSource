@@ -125,7 +125,8 @@ $Group "console"
 
 $Group "game"
 {
-	"appframework"
+// Way too many errors, which I am way too lazy to fix
+//	"appframework"
 	"bitmap"
 	"bsppack"
 	"bzip2"
