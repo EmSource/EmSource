@@ -1,5 +1,8 @@
 
 # NeoSource
+> [!NOTE]
+> I am not going to work for a small while. I have work to do, such as exams, etc, plus, I am currently rewriting the entirety of NeoSource to the CS:GO engine branch. Goodbye.
+
 NeoSource (formerly EmSource) is a fan-made port of the Source Engine to the WASM platform with additional features. It's an attempt of porting all Source 2013 engine based games such as: Half-Life: Source, Counter-Strike: Source, Half-Life 2 (and its episodic releases), and almost every Source 2013 game you can think of!.
 
 
