@@ -1,0 +1,43 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	conf.define('DXVK_NATIVE', True)
+	conf.define('DXVK_WSI_SDL2', True)
+	conf.define('DXVK_PLATFORM_LINUX', True)
+
+def build(bld):
+	if bld.env.DEST_OS == 'win32':
+		return
+
+	libs = []
+
+	includes = ['../../include']
+
+	source = [
+		'dxso_common.cpp',
+		'dxso_options.cpp',
+		'dxso_module.cpp',
+		'dxso_reader.cpp',
+		'dxso_header.cpp',
+		'dxso_ctab.cpp',
+		'dxso_util.cpp',
+		'dxso_code.cpp',
+		'dxso_tables.cpp',
+		'dxso_decoder.cpp',
+		'dxso_analysis.cpp',
+		'dxso_compiler.cpp',
+		'dxso_enums.cpp'
+	]
+
+	bld.stlib(
+		source   = source,
+		target   = 'dxso',
+		features = 'cxx',
+		includes = includes,
+		use      = libs,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

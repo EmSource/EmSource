@@ -1,0 +1,33 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	return
+
+def build(bld):
+	libs = []
+
+	includes = []
+
+	source = [
+		'blocksort.c',
+		'bzip2.c',
+		'bzlib.c',
+		'compress.c',
+		'crctable.c',
+		'decompress.c',
+		'huffman.c',
+		'randtable.c'
+	]
+
+	bld.stlib(
+		source   = source,
+		target   = 'bzip2',
+		features = 'c',
+		includes = includes,
+		use      = libs,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

@@ -1,0 +1,49 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	conf.define('JPH_DISABLE_CUSTOM_ALLOCATOR', True)
+	conf.define('JPH_DEBUG_RENDERER', True)
+	conf.define('GAME_PORTAL2', True)
+
+def build(bld):
+	libs = ['tier0', 'tier1', 'tier2', 'interfaces', 'vstdlib', 'mathlib', 'joltphysics']
+
+	includes = ['../thirdparty/JoltPhysics-4.0.2']
+
+	source = [
+		'../public/collisionutils.cpp',
+		'../public/filesystem_helpers.cpp',
+		'vjolt_collide.cpp',
+		'vjolt_collide_trace.cpp',
+		'vjolt_constraints.cpp',
+		'vjolt_controller_fluid.cpp',
+		'vjolt_controller_motion.cpp',
+		'vjolt_controller_player.cpp',
+		'vjolt_controller_vehicle.cpp',
+		'vjolt_controller_shadow.cpp',
+		'vjolt_debugrender.cpp',
+		'vjolt_environment.cpp',
+		'vjolt_friction.cpp',
+		'vjolt_interface.cpp',
+		'vjolt_keyvalues_schema.cpp',
+		'vjolt_object.cpp',
+		'vjolt_objectpairhash.cpp',
+		'vjolt_parse.cpp',
+		'vjolt_querymodel.cpp',
+		'vjolt_surfaceprops.cpp',
+		'../public/tier0/memoverride.cpp'
+	]
+
+	bld.shlib(
+		source   = source,
+		target   = 'vphysics',
+		features = 'cxx',
+		includes = includes,
+		use      = libs,
+		install_path = bld.env.BINPATH,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

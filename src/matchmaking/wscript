@@ -1,0 +1,87 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	conf.define('MATCHMAKING_DLL', True)
+	conf.define('NO_STRING_T', True)
+	conf.define('VECTOR', True)
+	conf.define('NO_STEAM_GAMECOORDINATOR', True)
+
+def build(bld):
+	libs = ['tier0', 'matchmaking_base', 'gcsdk', 'tier1', 'tier2', 'tier3', 'interfaces', 'vstdlib', 'mathlib', 'generated_proto', 'protobuf']
+
+	includes = [
+		'../common/xlast_csgo',
+		'../game/shared',
+		'../thirdparty/protobuf-2.6.1/src'
+	]
+
+	source = [
+		'cstrike15/mm_title.cpp',
+		'cstrike15/mm_title_gamesettingsmgr.cpp',
+		'cstrike15/mm_title_main.cpp',
+		'cstrike15/mm_title_richpresence.cpp',
+		'cstrike15/mm_title_titledata.cpp',
+		'../game/shared/cstrike15/gametypes.cpp',
+		'../common/platforminputdevice.cpp',
+		'../public/tier0/memoverride.cpp'
+	]
+
+	source_matchmaking_base = [
+		'matchmakingqos.cpp',
+		'mm_events.cpp',
+		'mm_extensions.cpp',
+		'mm_framework.cpp',
+		'mm_netmsgcontroller.cpp',
+		'mm_session.cpp',
+		'mm_voice.cpp',
+		'ds_searcher.cpp',
+		'match_searcher.cpp',
+		'mm_netmgr.cpp',
+		'mm_session_offline_custom.cpp',
+		'mm_session_online_client.cpp',
+		'mm_session_online_host.cpp',
+		'mm_session_online_search.cpp',
+		'mm_session_online_teamsearch.cpp',
+		'sys_session.cpp',
+		'steam_apihook.cpp',
+		'steam_datacenterjobs.cpp',
+		'x360_xlsp_cmd.cpp',
+		'datacenter.cpp',
+		'mm_dlc.cpp',
+		'leaderboards.cpp',
+		'matchsystem.cpp',
+		'player.cpp',
+		'playermanager.cpp',
+		'searchmanager.cpp',
+		'servermanager.cpp',
+		'playerrankingdata.cpp',
+		'extkeyvalues.cpp',
+		'../public/filesystem_helpers.cpp',
+		'main.cpp'
+	]
+
+	if not bld.env.DEDICATED:
+		source_matchmaking_base += ['steam_lobbyapi.cpp']
+
+	bld.shlib(
+		source   = source,
+		target   = 'matchmaking',
+		features = 'cxx',
+		includes = includes,
+		use      = libs,
+		install_path = bld.env.GAMEBIN,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)
+
+	bld.stlib(
+		source   = source_matchmaking_base,
+		target   = 'matchmaking_base',
+		features = 'cxx',
+		includes = includes,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

@@ -1,0 +1,54 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	return
+
+def build(bld):
+	libs = ['tier0', 'vgui_surfacelib', 'tier1', 'tier2', 'tier3', 'interfaces', 'vstdlib', 'SDL2']
+
+	includes = []
+
+	source = [
+		'Bitmap.cpp',
+		'Border.cpp',
+		'ScalableImageBorder.cpp',
+		'ImageBorder.cpp',
+		'fileimage.cpp',
+		'../../public/filesystem_helpers.cpp',
+		'../../public/filesystem_init.cpp',
+		'InputWin32.cpp',
+		'MemoryBitmap.cpp',
+		'MessageListener.cpp',
+		'Scheme.cpp',
+		'../../public/UnicodeFileHelpers.cpp',
+		'vgui.cpp',
+		'vgui_internal.cpp',
+		'vgui_key_translation.cpp',
+		'VPanel.cpp',
+		'VPanelWrapper.cpp',
+		'keyrepeat.cpp',
+		'../../public/tier0/memoverride.cpp'
+	]
+
+	if bld.env.DEST_OS == 'win32':
+		source += [
+			'htmlwindow.cpp',
+			'Surface.cpp',
+			'System.cpp'
+		]
+	else:
+		source += ['system_posix.cpp']
+
+	bld.shlib(
+		source   = source,
+		target   = 'vgui2',
+		features = 'cxx',
+		includes = includes,
+		use      = libs,
+		install_path = bld.env.BINPATH,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

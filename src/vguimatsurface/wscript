@@ -1,0 +1,43 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	conf.define('BENCHMARK', True)
+	conf.define('VGUIMATSURFACE_DLL_EXPORT', True)
+	conf.define('GAMEUI_EXPORTS', True)
+	conf.define('ENABLE_CHROMEHTMLWINDOW', True)
+
+def build(bld):
+	libs = ['tier0', 'vgui_controls', 'vgui_surfacelib', 'bitmap', 'dmxloader', 'tier1', 'tier2', 'tier3', 'interfaces', 'vstdlib', 'mathlib', 'freetype', 'SDL2']
+
+	includes = []
+
+	source = [
+		'Clip2D.cpp',
+		'Cursor.cpp',
+		'../public/filesystem_helpers.cpp',
+		'Input.cpp',
+		'MatSystemSurface.cpp',
+		'../vgui2/src/vgui_key_translation.cpp',
+		'../public/vgui_controls/vgui_controls.cpp',
+		'../public/tier0/memoverride.cpp'
+	]
+
+	if bld.env.DEST_OS == 'win32':
+		source += [
+			'memorybitmap.cpp',
+			'../vgui2/src/htmlwindow.cpp'
+		]
+
+	bld.shlib(
+		source   = source,
+		target   = 'vguimatsurface',
+		features = 'cxx',
+		includes = includes,
+		use      = libs,
+		install_path = bld.env.BINPATH,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

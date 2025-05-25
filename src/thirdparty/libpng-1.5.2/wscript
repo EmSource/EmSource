@@ -1,0 +1,40 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	return
+
+def build(bld):
+	libs = []
+
+	includes = []
+
+	source = [
+		'png.c',
+		'pngerror.c',
+		'pngget.c',
+		'pngmem.c',
+		'pngpread.c',
+		'pngread.c',
+		'pngrio.c',
+		'pngrtran.c',
+		'pngrutil.c',
+		'pngset.c',
+		'pngtrans.c',
+		'pngwio.c',
+		'pngwrite.c',
+		'pngwtran.c',
+		'pngwutil.c'
+	]
+
+	bld.stlib(
+		source   = source,
+		target   = 'png',
+		features = 'c',
+		includes = includes,
+		use      = libs,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

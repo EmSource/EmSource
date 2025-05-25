@@ -1,0 +1,28 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	return
+
+def build(bld):
+	libs = ['tier0', 'tier1', 'interfaces', 'vstdlib']
+
+	includes = ['../game/shared']
+
+	source = [
+		'SceneFileCache.cpp',
+		'../public/tier0/memoverride.cpp'
+	]
+
+	bld.shlib(
+		source   = source,
+		target   = 'scenefilecache',
+		features = 'cxx',
+		includes = includes,
+		use      = libs,
+		install_path = bld.env.BINPATH,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)

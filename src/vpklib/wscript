@@ -1,0 +1,24 @@
+#! /usr/bin/env python
+
+def options(opt):
+	return
+
+def configure(conf):
+	return
+
+def build(bld):
+	libs = []
+
+	includes = []
+
+	source = ['packedstore.cpp']
+
+	bld.stlib(
+		source   = source,
+		target   = 'vpk',
+		features = 'cxx',
+		includes = includes,
+		use      = libs,
+		subsystem = bld.env.MSVC_SUBSYSTEM,
+		idx = bld.get_taskgen_count()
+	)
