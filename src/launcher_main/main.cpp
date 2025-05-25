@@ -148,13 +148,9 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 	assert( len < sizeof( szBuffer ) );
 	_putenv( szBuffer );
 
-#if !defined(__EMSCRIPTEN__)
 	// Assemble the full path to our "launcher.dll"
 	_snprintf( szBuffer, sizeof( szBuffer ), "%s\\bin%s\\launcher.dll", pRootDir, pBinPath );
 	szBuffer[sizeof( szBuffer ) - 1] = '\0';
-#else
-	_snprintf( szBuffer, sizeof( szBuffer ), "launcher.wasm", pRootDir, pBinPath );
-#endif
 
 	// STEAM OK ... filesystem not mounted yet
 #if defined(_X360)

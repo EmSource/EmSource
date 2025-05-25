@@ -1,7 +1,0 @@
-
-#include "windows.h"
-#include "rule.h"
-
-rcinclude rule.dlg
-Rule ICON rule.ico
-

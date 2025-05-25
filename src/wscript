@@ -1,294 +1,267 @@
-#! /usr/bin/env python3
-# Mohamed Ashraf, a1batross, mittorn, nn-firc
+#! /usr/bin/env python
+# a1batross, mittorn, nn-firc
 
 from waflib import Build, Configure, Context, Logs
 import os.path
 
-VERSION = '1.00'
-APPNAME = 'LambdaComplex'
+VERSION = '0.01'
+APPNAME = 'CSGO'
 top = '.'
 default_prefix = os.path.abspath('../game')
 
 Context.Context.line_just = 60 # should fit for everything on 80x26
 
 PROJECTS = [
-    'appframework',
-    'bitmap',
-    'bonesetup',
-    'choreoobjects',
-    'd3dx',
-    'datacache',
-    'dmxloader',
-    'engine',
-    'engine/voice_codecs/celt',
-    'filesystem',
-    'game/client',
-    'game/server',
-    'gcsdk',
-    'generated_proto',
-    'inputsystem',
-    'interfaces',
-    'launcher',
-    'launcher_main',
-    'localize',
-    'matchmaking',
-    'materialsystem',
-    #'materialsystem/shaderapivk',
-    'materialsystem/shaderapidx9',
-    'materialsystem/shaderlib',
-    'materialsystem/stdshaders',
-    'mathlib',
-    'particles',
-    'raytrace',
-    'resourcefile',
-    'responserules/runtime',
-    'scenefilecache',
-    'serverbrowser',
-    'soundemittersystem',
-    'soundsystem/lowlevel',
-    'studiorender',
-    'thirdparty/celt-v0.11.3',
-    'thirdparty/dxvk-native-1.9.2b/src/d3d9',
-    'thirdparty/dxvk-native-1.9.2b/src/dxso',
-    'thirdparty/dxvk-native-1.9.2b/src/dxvk',
-    'thirdparty/dxvk-native-1.9.2b/src/spirv',
-    'thirdparty/dxvk-native-1.9.2b/src/util',
-    'thirdparty/dxvk-native-1.9.2b/src/vulkan',
-    'thirdparty/dxvk-native-1.9.2b/src/wsi',
-    'thirdparty/freetype-2.13.2',
-    'thirdparty/JoltPhysics-4.0.2/Jolt',
-    'thirdparty/jpeg-8',
-    'thirdparty/libpng-1.5.2',
-    'thirdparty/mojoAL',
-    'thirdparty/protobuf-2.6.1/src',
-    'thirdparty/quickhull',
-    'thirdparty/SDL-2.28.5',
-    'thirdparty/zlib-1.2.5',
-    'tier0',
-    'tier1',
-    'tier2',
-    'tier3',
-    'utils/bzip2',
-    'vgui2/matsys_controls',
-    'vgui2/src',
-    'vgui2/vgui_controls',
-    'vgui2/vgui_surfacelib',
-    'vguimatsurface',
-    'videocfg',
-    'vphysics',
-    'vpklib',
-    'vscript',
-    'vstdlib',
-    'vtf'
+	'appframework',
+	'bitmap',
+	'bonesetup',
+	'choreoobjects',
+	'd3dx',
+	'datacache',
+	'dmxloader',
+	'engine',
+	'engine/voice_codecs/celt',
+	'filesystem',
+	'game/client',
+	'game/server',
+	'gcsdk',
+	'generated_proto',
+	'inputsystem',
+	'interfaces',
+	'launcher',
+	'launcher_main',
+	'localize',
+	'matchmaking',
+	'materialsystem',
+	'materialsystem/shaderapidx9',
+	'materialsystem/shaderlib',
+	'materialsystem/stdshaders',
+	'mathlib',
+	'particles',
+	'raytrace',
+	'resourcefile',
+	'responserules/runtime',
+	'scenefilecache',
+	'serverbrowser',
+	'soundemittersystem',
+	'soundsystem/lowlevel',
+	'studiorender',
+	'thirdparty/celt-v0.11.3',
+	'thirdparty/dxvk-native-1.9.2b/src/d3d9',
+	'thirdparty/dxvk-native-1.9.2b/src/dxso',
+	'thirdparty/dxvk-native-1.9.2b/src/dxvk',
+	'thirdparty/dxvk-native-1.9.2b/src/spirv',
+	'thirdparty/dxvk-native-1.9.2b/src/util',
+	'thirdparty/dxvk-native-1.9.2b/src/vulkan',
+	'thirdparty/dxvk-native-1.9.2b/src/wsi',
+	'thirdparty/freetype-2.13.2',
+	'thirdparty/JoltPhysics-4.0.2/Jolt',
+	'thirdparty/jpeg-8',
+	'thirdparty/libpng-1.5.2',
+	'thirdparty/mojoAL',
+	'thirdparty/protobuf-2.6.1/src',
+	'thirdparty/quickhull',
+	'thirdparty/SDL-2.28.5',
+	'thirdparty/zlib-1.2.5',
+	'tier0',
+	'tier1',
+	'tier2',
+	'tier3',
+	'utils/bzip2',
+	'vgui2/matsys_controls',
+	'vgui2/src',
+	'vgui2/vgui_controls',
+	'vgui2/vgui_surfacelib',
+	'vguimatsurface',
+	'videocfg',
+	'vphysics',
+	'vpklib',
+	'vscript',
+	'vstdlib',
+	'vtf'
 ]
 
 @Configure.conf
 def get_taskgen_count(self):
-    try: idx = self.tg_idx_count
-    except: idx = 0 # don't set tg_idx_count to not increase counter
-    return idx
+	try: idx = self.tg_idx_count
+	except: idx = 0 # don't set tg_idx_count to not increase counter
+	return idx
 
 def options(opt):
-    opt.load('reconfigure compiler_optimizations compiler_c compiler_cxx ndk clang_compilation_database strip_on_install msdev msvs msvc subproject ccache')
+	opt.load('reconfigure compiler_optimizations compiler_c compiler_cxx ndk clang_compilation_database strip_on_install msdev msvs msvc subproject ccache')
 
-    grp = opt.add_option_group('Common options')
+	grp = opt.add_option_group('Common options')
 
-    grp.add_option('-8', '--64bits', action = 'store_true', dest = 'ALLOW64', default = False,
-        help = 'allow targetting 64-bit engine [default: %default]')
-    grp.add_option('-w', '--no-warnings', action = 'store_true', dest = 'NO_WARNINGS', default = True,
-        help = 'disable warnings')
-    grp.add_option('--dedicated', action = 'store_true', dest = 'DEDICATED', default = False,
-        help = 'build dedicated server')
-    grp.add_option('--vulkan', action = 'store_true', dest = 'VULKAN', default = False,
-        help = 'Build utilizing Vulkan')
+	grp.add_option('-8', '--64bits', action = 'store_true', dest = 'ALLOW64', default = False,
+		help = 'allow targetting 64-bit engine [default: %default]')
+	grp.add_option('-w', '--no-warnings', action = 'store_true', dest = 'NO_WARNINGS', default = False,
+		help = 'disable warnings')
+	grp.add_option('--dedicated', action = 'store_true', dest = 'DEDICATED', default = False,
+		help = 'build dedicated server')
 
-    opt.add_subproject(PROJECTS)
+	opt.add_subproject(PROJECTS)
 
 def configure(conf):
-    conf.load('fwgslib reconfigure ndk compiler_optimizations')
-    conf.env.MSVC_TARGETS = ['x86' if not conf.options.ALLOW64 else 'x64']
+	conf.load('fwgslib reconfigure ndk compiler_optimizations')
+	conf.env.MSVC_TARGETS = ['x86' if not conf.options.ALLOW64 else 'x64']
 
-    # Force XP compatibility, all build targets should add subsystem=bld.env.MSVC_SUBSYSTEM
-    if conf.env.MSVC_TARGETS[0] == 'x86':
-        conf.env.MSVC_SUBSYSTEM = 'WINDOWS,5.01'
-    else:
-        conf.env.MSVC_SUBSYSTEM = 'WINDOWS'
+	# Force XP compatibility, all build targets should add subsystem=bld.env.MSVC_SUBSYSTEM
+	if conf.env.MSVC_TARGETS[0] == 'x86':
+		conf.env.MSVC_SUBSYSTEM = 'WINDOWS,5.01'
+	else:
+		conf.env.MSVC_SUBSYSTEM = 'WINDOWS'
 
-    conf.env.ALLOW64    =       conf.options.ALLOW64
-    conf.env.DEDICATED  =       conf.options.DEDICATED
-    conf.env.VULKAN     =       conf.options.VULKAN
+	conf.env.ALLOW64	=		conf.options.ALLOW64
+	conf.env.DEDICATED	=		conf.options.DEDICATED
 
-    if conf.env.DEST_OS == 'android':
-        conf.env.BINPATH = conf.env.GAMEBIN = conf.env.PREFIX + '/lib'
-    else:
-        conf.env.BINPATH = conf.env.PREFIX + '/bin'
-        # Lambda Complex!! NOT CSGO!!!
-        conf.env.GAMEBIN = conf.env.PREFIX + '/lcs/bin'
+	if conf.env.DEST_OS == 'android':
+		conf.env.BINPATH = conf.env.GAMEBIN = conf.env.PREFIX + '/lib'
+	else:
+		conf.env.BINPATH = conf.env.PREFIX + '/bin'
+		conf.env.GAMEBIN = conf.env.PREFIX + '/csgo/bin'
 
-    # Load compilers early
-    conf.load('compiler_c compiler_cxx ndk ccache')
+	# Load compilers early
+	conf.load('compiler_c compiler_cxx ndk ccache')
 
-    # HACKHACK: override msvc DEST_CPU value by something that we understand
-    if conf.env.DEST_CPU == 'amd64':
-        conf.env.DEST_CPU = 'x86_64'
+	# HACKHACK: override msvc DEST_CPU value by something that we understand
+	if conf.env.DEST_CPU == 'amd64':
+		conf.env.DEST_CPU = 'x86_64'
 
-    if conf.env.COMPILER_CC == 'msvc':
-        conf.load('msvc_pdb')
+	if conf.env.COMPILER_CC == 'msvc':
+		conf.load('msvc_pdb')
 
-    conf.load('msvs msdev subproject clang_compilation_database strip_on_install enforce_pic')
+	conf.load('msvs msdev subproject clang_compilation_database strip_on_install enforce_pic')
 
-    enforce_pic = True # modern defaults
-    conf.check_pic(enforce_pic)
+	enforce_pic = True # modern defaults
+	conf.check_pic(enforce_pic)
 
-    conf.env.BIT32_MANDATORY = not conf.options.ALLOW64
-    if conf.env.BIT32_MANDATORY:
-        Logs.info('WARNING: will build game for 32-bit target')
-    else:
-        Logs.info('WARNING: will build game for 64-bit target')
-    conf.load('force_32bit')
+	conf.env.BIT32_MANDATORY = not conf.options.ALLOW64
+	if conf.env.BIT32_MANDATORY:
+		Logs.info('WARNING: will build game for 32-bit target')
+	else:
+		Logs.info('WARNING: will build game for 64-bit target')
+	conf.load('force_32bit')
 
-    cflags, linkflags = conf.get_optimization_flags()
-    cxxflags = list(cflags) # optimization flags are common between C and C++ but we need a copy
+	cflags, linkflags = conf.get_optimization_flags()
+	cxxflags = list(cflags) # optimization flags are common between C and C++ but we need a copy
 
-    if conf.env.COMPILER_CC in ['gcc', 'clang']:
-        conf.env.append_unique('CFLAGS_cshlib', ['-fPIC'])
-        conf.env.append_unique('CXXFLAGS_cxxshlib', ['-fPIC'])
+	if conf.env.COMPILER_CC in ['gcc', 'clang']:
+		conf.env.append_unique('CFLAGS_cshlib', ['-fPIC'])
+		conf.env.append_unique('CXXFLAGS_cxxshlib', ['-fPIC'])
 
-    if conf.env.COMPILER_CC in ['emcc']:
-        conf.env.append_value('LINKFLAGS', ['-sWASM=1'])
-        conf.env.append_value('CXXFLAGS', ['-Wno-unused-command-line-argument'])
-        conf.env.append_value('CXXFLAGS', ['-msimd128'])
-        conf.env.append_value('LINKFLAGS', ['-msimd128'])
+	conf.check_cc(cflags=cflags, linkflags=linkflags, msg='Checking for required C flags')
+	conf.check_cxx(cxxflags=cxxflags, linkflags=linkflags, msg='Checking for required C++ flags')
 
+	conf.env.append_unique('CFLAGS', cflags)
+	conf.env.append_unique('CXXFLAGS', cxxflags)
+	conf.env.append_unique('LINKFLAGS', linkflags)
 
-    conf.env.append_unique('CFLAGS', cflags)
-    conf.env.append_unique('CXXFLAGS', cxxflags)
-    conf.env.append_unique('LINKFLAGS', linkflags)
+	opt_flags = []
+	opt_cflags = []
+	opt_cxxflags = []
 
-    opt_flags = []
-    opt_cflags = []
-    opt_cxxflags = []
+	if conf.options.NO_WARNINGS and conf.env.COMPILER_CC in ['gcc', 'clang']:
+		opt_flags += ['-w']
 
-    if conf.options.NO_WARNINGS and conf.env.COMPILER_CC in ['gcc', 'clang', 'emcc']:
-        opt_flags += ['-w']
+	if conf.env.COMPILER_CC == 'clang':
+		opt_flags += ['-fcolor-diagnostics']
+	elif conf.env.COMPILER_CC == 'gcc':
+		opt_flags += ['-fdiagnostics-color=always']
 
-    if conf.env.COMPILER_CC == 'clang':
-        opt_flags += ['-fcolor-diagnostics']
-    if conf.env.COMPILER_CC == 'emcc':
-        opt_flags += ['-fcolor-diagnostics']
-    # Easier to debug errors
-        opt_flags += ['-ferror-limit=1']
-    elif conf.env.COMPILER_CC == 'gcc':
-        opt_flags += ['-fdiagnostics-color=always']
+	if conf.env.COMPILER_CC == 'msvc':
+		opt_cxxflags += ['/std:c++20']
+	elif conf.env.COMPILER_CC in ['gcc', 'clang']:
+		opt_cxxflags += ['-std=c++20']
 
-    if conf.env.COMPILER_CC == 'msvc':
-        opt_cxxflags += ['/std:c++20']
-    elif conf.env.COMPILER_CC in ['gcc', 'clang']:
-        opt_cxxflags += ['-std=c++20']
+	cflags = conf.filter_cflags(opt_flags + opt_cflags, cflags)
+	cxxflags = conf.filter_cxxflags(opt_flags + opt_cxxflags, cxxflags)
 
-    cflags = conf.filter_cflags(opt_flags + opt_cflags, cflags)
-    cxxflags = conf.filter_cxxflags(opt_flags + opt_cxxflags, cxxflags)
+	conf.env.append_unique('CFLAGS', cflags)
+	conf.env.append_unique('CXXFLAGS', cxxflags)
 
-    conf.env.append_unique('CFLAGS', cflags)
-    conf.env.append_unique('CXXFLAGS', cxxflags)
+#	if conf.env.DEST_OS == 'win32':
+#		a = []
+#		if conf.env.COMPILER_CC == 'msvc':
+#			for i in a:
+#				conf.start_msg('Checking for MSVC library')
+#				conf.check_lib_msvc(i)
+#				conf.end_msg(i)
+#		else:
+#			for i in a:
+#				conf.check_cc(lib = i)
 
-#   if conf.env.DEST_OS == 'win32':
-#       a = []
-#       if conf.env.COMPILER_CC == 'msvc':
-#           for i in a:
-#               conf.start_msg('Checking for MSVC library')
-#               conf.check_lib_msvc(i)
-#               conf.end_msg(i)
-#       else:
-#           for i in a:
-#               conf.check_cc(lib = i)
+	includes = [
+		os.path.abspath('public'),
+		os.path.abspath('public/tier0'),
+		os.path.abspath('public/tier1'),
+		os.path.abspath('common')
+	]
 
-    includes = [
-        os.path.abspath('public'),
-        os.path.abspath('public/tier0'),
-        os.path.abspath('public/tier1'),
-        os.path.abspath('common')
-    ]
+	if conf.env.COMPILER_CC == 'msvc':
+		conf.define('COMPILER_MSVC', True)
+		conf.define('_CRT_SECURE_NO_WARNINGS', True)
+		if conf.env.ALLOW64:
+			conf.define('COMPILER_MSVC64', True)
+		else:
+			conf.define('COMPILER_MSVC32', True)
+	elif conf.env.COMPILER_CC in ['gcc', 'clang']:
+		conf.define('COMPILER_GCC', True)
 
-    if conf.env.COMPILER_CC == 'msvc':
-        conf.define('COMPILER_MSVC', True)
-        conf.define('_CRT_SECURE_NO_WARNINGS', True)
-        if conf.env.ALLOW64:
-            conf.define('COMPILER_MSVC64', True)
-        else:
-            conf.define('COMPILER_MSVC32', True)
-    elif conf.env.COMPILER_CC in ['gcc', 'clang']:
-        conf.define('COMPILER_GCC', True)
+	if conf.env.DEST_OS == 'win32': # TODO: IMPLETE ME!
+		conf.define('_WIN32', True)
+		conf.define('_DLL_EXT', '.dll', quote=False)
+	else:
+		conf.define('_POSIX', True)
+		conf.define('POSIX', True)
+		conf.define('USE_SDL', True)
+		if conf.env.DEST_OS in ['linux', 'android']:
+			conf.define('_LINUX', True)
+			conf.define('LINUX', True)
+			conf.define('GNUC', True)
+			conf.define('_DLL_EXT', '.so', quote=False)
+		if conf.env.DEST_OS == 'android':
+			conf.define('ANDROID', True)
+			conf.check_cc(lib='android', uselib_store='android')
+			conf.check_cc(lib='log', uselib_store='android_log')
+			conf.check_cc(lib='OpenSLES', uselib_store='OpenSLES')
+			includes += [os.path.abspath('thirdparty/SDL-2.28.5/include')]
+		else:
+			conf.check_cfg(package='sdl2', args='--cflags --libs', uselib_store='SDL2')
+			includes += conf.env.INCLUDES_SDL2
+		includes += [os.path.abspath('thirdparty/freetype-2.13.2/include')]
 
-#    if conf.env.COMPILER_CC == 'emcc':
-#        conf.define('__SSE__', True)
-#        conf.define('__SSE2__', True)
+	conf.define('CSTRIKE15', True)
+	conf.define('CSTRIKE_REL_BUILD', True)
+	conf.define('VPROF_LEVEL', True)
+	conf.define('RAD_TELEMETRY_DISABLED', True)
 
-    if conf.env.DEST_OS == 'win32': # TODO: IMPLETE ME!
-        conf.define('_WIN32', True)
-        conf.define('_DLL_EXT', '.dll', quote=False)
-    else:
-        conf.define('_POSIX', True)
-        conf.define('POSIX', True)
-        conf.define('USE_SDL', True)
-        if conf.env.DEST_OS in ['linux', 'android']:
-            conf.define('_LINUX', True)
-            conf.define('LINUX', True)
-            conf.define('GNUC', True)
-            conf.define('_DLL_EXT', '.so', quote=False)
-        if conf.env.COMPILER_CC == 'emcc':
-            conf.define('_EMSCRIPTEN', True)
-            conf.define('EMSCRIPTEN', True)
-            conf.define('GNUC', True)
-            conf.define('_DLL_EXT', '.wasm', quote=False)
-        if conf.env.DEST_OS == 'android':
-            conf.define('ANDROID', True)
-            conf.check_cc(lib='android', uselib_store='android')
-            conf.check_cc(lib='log', uselib_store='android_log')
-            conf.check_cc(lib='OpenSLES', uselib_store='OpenSLES')
-            includes += [os.path.abspath('thirdparty/SDL-2.28.5/include')]
-        else:
-            conf.check_cfg(package='sdl2', args='--cflags --libs', uselib_store='SDL2')
-            includes += conf.env.INCLUDES_SDL2
-        includes += [os.path.abspath('thirdparty/freetype-2.13.2/include')]
+	if conf.env.DEST_OS != 'win32':
+		conf.define('DX_TO_VK_ABSTRACTION', True)
+		includes += [
+			os.path.abspath('thirdparty/dxvk-native-1.9.2b/include/native/windows'),
+			os.path.abspath('thirdparty/dxvk-native-1.9.2b/include/native/directx')
+		]
+	else:
+		conf.define('USE_ACTUAL_DX', True)
 
-    conf.define('CSTRIKE15', True)
-    conf.define('CSTRIKE_REL_BUILD', True)
-    conf.define('VPROF_LEVEL', True)
-    conf.define('RAD_TELEMETRY_DISABLED', True)
-    # The Source Engine lacks this feature, and this was never really used ever.
-    #conf.define('IRONSIGHT_ENABLE', True)
+	if conf.options.BUILD_TYPE == 'debug':
+		conf.define('DEBUG',1)
+		conf.define('_DEBUG',1)
+	else:
+		conf.define('NDEBUG',1)
 
-    if conf.env.DEST_OS != 'win32':
-        conf.define('DX_TO_VK_ABSTRACTION', True)
-        includes += [
-            os.path.abspath('thirdparty/dxvk-native-1.9.2b/include/native/windows'),
-            os.path.abspath('thirdparty/dxvk-native-1.9.2b/include/native/directx')
-        ]
-    else:
-        conf.define('USE_ACTUAL_DX', True)
+	if conf.env.ALLOW64:
+		conf.define('PLATFORM_64BITS', True)
 
-    if conf.options.BUILD_TYPE == 'debug':
-        conf.define('DEBUG',1)
-        conf.define('_DEBUG',1)
-    else:
-        conf.define('NDEBUG',1)
+	if conf.env.DEDICATED:
+		conf.define('DEDICATED', True)
 
-    if conf.env.ALLOW64:
-        conf.define('PLATFORM_64BITS', True)
+	conf.env.append_unique('INCLUDES', includes)
 
-    if conf.env.DEDICATED:
-        conf.define('DEDICATED', True)
-
-    if conf.env.VULKAN:
-        conf.define('VULKAN', True)
-
-    conf.env.append_unique('INCLUDES', includes)
-
-    # set _FILE_OFFSET_BITS=64 for filesystems with 64-bit inodes
-    if conf.env.DEST_OS != 'win32' and conf.env.DEST_SIZEOF_VOID_P == 4:
-        # check was borrowed from libarchive source code
-        file_offset_bits_usable = conf.check_cc(fragment='''
+	# set _FILE_OFFSET_BITS=64 for filesystems with 64-bit inodes
+	if conf.env.DEST_OS != 'win32' and conf.env.DEST_SIZEOF_VOID_P == 4:
+		# check was borrowed from libarchive source code
+		file_offset_bits_usable = conf.check_cc(fragment='''
 #define _FILE_OFFSET_BITS 64
 #include <sys/types.h>
 #define KB ((off_t)1024)
@@ -298,15 +271,12 @@ def configure(conf):
 int t2[(((64 * GB -1) % 671088649) == 268434537)
        && (((TB - (64 * GB -1) + 255) % 1792151290) == 305159546)? 1: -1];
 int main(void) { return 0; }''',
-        msg='Checking if _FILE_OFFSET_BITS can be defined to 64', mandatory=False, use='werror')
-        if file_offset_bits_usable:
-            conf.define('_FILE_OFFSET_BITS', 64)
-        else: conf.undefine('_FILE_OFFSET_BITS')
+		msg='Checking if _FILE_OFFSET_BITS can be defined to 64', mandatory=False, use='werror')
+		if file_offset_bits_usable:
+			conf.define('_FILE_OFFSET_BITS', 64)
+		else: conf.undefine('_FILE_OFFSET_BITS')
 
-    conf.add_subproject(PROJECTS)
+	conf.add_subproject(PROJECTS)
 
 def build(bld):
-    if bld.env.GAME_DLL:
-        bld.add_subproject(PROJECTS_GAME_DLL)
-    else:
-        bld.add_subproject(PROJECTS)
+	bld.add_subproject(PROJECTS)

@@ -450,7 +450,7 @@ bool CFoundryTool::Init( )
 	// Startup Hammer.
 	m_pHammer = (IHammer*)Sys_GetFactoryThis()( INTERFACEVERSION_HAMMER, NULL );
 	if ( !m_pHammer )
-		Error( "Unable to load hammer DLL" );
+		Error( "Unable to load hammer_dll.dll" );
 
 	char gamedir[MAX_PATH];
 	enginetools->GetGameDir( gamedir, sizeof( gamedir ) );

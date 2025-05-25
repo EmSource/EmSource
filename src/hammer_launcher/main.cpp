@@ -96,7 +96,6 @@ bool CHammerApp::Create()
 	AppModule_t fileSystemModule = LoadModule( pFileSystemDLL );
 	g_pFileSystem = (IFileSystem*)AddSystem( fileSystemModule, FILESYSTEM_INTERFACE_VERSION );
 
-#if defined(_WIN32)
 	AppSystemInfo_t appSystems[] = 
 	{
 		{ "materialsystem.dll",		MATERIAL_SYSTEM_INTERFACE_VERSION },
@@ -127,70 +126,6 @@ bool CHammerApp::Create()
 		{ "hammer_dll.dll",			INTERFACEVERSION_HAMMER },
 		{ "", "" }	// Required to terminate the list
 	};
-#elif !defined(EMSCRIPTEN)
-	AppSystemInfo_t appSystems[] = 
-	{
-		{ "materialsystem.so",		MATERIAL_SYSTEM_INTERFACE_VERSION },
-		{ "inputsystem.so",		INPUTSYSTEM_INTERFACE_VERSION },
-		{ "studiorender.so",		STUDIO_RENDER_INTERFACE_VERSION },
-		{ "vphysics.so",			VPHYSICS_INTERFACE_VERSION },
-		{ "datacache.so",			DATACACHE_INTERFACE_VERSION },
-		{ "datacache.so",			MDLCACHE_INTERFACE_VERSION },
-		{ "datacache.so",			STUDIO_DATA_CACHE_INTERFACE_VERSION },
-		{ "vguimatsurface.so",		VGUI_SURFACE_INTERFACE_VERSION },
-		{ "vgui2.so",				VGUI_IVGUI_INTERFACE_VERSION },
-		{ "p4lib.so",				P4_INTERFACE_VERSION },
-		{ "hammer_dll.so",			INTERFACEVERSION_HAMMER },
-		{ "", "" }	// Required to terminate the list
-	};
-
-	AppSystemInfo_t appSystemsNoP4[] = 
-	{
-		{ "materialsystem.so",		MATERIAL_SYSTEM_INTERFACE_VERSION },
-		{ "inputsystem.so",		INPUTSYSTEM_INTERFACE_VERSION },
-		{ "studiorender.so",		STUDIO_RENDER_INTERFACE_VERSION },
-		{ "vphysics.so",			VPHYSICS_INTERFACE_VERSION },
-		{ "datacache.so",			DATACACHE_INTERFACE_VERSION },
-		{ "datacache.so",			MDLCACHE_INTERFACE_VERSION },
-		{ "datacache.so",			STUDIO_DATA_CACHE_INTERFACE_VERSION },
-		{ "vguimatsurface.so",		VGUI_SURFACE_INTERFACE_VERSION },
-		{ "vgui2.so",				VGUI_IVGUI_INTERFACE_VERSION },
-		{ "hammer_dll.so",			INTERFACEVERSION_HAMMER },
-		{ "", "" }	// Required to terminate the list
-	};
-#else
-	// At default it should be Emscripten
-	AppSystemInfo_t appSystems[] = 
-	{
-		{ "materialsystem.wasm",		MATERIAL_SYSTEM_INTERFACE_VERSION },
-		{ "inputsystem.wasm",		INPUTSYSTEM_INTERFACE_VERSION },
-		{ "studiorender.wasm",		STUDIO_RENDER_INTERFACE_VERSION },
-		{ "vphysics.wasm",			VPHYSICS_INTERFACE_VERSION },
-		{ "datacache.wasm",			DATACACHE_INTERFACE_VERSION },
-		{ "datacache.wasm",			MDLCACHE_INTERFACE_VERSION },
-		{ "datacache.wasm",			STUDIO_DATA_CACHE_INTERFACE_VERSION },
-		{ "vguimatsurface.wasm",		VGUI_SURFACE_INTERFACE_VERSION },
-		{ "vgui2.wasm",				VGUI_IVGUI_INTERFACE_VERSION },
-		{ "p4lib.wasm",				P4_INTERFACE_VERSION },
-		{ "hammer_dll.wasm",			INTERFACEVERSION_HAMMER },
-		{ "", "" }	// Required to terminate the list
-	};
-
-	AppSystemInfo_t appSystemsNoP4[] = 
-	{
-		{ "materialsystem.wasm",		MATERIAL_SYSTEM_INTERFACE_VERSION },
-		{ "inputsystem.wasm",		INPUTSYSTEM_INTERFACE_VERSION },
-		{ "studiorender.wasm",		STUDIO_RENDER_INTERFACE_VERSION },
-		{ "vphysics.wasm",			VPHYSICS_INTERFACE_VERSION },
-		{ "datacache.wasm",			DATACACHE_INTERFACE_VERSION },
-		{ "datacache.wasm",			MDLCACHE_INTERFACE_VERSION },
-		{ "datacache.wasm",			STUDIO_DATA_CACHE_INTERFACE_VERSION },
-		{ "vguimatsurface.wasm",		VGUI_SURFACE_INTERFACE_VERSION },
-		{ "vgui2.wasm",				VGUI_IVGUI_INTERFACE_VERSION },
-		{ "hammer_dll.wasm",			INTERFACEVERSION_HAMMER },
-		{ "", "" }	// Required to terminate the list
-	};
-#endif
 
 	if ( !AddSystems( CommandLine()->FindParm( "-nop4" ) ? appSystemsNoP4 : appSystems ) ) 
 		return false;
@@ -202,17 +137,9 @@ bool CHammerApp::Create()
 	g_pInputSystem = (IInputSystem*)FindSystem( INPUTSYSTEM_INTERFACE_VERSION );
 	p4 = ( IP4 * )FindSystem( P4_INTERFACE_VERSION );
 
-#if defined(_WIN32)
 	// This has to be done before connection.
 	g_pMaterialSystem->SetShaderAPI( "shaderapidx9.dll" );
-#elif !defined(EMSCRIPTEN)
-#ifndef DX_TO_VK_ABSTRACTION
-	g_pMaterialSystem->SetShaderAPI( "shaderapidx9.so" );
-#else
-	g_pMaterialSystem->SetShaderAPI( "shaderapivk.so" );
-#else
-	g_pMaterialSystem->SetShaderAPI( "shaderapidx9.wasm" );	
-#endif
+
 	return true;
 }
 

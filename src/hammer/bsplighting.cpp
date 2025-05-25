@@ -838,14 +838,7 @@ void CBSPLighting::ReloadLightmaps()
 bool CBSPLighting::LoadVRADDLL( char const *pFilename )
 {
 	// Load VRAD's DLL.
-#if defined(_WIN32)
 	m_hVRadDLL = Sys_LoadModule( "vrad_dll.dll" );
-#else if !defined(EMSCRIPTEN)
-	m_hVRadDLL = Sys_LoadModule( "vrad_dll.so" );
-#else
-	m_hVRadDLL = Sys_LoadModule( "vrad_dll.wasm" );
-#endif
-
 	if( !m_hVRadDLL )
 		return false;
 

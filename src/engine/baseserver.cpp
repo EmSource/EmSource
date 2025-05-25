@@ -29,7 +29,6 @@
 #error "Includes for CPU usage calcs here"
 #endif
 
-#include "../lcs_shareddefs.h"
 #include "filesystem_engine.h"
 #include "baseserver.h"
 #include "hltvserver.h"
@@ -3455,11 +3454,8 @@ CBaseClient *CBaseServer::CreateFakeClient(const char *name)
 	fakeclient->SetUserCVar( "hud_classautokill", "1" );
 	fakeclient->SetUserCVar( "tf_medigun_autoheal", "0" );
 	fakeclient->SetUserCVar( "cl_autorezoom", "1" );
-#if !defined(LAMBDA)
 	fakeclient->SetUserCVar( "fov_desired", "75" );
-#else
-	fakeclient->SetUserCVar( "fov_desired", "90" );
-#endif
+
 	// create client in game.dll
 	fakeclient->ActivatePlayer();
 

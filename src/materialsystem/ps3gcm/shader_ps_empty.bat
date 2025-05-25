@@ -1,1 +1,0 @@
-sce-cgc --mnvb -p sce_fp_rsx -o shader_ps_empty.bin shader_ps_empty.cg
