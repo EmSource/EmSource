@@ -213,7 +213,7 @@ def configure(conf):
         conf.env.append_value('CXXFLAGS', ['-Wno-unused-command-line-argument'])
         conf.env.append_value('CXXFLAGS', ['-msimd128'])
         # Some more important stuff.
-       conf.env.append_value( 'CXXFLAGS', ['-sFORCE_FILESYSTEM']) 
+        conf.env.append_value( 'CXXFLAGS', ['-sFORCE_FILESYSTEM']) 
 
     if conf.env.DEST_OS == 'win32': # TODO: IMPLETE ME!
         conf.define('_WIN32', True)
