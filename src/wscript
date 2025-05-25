@@ -140,8 +140,6 @@ def configure(conf):
         Logs.info('WARNING: will build game for 32-bit target')
     else:
         Logs.info('WARNING: will build game for 64-bit target')
-    elif conf.env.COMPILER_CC == 'emcc':
-        Logs.info('WARNING: will build game for WASM target')
     conf.load('force_32bit')
 
     cflags, linkflags = conf.get_optimization_flags()
