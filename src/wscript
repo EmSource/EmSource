@@ -4,8 +4,8 @@
 from waflib import Build, Configure, Context, Logs
 import os.path
 
-VERSION = '0.01'
-APPNAME = 'CSGO'
+VERSION = '1.0'
+APPNAME = 'LCS'
 top = '.'
 default_prefix = os.path.abspath('../game')
 
@@ -140,7 +140,9 @@ def configure(conf):
 		Logs.info('WARNING: will build game for 32-bit target')
 	else:
 		Logs.info('WARNING: will build game for 64-bit target')
-	conf.load('force_32bit')
+    elif conf.env.COMPILER_CC == 'emcc':
+        Logs.info('WARNING: will build game for WASM target')
+    conf.load('force_32bit')
 
 	cflags, linkflags = conf.get_optimization_flags()
 	cxxflags = list(cflags) # optimization flags are common between C and C++ but we need a copy
@@ -207,6 +209,14 @@ def configure(conf):
 	elif conf.env.COMPILER_CC in ['gcc', 'clang']:
 		conf.define('COMPILER_GCC', True)
 
+
+    if conf.env.COMPILER_CC == 'emcc':
+        conf.env.append_value('LINKFLAGS', ['-sWASM=1'])
+        conf.env.append_value('CXXFLAGS', ['-Wno-unused-command-line-argument'])
+        conf.env.append_value('CXXFLAGS', ['-msimd128'])
+        # Some more important stuff.
+       conf.env.append_value( 'CXXFLAGS', ['-sFORCE_FILESYSTEM']) 
+
 	if conf.env.DEST_OS == 'win32': # TODO: IMPLETE ME!
 		conf.define('_WIN32', True)
 		conf.define('_DLL_EXT', '.dll', quote=False)
@@ -219,7 +229,12 @@ def configure(conf):
 			conf.define('LINUX', True)
 			conf.define('GNUC', True)
 			conf.define('_DLL_EXT', '.so', quote=False)
-		if conf.env.DEST_OS == 'android':
+        if conf.env.COMPILER_CC == 'emcc':
+			conf.define('_EMSCRIPTEN', True)
+			conf.define('EMSCRIPTEN', True)
+			conf.define('GNUC', True) # But uses clang-ish thing.
+			conf.define('_DLL_EXT', '.wasm', quote=False)
+        if conf.env.DEST_OS == 'android':
 			conf.define('ANDROID', True)
 			conf.check_cc(lib='android', uselib_store='android')
 			conf.check_cc(lib='log', uselib_store='android_log')
