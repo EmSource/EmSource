@@ -29,6 +29,7 @@ struct WeaponTypeInfo
 WeaponTypeInfo s_weaponTypeInfo[] =
 {
 	{ WEAPONTYPE_KNIFE,			"Knife" },
+	{ WEAPONTYPE_WRENCH,		"Wrench" },
 	{ WEAPONTYPE_PISTOL,		"Pistol" },
 	{ WEAPONTYPE_SUBMACHINEGUN, "Submachine Gun" },	// First match is printable
 	{ WEAPONTYPE_SUBMACHINEGUN, "submachinegun" },
@@ -104,6 +105,8 @@ WeaponNameInfo s_weaponNameInfo[] =
 
 	{ WEAPON_KNIFE_GG,			"weapon_knifegg" },
 	{ WEAPON_KNIFE,				"weapon_knife" },
+	{ WEAPON_WRENCH_GG,			"weapon_wrenchgg" },
+	{ WEAPON_WRENCH,			"weapon_wrench" },
 
 	{ WEAPON_HEGRENADE,			"weapon_hegrenade" },
 	{ WEAPON_SMOKEGRENADE,		"weapon_smokegrenade" },

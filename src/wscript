@@ -62,7 +62,6 @@ PROJECTS = [
     'thirdparty/protobuf-2.6.1/src',
     'thirdparty/quickhull',
     'thirdparty/SDL-2.28.5',
-    'thirdparty/zlib-1.2.5',
     'tier0',
     'tier1',
     'tier2',
