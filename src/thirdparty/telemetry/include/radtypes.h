@@ -162,6 +162,11 @@
   #endif
 #endif
 
+#if defined(__EMSCRIPTEN__)
+  #define __RADWASM__ 3
+  #define __RADDETECTED__ __RADWASM__
+#endif
+
 #if !defined(__RADDETECTED__)
   #error "radtypes.h did not detect your platform."
 #endif
@@ -456,6 +461,17 @@
   #define RADEXPLINK __stdcall
   #define RADDLLEXPORTDLL // we don't use dlls on xbox
   #define RADDLLIMPORTDLL 
+#endif
+
+
+#if defined(__RADWASM__)
+  #define RADRESTRICT __restrict
+  #define RADSTRUCT struct __attribute__((__packed__))
+
+  #define RADLINK
+  #define RADEXPLINK
+  #define RADDLLEXPORTDLL __attribute__((visibility("default")))
+  #define RADDLLIMPORTDLL
 #endif
 
 #ifndef RADLINK

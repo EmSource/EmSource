@@ -445,6 +445,8 @@ inline int64 ThreadInterlockedCompareExchange64( int64 volatile *p, int64 value,
 inline int64 ThreadInterlockedExchangeAdd64( int64 volatile *p, int64 value )							{ AssertDbg( (size_t)p % 8 == 0 ); return _InterlockedExchangeAdd64( (volatile int64*)p, value ); }
 #endif
 
+
+#if !defined(__EMSCRIPTEN__)
 inline unsigned ThreadInterlockedExchangeSubtract( uint32 volatile *p, uint32 value )					{ return ThreadInterlockedExchangeAdd( (int32 volatile *)p, value ); }
 
 inline unsigned ThreadInterlockedIncrement( uint32 volatile *p )										{ return ThreadInterlockedIncrement( (int32 volatile *)p ); }
@@ -453,6 +455,17 @@ inline unsigned ThreadInterlockedExchange( uint32 volatile *p, uint32 value )			
 inline unsigned ThreadInterlockedExchangeAdd( uint32 volatile *p, uint32 value )						{ return ThreadInterlockedExchangeAdd( (int32 volatile *)p, value ); }
 inline unsigned ThreadInterlockedCompareExchange( uint32 volatile *p, uint32 value, uint32 comperand )	{ return ThreadInterlockedCompareExchange( (int32 volatile *)p, value, comperand ); }
 inline bool ThreadInterlockedAssignIf( uint32 volatile *p, uint32 value, uint32 comperand )				{ return ThreadInterlockedAssignIf( (int32 volatile *)p, value, comperand ); }
+#else
+inline unsigned ThreadInterlockedExchangeSubtract( uint64_t volatile *p, uint64_t value )					{ return ThreadInterlockedExchangeAdd( (int64_t volatile *)p, value ); }
+
+inline unsigned ThreadInterlockedIncrement( uint64_t volatile *p )										{ return ThreadInterlockedIncrement( (int64_t volatile *)p ); }
+inline unsigned ThreadInterlockedDecrement( uint64_t volatile *p )										{ return ThreadInterlockedDecrement( (int64_t volatile *)p ); }
+inline unsigned ThreadInterlockedExchange( uint64_t volatile *p, uint64_t value )							{ return ThreadInterlockedExchange( (int64_t volatile *)p, value ); }
+inline unsigned ThreadInterlockedExchangeAdd( uint64_t volatile *p, uint64_t value )						{ return ThreadInterlockedExchangeAdd( (int64_t volatile *)p, value ); }
+inline unsigned ThreadInterlockedCompareExchange( uint64_t volatile *p, uint64_t value, uint64_t comperand )	{ return ThreadInterlockedCompareExchange( (int64_t volatile *)p, value, comperand ); }
+inline bool ThreadInterlockedAssignIf( uint64_t volatile *p, uint64_t value, uint64_t comperand )				{ return ThreadInterlockedAssignIf( (int64_t volatile *)p, value, comperand ); }
+#endif
+
 
 //inline int ThreadInterlockedExchangeSubtract( int volatile *p, int value )	{ return ThreadInterlockedExchangeAdd( (int32 volatile *)p, value ); }
 //inline int ThreadInterlockedIncrement( int volatile *p )	{ return ThreadInterlockedIncrement( (int32 volatile *)p ); }
