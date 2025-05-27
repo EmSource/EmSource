@@ -27,10 +27,10 @@ def build(bld):
 		'cstrike15/VGUI',
 		'game_controls',
 		'../shared',
+        '../shared/lcs',
 		'../shared/cstrike15',
 		'../shared/cstrike15/control',
 		'../shared/econ',
-        '../../public',
 		'../../gcsdk/steamextra',
 		'../../generated_proto',
 		'../../thirdparty/protobuf-2.6.1/src'
@@ -42,13 +42,12 @@ def build(bld):
 		'history_resource.cpp',
 		'hud_weapon.cpp',
 		'train.cpp',
-        '../shared/lcs/weapon_pipewrench.cpp',
-        '../shared/lcs/weapon_snark.cpp',
-        '../shared/achievement_saverestore.cpp',
+		'../shared/achievement_saverestore.cpp',
 		'../shared/achievementmgr.cpp',
 		'../shared/achievements_hlx.cpp',
 		'../shared/activitylist.cpp',
-		'../shared/ammodef.cpp',
+		'../shared/lcs/weapon_wrench.cpp',
+        '../shared/ammodef.cpp',
 		'animatedentitytextureproxy.cpp',
 		'animatedoffsettextureproxy.cpp',
 		'animatedtextureproxy.cpp',
@@ -685,7 +684,7 @@ def build(bld):
 	]
 
 	if bld.env.DEST_OS == 'win32':
-		source += ['logofile.cpp']
+		source += ['cstrike15/gameui/logofile.cpp']
 	else:
 		source += ['../../filesystem/linux_support.cpp']
 

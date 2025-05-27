@@ -5,13 +5,6 @@
 //
 // Do not #include other files here
 
-
-#if defined(__EMSCRIPTEN__)
-// Mohamed: Somehow, emscripten cannot find the definition, while clang and g++ can???
-#define CTHEADLOCALPTR CThreadLocalPtr
-#endif
-
-
 #ifndef _PS3
 // this is defined in the .cpp for the PS3 to avoid introducing a dependency for files including the header
 CTHREADLOCALPTR(CThread) g_pCurThread;

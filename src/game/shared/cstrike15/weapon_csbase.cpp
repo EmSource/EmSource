@@ -1789,7 +1789,7 @@ int CWeaponCSBase::GetReticleWeaponSpread( void )
 	
 	if ( pPlayer )
 	{
-		if ( GetWeaponType() == WEAPONTYPE_GRENADE ||  GetCSWeaponID() == WEAPON_C4 || GetCSWeaponID() == WEAPON_KNIFE || GetCSWeaponID() == WEAPON_KNIFE_GG )
+		if ( GetWeaponType() == WEAPONTYPE_GRENADE ||  GetCSWeaponID() == WEAPON_C4 || GetCSWeaponID() == WEAPON_KNIFE || GetCSWeaponID() == WEAPON_KNIFE_GG || GetCSWeaponID() == WEAPON_WRENCH || GetCSWeaponID() == WEAPON_WRENCH_GG )
 		{
 			return -1; //early out since we don't want a gap and don't want to change the sentinel value with the math later.
 		}

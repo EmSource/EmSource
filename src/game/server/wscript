@@ -24,10 +24,10 @@ def build(bld):
 		'cstrike15/control',
 		'cstrike15/hostage',
 		'../shared',
-		'../shared/cstrike15',
+		'../shared/lcs',
+        '../shared/cstrike15',
 		'../shared/cstrike15/bot',
 		'../shared/econ',
-        '../../public',
 		'../../utils/common',
 		'../../gcsdk/steamextra',
 		'../../generated_proto',
@@ -39,9 +39,6 @@ def build(bld):
 		'../shared/achievementmgr.cpp',
 		'../shared/achievements_hlx.cpp',
 		'../shared/activitylist.cpp',
-		'../shared/lcs/weapon_pipewrench.cpp',
-        '../shared/lcs/weapon_snark.cpp',
-        'lcs/npc_snark.cpp',
         'ai_activity.cpp',
 		'ai_agent.cpp',
 		'ai_baseactor.cpp',
@@ -573,6 +570,7 @@ def build(bld):
 		'../shared/cstrike15/weapon_hegrenade.cpp',
 		'../shared/cstrike15/weapon_ironsightcontroller.cpp',
 		'../shared/cstrike15/weapon_knife.cpp',
+        '../shared/lcs/weapon_wrench.cpp',
 		'../shared/cstrike15/weapon_m3.cpp',
 		'../shared/cstrike15/weapon_sg552.cpp',
 		'../shared/cstrike15/weapon_smokegrenade.cpp',
@@ -652,7 +650,7 @@ def build(bld):
 	]
 
 	if bld.env.DEST_OS == 'win32':
-		source += ['../client/logofile.cpp']
+		source += ['cstrike15/gameui/logofile.cpp']
 	else:
 		source += ['../../filesystem/linux_support.cpp']
 

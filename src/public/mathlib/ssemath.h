@@ -11,7 +11,6 @@
 #elif defined ( _PS3 )
 #include <vectormath/c/vectormath_aos.h>
 #include <vectormath/c/vectormath_aos_v.h>
-#if !defined(EMSCRIPTEN)
 #elif defined( __aarch64__ )
 #include <sse2neon.h>
 #else
@@ -19,15 +18,6 @@
 #ifndef _LINUX
 #include <emmintrin.h>
 #endif
-#endif
-
-#if defined(__EMSCRIPTEN__)
-#include <wasm_simd128.h>
-#include <xmmintrin.h>
-#include <emmintrin.h>
-#endif
-//#include <xmmintrin.h>
-//#include <emmintrin.h>
 #endif
 
 #ifndef SPU
@@ -56,7 +46,6 @@ typedef const fltx4 & FLTX4;
 // A 16-byte aligned int32 datastructure
 // (for use when writing out fltx4's as SIGNED
 // ints).
-#ifndef EMSCRIPTEN
 struct ALIGN16 intx4
 {
 	int32 m_i32[4];
@@ -88,39 +77,7 @@ struct ALIGN16 intx4
 			m_i32[3] == other.m_i32[3] 	;
 	}
 } ALIGN16_POST;
-#else
-struct ALIGN16 intx4
-{
-	int64_t m_i64[8];
 
-	inline int64_t& operator[](int64_t which) 
-	{
-		return m_i64[which];
-	}
-
-	inline const int & operator[](int64_t which) const
-	{
-		return m_i64[which];
-	}
-
-	inline int64_t *Base() {
-		return m_i64;
-	}
-
-	inline const int64_t *Base() const
-	{
-		return m_i64;
-	}
-
-	inline bool operator==(const intx4 &other) const
-	{
-		return m_i64[0] == other.m_i64[0] &&
-			m_i64[1] == other.m_i64[1] &&
-			m_i64[2] == other.m_i64[2] &&
-			m_i64[3] == other.m_i64[3] 	;
-	}
-} ALIGN16_POST;
-#endif
 
 #if defined( _DEBUG ) && defined( _X360 )
 FORCEINLINE void TestVPUFlags()
@@ -3549,11 +3506,7 @@ FORCEINLINE void StoreAlignedSIMD( float * RESTRICT pSIMD, const fltx4 & a )
 
 FORCEINLINE void StoreAlignedSIMD( short * RESTRICT pSIMD, const shortx8 & a )
 {
-#if !defined(__EMSCRIPTEN__)
 	_mm_store_si128( (shortx8 *)pSIMD, a );
-#else
-	wasm_v128_store( (shortx8 *)pSIMD, a);
-#endif
 }
 FORCEINLINE void StoreUnalignedSIMD( float * RESTRICT pSIMD, const fltx4 & a )
 {
@@ -3562,11 +3515,7 @@ FORCEINLINE void StoreUnalignedSIMD( float * RESTRICT pSIMD, const fltx4 & a )
 
 FORCEINLINE void StoreUnalignedSIMD(short* RESTRICT pSIMD, const shortx8& a)
 {
-#if !defined(__EMSCRIPTEN__)
 	_mm_storeu_si128((shortx8*)pSIMD, a);
-#else
-	wasm_v128_store((shortx8*)pSIMD, a);
-#endif
 }
 
 FORCEINLINE void StoreUnalignedFloat( float *pSingleFloat, const fltx4 & a )
@@ -3626,20 +3575,12 @@ FORCEINLINE fltx4 LoadAlignedSIMD( const void *pSIMD )
 
 FORCEINLINE shortx8 LoadAlignedShortSIMD( const void *pSIMD )
 {
-#if !defined(__EMSCRIPTEN__)
 	return _mm_load_si128( reinterpret_cast< const shortx8 *> ( pSIMD ) );
-#else
-	return wasm_v128_load( reinterpret_cast< const shortx8 *> ( pSIMD) );
-#endif
 }
 
 FORCEINLINE shortx8 LoadUnalignedShortSIMD( const void *pSIMD )
 {
-#if !defined(__EMSCRIPTEN__)
 	return _mm_loadu_si128( reinterpret_cast< const shortx8 *> ( pSIMD ) );
-#else
-	return wasm_v128_load( reinterpret_cast< const shortx8 *> ( pSIMD ) );
-#endif
 }
 
 FORCEINLINE fltx4 AndSIMD( const fltx4 & a, const fltx4 & b )				// a & b
@@ -3932,13 +3873,6 @@ FORCEINLINE fltx4 SinSIMD( const fltx4 &radians )
 	SubFloat( result, 3 ) = sin( SubFloat( radians, 3 ) );
 	return result;
 }
-
-
-// FIXME: Emscripten is case sensitive, and doesn't support SinCos, it must be sincos
-// Nevermind. Looks like it stopped bitching.
-//#if defined(__EMSCRIPTEN__)
-//#define SinCos sincos
-//#endif
 
 FORCEINLINE void SinCos3SIMD( fltx4 &sine, fltx4 &cosine, const fltx4 &radians )
 {
@@ -4381,11 +4315,7 @@ FORCEINLINE fltx4 UnsignedIntConvertToFltSIMD( const u32x4 &vSrcA )
 // fixed point conversion is done.
 FORCEINLINE fltx4 SignedIntConvertToFltSIMD( const i32x4 &vSrcA )
 {
-#if !defined(__EMSCRIPTEN__)
 	return  _mm_cvtepi32_ps( (const __m128i &)vSrcA );
-#else
-	return wasm_f32x4_convert_i32x4( (const __m128i &)vSrcA );
-#endif
 }
 
 FORCEINLINE fltx4 SignedIntConvertToFltSIMD( const shortx8 &vSrcA )
@@ -4445,16 +4375,14 @@ FORCEINLINE void ConvertStoreAsIntsSIMD(intx4 * RESTRICT pDest, const fltx4 &vSr
 	(*pDest)[1] = (int)SubFloat(vSrc, 1);
 	(*pDest)[2] = (int)SubFloat(vSrc, 2);
 	(*pDest)[3] = (int)SubFloat(vSrc, 3);
-#elif !defined(__EMSCRIPTEN__)
+#else
 	__m64 bottom = _mm_cvttps_pi32( vSrc );
 	__m64 top    = _mm_cvttps_pi32( _mm_movehl_ps(vSrc,vSrc) );
 
 	*reinterpret_cast<__m64 *>(&(*pDest)[0]) = bottom;
 	*reinterpret_cast<__m64 *>(&(*pDest)[2]) = top;
+
 	_mm_empty();
-#else
-	__m128i intVals = _mm_cvttps_epi32(vSrc);
-  	 _mm_storeu_si128(reinterpret_cast<__m128i*>(pDest), intVals);
 #endif
 }
 

@@ -7,3 +7,6 @@ game/lcs/bin
 *.sln
 src/waf3-2.0.26-e727c2d4cfba06fc8c5e131f5fdc44e6/
 /src/.vs
+
+# WASM
+*.wasm

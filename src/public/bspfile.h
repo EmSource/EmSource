@@ -18,7 +18,6 @@
 #include "mathlib/bumpvects.h"
 #include "mathlib/compressed_light_cube.h"
 #include "datalinker_interface.h"
-#include "lcs_shareddefs.h"
 
 // little-endian "VBSP"
 #define IDBSPHEADER	(('P'<<24)+('S'<<16)+('B'<<8)+'V')		
@@ -59,7 +58,6 @@
 // Common limits
 // leaffaces, leafbrushes, planes, and verts are still bounded by
 // 16 bit short limits
-#if !defined(__EMSCRIPTEN__)
 #define	MAX_MAP_MODELS					1024
 #define	MAX_MAP_BRUSHES					8192
 #define	MAX_MAP_ENTITIES				20480 // bumped from 16384
@@ -73,21 +71,6 @@
 #define	MAX_MAP_AREAS					1024
 #define MAX_MAP_AREA_BYTES				(MAX_MAP_AREAS/8)
 #define	MAX_MAP_AREAPORTALS				1024
-#else
-#define	MAX_MAP_MODELS					512
-#define	MAX_MAP_BRUSHES					4096
-#define	MAX_MAP_ENTITIES				10240 // divided from 20480
-#define	MAX_MAP_TEXINFO					12288
-#define MAX_MAP_TEXDATA					1024
-#define MAX_MAP_DISPINFO				32768
-#define MAX_MAP_DISP_VERTS				( MAX_MAP_DISPINFO * ((1<<MAX_MAP_DISP_POWER)+1) * ((1<<MAX_MAP_DISP_POWER)+1) )
-#define MAX_MAP_DISP_TRIS				( (1 << MAX_MAP_DISP_POWER) * (1 << MAX_MAP_DISP_POWER) * 2 )
-#define MAX_DISPVERTS					NUM_DISP_POWER_VERTS( MAX_MAP_DISP_POWER )
-#define MAX_DISPTRIS					NUM_DISP_POWER_TRIS( MAX_MAP_DISP_POWER )
-#define	MAX_MAP_AREAS					512
-#define MAX_MAP_AREA_BYTES				(MAX_MAP_AREAS/8)
-#define	MAX_MAP_AREAPORTALS				512
-#endif
 // Planes come in pairs, thus an even number.
 #define	MAX_MAP_PLANES					65536
 #define	MAX_MAP_NODES					65536

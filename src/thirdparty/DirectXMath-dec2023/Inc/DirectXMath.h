@@ -13,9 +13,6 @@
 #error DirectX Math requires C++
 #endif
 
-#if defined(EMSCRIPTEN)
-#include <wasm_simd128.h>
-#endif
 #define DIRECTX_MATH_VERSION 318
 
 #if defined(_MSC_VER) && (_MSC_VER < 1910)
@@ -82,19 +79,14 @@
 #define _XM_SSE_INTRINSICS_
 #endif
 
-#if defined(__EMSCRIPTEN__)
-#define _XM_SSE_INTRINSICS_
-#endif
-
 #if !defined(_XM_ARM_NEON_INTRINSICS_) && !defined(_XM_SSE_INTRINSICS_) && !defined(_XM_NO_INTRINSICS_)
-#if (defined(_M_IX86) || defined(_M_X64) || defined(__i386__) || defined(__x86_64__) )
+#if (defined(_M_IX86) || defined(_M_X64) || __i386__ || __x86_64__) && !defined(_M_HYBRID_X86_ARM64) && !defined(_M_ARM64EC)
 #define _XM_SSE_INTRINSICS_
-
 #elif defined(_M_ARM) || defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64) || defined(_M_ARM64EC) || __arm__ || __aarch64__
 #define _XM_ARM_NEON_INTRINSICS_
 #elif !defined(_XM_NO_INTRINSICS_)
 #error DirectX Math does not support this target
-//#endif
+#endif
 #endif // !_XM_ARM_NEON_INTRINSICS_ && !_XM_SSE_INTRINSICS_ && !_XM_NO_INTRINSICS_
 
 #if defined(_XM_SSE_INTRINSICS_) && defined(_MSC_VER) && (_MSC_VER >= 1920) && !defined(__clang__) && !defined(_XM_SVML_INTRINSICS_) && !defined(_XM_DISABLE_INTEL_SVML_)

@@ -50,11 +50,6 @@ public:
 			pVM = ScriptCreateGameMonkeyVM();
 		}
 #endif
-#if VCSHARP_ENABLED
-		else if ( language == SL_CSHARP )
-		{
-			pVM = ScriptCreateCSharpVM();
-#endif
 
 		AssertMsg( pVM, "Unknown script language\n" );
 		if ( pVM )
@@ -79,12 +74,6 @@ public:
 			else if ( p->GetLanguage() == SL_LUA )
 			{
 				ScriptDestroyLuaVM( p );
-			}
-#endif
-#if VCSHARP_ENABLED
-			else if ( p->GetLanguage() == SL_CSHARP )
-			{
-				ScriptDestroyCSharpVM( p );
 			}
 #endif
 #if VPYTHON_ENABLED

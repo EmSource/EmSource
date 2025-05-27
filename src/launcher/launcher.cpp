@@ -107,7 +107,7 @@ int MessageBox( HWND hWnd, const char *message, const char *header, unsigned uTy
 
 #if defined ( CSTRIKE15 )
 
-#define DEFAULT_HL2_GAMEDIR	"lcs"
+#define DEFAULT_HL2_GAMEDIR	"csgo"
 
 #else
 
@@ -269,7 +269,7 @@ bool GetExecutableName( char *out, int outSize )
 const char * GetExecutableFilename()
 {
 #ifdef _PS3
-	return "lcs";
+	return "csgo";
 #else // !_PS3
 	char exepath[MAX_PATH];
 	static char filename[MAX_PATH];
@@ -859,11 +859,7 @@ bool CSourceAppSystemGroup::Create()
 
 	// Load up the appropriate shader DLL
 	// This has to be done before connection.
-#ifndef VULKAN_ENABLED
 	char const *pDLLName = "shaderapidx9" DLL_EXT_STRING;
-#else
-	char const *pDLLName = "shaderapivk" DLL_EXT_STRING;
-#endif
 	const char* pArg = NULL;
 	if ( CommandLine()->FindParm( "-noshaderapi" ) )
 	{
@@ -1092,7 +1088,7 @@ bool GrabSourceMutex()
 	if ( IsPC() )
 	{
 		// don't allow more than one instance to run
-		g_hMutex = ::CreateMutex(NULL, FALSE, TEXT("lcs_singleton_mutex"));
+		g_hMutex = ::CreateMutex(NULL, FALSE, TEXT("hl2_singleton_mutex"));
 
 		unsigned int waitResult = ::WaitForSingleObject(g_hMutex, 0);
 
@@ -1546,7 +1542,7 @@ extern "C" DLL_EXPORT int LauncherMain( int argc, char **argv )
 	// This is required for running from a HDD Boot Game package
 	if ( CommandLine()->CheckParm( "-game") == NULL )
 	{
-		CommandLine()->AppendParm( "-game", "lcs" );
+		CommandLine()->AppendParm( "-game", "csgo" );
 	}
 
 #if defined _PS3
@@ -1784,7 +1780,7 @@ extern "C" DLL_EXPORT int LauncherMain( int argc, char **argv )
 			// directly from the web browser. The -hijack command prevents the launcher from objecting that there is already an instance of the game.
 			if (CommandLine()->CheckParm( "-hijack" ))
 			{
-				HWND hwndEngine = FindWindow( "LambdaComplexInstance", NULL );
+				HWND hwndEngine = FindWindow( "Valve001", NULL );
 
 				// Can't find the engine
 				if ( hwndEngine == NULL )

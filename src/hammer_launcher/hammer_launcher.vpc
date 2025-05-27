@@ -8,9 +8,7 @@ $Macro SRCDIR		".."
 $Macro OUTBINDIR	"$SRCDIR\..\game\bin"
 $Macro OUTBINNAME	"hammer"
 
-$Include "$SRCDIR\vpc_scripts\source_exe_win_win32_base.vpc" [!$POSIX]
-$Include "$SRCDIR\vpc_scripts\source_exe_posix.vpc" [$POSIX]
-// With Linux support
+$Include "$SRCDIR\vpc_scripts\source_exe_win_win32_base.vpc"
 
 $Configuration
 {
