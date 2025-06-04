@@ -41,8 +41,8 @@ HOSTNAME := $($(SHELL) $(TOOL_PATH)hostname)
 
 # To build with emscripten, set the following in your environment:
 # Kinda hacky to do it this way:
-   CC = emcc -sWASM=1
-   CXX = em++ -sWASM=1
+   CC = emcc -sWASM=1 -sUSE_SDL=2 -sUSE_ZLIB=1 -sUSE_BZIP2=1
+   CXX = em++ -sWASM=1 -sUSE_SDL=2 -sUSE_ZLIB=1 -sUSE_BZIP2=1
 ifneq (,$(findstring emcc,$(CC)))
 	CLANG_BUILD = 1
 endif
