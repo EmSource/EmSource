@@ -1,5 +1,5 @@
 
-# Half-Life 2: Javascript
+# # Half-Life 2: Javascript <img align="right" width="128" height="128" src="https://github.com/user-attachments/assets/14764c67-18d3-42c1-bbe7-3cc0123a5194" alt="HalfLife2JS logo" />
 Half-Life 2: Javascript is a work-in-progress port of Half-Life 2 to Emscripten, and no this isn't going to be some kind of shitty remake of HL2 for the browser, no this is an actual port of it.
 
 ## History
