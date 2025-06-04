@@ -1218,7 +1218,6 @@ FORCEINLINE int RoundFloatToInt(float f)
 		double flResult;
 		int pResult[2];
 	};
-	flResult = __fctiw( f );
 	return pResult[1];
 }
 
