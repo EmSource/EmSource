@@ -1940,11 +1940,11 @@ void CVPC::SetMacrosAndConditionals()
 		}
 		SetConditional( "POSIX" );
 
-		SetMacro( "LINUX", "1", true );
-		SetMacro( "_LINUX", "1", true );
 		SetMacro( "POSIX", "1", true );
 		SetMacro( "_POSIX", "1", true );
-
+		SetMacro( "_EMSCRIPTEN", "1", true );
+		SetMacro( "EMSCRIPTEN", "1", true );
+		
 		const char *str3264 = IsLinux32 ? "" : "64";
 		const char *strSrv = m_bAppendSrvToDedicated ? "_srv" : "";
 		CFmtStrN<128> strDso( "%s%s.so", strSrv, str3264 );
@@ -1957,9 +1957,9 @@ void CVPC::SetMacrosAndConditionals()
 		// Extensions for external dependencies like libsteam_api.so (not libsteam_api_ds.so).
 		// VPC_Keyword_Folder in projectscript.cpp will check for ImpLibExternal or LibExternal and
 		// use these prefixes instead of _ds.so if they exist.
-		SetMacro( "_EXTERNAL_DLL_EXT", ".so", true );
-		SetMacro( "_EXTERNAL_IMPLIB_EXT", ".so", false );
-		SetMacro( "_EXTERNAL_STATICLIB_EXT", ".a", false );
+		SetMacro( "_EXTERNAL_DLL_EXT", ".wasm", true );
+		SetMacro( "_EXTERNAL_IMPLIB_EXT", ".wasm", false );
+		SetMacro( "_EXTERNAL_STATICLIB_EXT", ".wasm", false );
 
 		//SetMacro( "_STATICLIB_PREFIX", "lib", false );
 		SetMacro( "_STATICLIB_PREFIX", "", false );

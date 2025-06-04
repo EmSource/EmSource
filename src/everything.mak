@@ -1,5 +1,7 @@
 # VPC MASTER MAKEFILE
 
+# Fuck chrooting
+export NO_CHROOT = 1
 # Disable built-in rules/variables. We don't depend on them, and they slow down make processing.
 MAKEFLAGS += --no-builtin-rules --no-builtin-variables
 ifeq ($(MAKE_VERBOSE),)
@@ -64,7 +66,7 @@ endif
 all: $(CHROOT_CONF)
 	$(MAKE) -f $(lastword $(MAKEFILE_LIST)) -j$(MAKE_JOBS) all-targets
 
-all-targets : vaudio_minimp3 appframework bitmap bsppack bzip2 choreoobjects client_hl2 datacache dedicated dedicated_main dmxloader engine filesystem_stdio gameui gcsdk havana_constraints hk_base hk_math inputsystem ivp_compactbuilder ivp_physics jpeglib launcher launcher_main lzma materialsystem mathlib matsys_controls panel_zoo particles raytrace replay replay_common scenefilecache server_hl2 serverbrowser serverplugin_empty shaderapidx9 shaderapiempty shaderlib simdtest soundemittersystem sourcevr stdshader_dbg stdshader_dx9 studiorender tier0 tier1 tier2 tier3 togl vaudio_speex vgui_controls vgui2 vgui_surfacelib vguimatsurface video_webm video_services vphysics vpk vpklib vstdlib vtex_dll vtf vtf2tga 
+all-targets : vaudio_minimp3 appframework bitmap bsppack bzip2 choreoobjects client_hl2 datacache dedicated dedicated_main dmxloader engine filesystem_stdio gameui gcsdk havana_constraints hk_base hk_math inputsystem ivp_compactbuilder ivp_physics jpeglib launcher launcher_main lzma materialsystem mathlib matsys_controls panel_zoo particles raytrace replay replay_common scenefilecache server_hl2 serverbrowser serverplugin_empty shaderapidx9 shaderapiempty shaderlib simdtest soundemittersystem sourcevr stdshader_dbg stdshader_dx9 studiorender tier0 tier1 tier2 tier3 togl vaudio_speex vgui_controls vgui2 vgui_surfacelib vguimatsurface video_services vphysics vpklib vstdlib vtex_dll vtf vtf2tga 
 
 
 # Individual projects + dependencies
@@ -293,10 +295,6 @@ vguimatsurface : $(if $(VALVE_NO_PROJECT_DEPS),,$(CHROOT_CONF) bitmap mathlib ti
 	@echo "Building: vguimatsurface"
 	@+cd /home/guest/Downloads/src/src/vguimatsurface && $(MAKE) -f vguimatsurface_linux32.mak $(SUBMAKE_PARAMS) $(CLEANPARAM)
 
-video_webm : $(if $(VALVE_NO_PROJECT_DEPS),,$(CHROOT_CONF) tier0 tier1 tier2 vstdlib )
-	@echo "Building: video_webm"
-	@+cd /home/guest/Downloads/src/src/video && $(MAKE) -f video_webm_linux32.mak $(SUBMAKE_PARAMS) $(CLEANPARAM)
-
 video_services : $(if $(VALVE_NO_PROJECT_DEPS),,$(CHROOT_CONF) tier0 tier1 tier2 tier3 vstdlib )
 	@echo "Building: video_services"
 	@+cd /home/guest/Downloads/src/src/video && $(MAKE) -f video_services_linux32.mak $(SUBMAKE_PARAMS) $(CLEANPARAM)
@@ -304,10 +302,6 @@ video_services : $(if $(VALVE_NO_PROJECT_DEPS),,$(CHROOT_CONF) tier0 tier1 tier2
 vphysics : $(if $(VALVE_NO_PROJECT_DEPS),,$(CHROOT_CONF) havana_constraints hk_base hk_math ivp_compactbuilder ivp_physics mathlib tier0 tier1 tier2 vstdlib )
 	@echo "Building: vphysics"
 	@+cd /home/guest/Downloads/src/src/vphysics && $(MAKE) -f vphysics_linux32.mak $(SUBMAKE_PARAMS) $(CLEANPARAM)
-
-vpk : $(if $(VALVE_NO_PROJECT_DEPS),,$(CHROOT_CONF) bitmap mathlib tier0 tier1 tier2 vstdlib )
-	@echo "Building: vpk"
-	@+cd /home/guest/Downloads/src/src/utils/vpk && $(MAKE) -f vpk_linux32.mak $(SUBMAKE_PARAMS) $(CLEANPARAM)
 
 vpklib : $(if $(VALVE_NO_PROJECT_DEPS),,$(CHROOT_CONF) )
 	@echo "Building: vpklib"
@@ -504,15 +498,9 @@ TAGS:
 	@$(FIND) /home/guest/Downloads/src/src/video -name '*.cpp' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/video -name '*.h' -print0 | $(XARGS) -0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/video -name '*.c' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
-	@$(FIND) /home/guest/Downloads/src/src/video -name '*.cpp' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
-	@$(FIND) /home/guest/Downloads/src/src/video -name '*.h' -print0 | $(XARGS) -0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
-	@$(FIND) /home/guest/Downloads/src/src/video -name '*.c' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/vphysics -name '*.cpp' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/vphysics -name '*.h' -print0 | $(XARGS) -0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/vphysics -name '*.c' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
-	@$(FIND) /home/guest/Downloads/src/src/utils/vpk -name '*.cpp' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
-	@$(FIND) /home/guest/Downloads/src/src/utils/vpk -name '*.h' -print0 | $(XARGS) -0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
-	@$(FIND) /home/guest/Downloads/src/src/utils/vpk -name '*.c' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/vpklib -name '*.cpp' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/vpklib -name '*.h' -print0 | $(XARGS) -0 $(ETAGS) --language=c++ --declarations --ignore-indentation --append
 	@$(FIND) /home/guest/Downloads/src/src/vpklib -name '*.c' -print0 | $(XARGS) -0 $(ETAGS) --declarations --ignore-indentation --append
@@ -533,7 +521,7 @@ TAGS:
 
 # Mark all the projects as phony or else make will see the directories by the same name and think certain targets 
 
-.PHONY: TAGS showtargets regen showregen clean cleantargets cleanandremove relink vaudio_minimp3 appframework bitmap bsppack bzip2 choreoobjects client_hl2 datacache dedicated dedicated_main dmxloader engine filesystem_stdio gameui gcsdk havana_constraints hk_base hk_math inputsystem ivp_compactbuilder ivp_physics jpeglib launcher launcher_main lzma materialsystem mathlib matsys_controls panel_zoo particles raytrace replay replay_common scenefilecache server_hl2 serverbrowser serverplugin_empty shaderapidx9 shaderapiempty shaderlib simdtest soundemittersystem sourcevr stdshader_dbg stdshader_dx9 studiorender tier0 tier1 tier2 tier3 togl vaudio_speex vgui_controls vgui2 vgui_surfacelib vguimatsurface video_webm video_services vphysics vpk vpklib vstdlib vtex_dll vtf vtf2tga 
+.PHONY: TAGS showtargets regen showregen clean cleantargets cleanandremove relink vaudio_minimp3 appframework bitmap bsppack bzip2 choreoobjects client_hl2 datacache dedicated dedicated_main dmxloader engine filesystem_stdio gameui gcsdk havana_constraints hk_base hk_math inputsystem ivp_compactbuilder ivp_physics jpeglib launcher launcher_main lzma materialsystem mathlib matsys_controls panel_zoo particles raytrace replay replay_common scenefilecache server_hl2 serverbrowser serverplugin_empty shaderapidx9 shaderapiempty shaderlib simdtest soundemittersystem sourcevr stdshader_dbg stdshader_dx9 studiorender tier0 tier1 tier2 tier3 togl vaudio_speex vgui_controls vgui2 vgui_surfacelib vguimatsurface video_services vphysics vpklib vstdlib vtex_dll vtf vtf2tga 
 
 
 
@@ -631,10 +619,8 @@ showtargets:
 	$(ECHO) 'vgui2' && \
 	$(ECHO) 'vgui_surfacelib' && \
 	$(ECHO) 'vguimatsurface' && \
-	$(ECHO) 'video_webm' && \
 	$(ECHO) 'video_services' && \
 	$(ECHO) 'vphysics' && \
-	$(ECHO) 'vpk' && \
 	$(ECHO) 'vpklib' && \
 	$(ECHO) 'vstdlib' && \
 	$(ECHO) 'vtex_dll' && \

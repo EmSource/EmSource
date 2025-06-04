@@ -69,6 +69,8 @@ public:
 
 		fprintf( fp, "# VPC MASTER MAKEFILE\n\n" );
 
+		fprintf( fp, "# Fuck chrooting\n");
+		fprintf( fp, "export NO_CHROOT = 1\n");
 		fprintf( fp, "# Disable built-in rules/variables. We don't depend on them, and they slow down make processing.\n" );
 		fprintf( fp, "MAKEFLAGS += --no-builtin-rules --no-builtin-variables\n" );
 		fprintf( fp, "ifeq ($(MAKE_VERBOSE),)\n" );
