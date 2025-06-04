@@ -1,11 +1,6 @@
 # VPC MASTER MAKEFILE
 
 # Disable built-in rules/variables. We don't depend on them, and they slow down make processing.
-
-
-# Disable chroot, since it sucks!
-export NO_CHROOT = 1
-
 MAKEFLAGS += --no-builtin-rules --no-builtin-variables
 ifeq ($(MAKE_VERBOSE),)
 MAKEFLAGS += --no-print-directory

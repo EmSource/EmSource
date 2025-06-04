@@ -27,7 +27,7 @@ $Configuration
 		$AdditionalIncludeDirectories	"$SRCDIR\common;$SRCDIR\public;$SRCDIR\public\tier0;$SRCDIR\public\tier1;/usr/include/malloc"
 		$PreprocessorDefinitions		"$BASE;_GNUC;POSIX;"
 		$PreprocessorDefinitions		"$BASE;_OSX;OSX;" [$OSX32 || $OSX64]
-		$PreprocessorDefinitions		"$BASE;_LINUX;LINUX" [$LINUXALL]
+		$PreprocessorDefinitions		"$BASE;_EMSCRIPTEN;EMSCRIPTEN" // crap
 	}
 	$Linker
 	{
