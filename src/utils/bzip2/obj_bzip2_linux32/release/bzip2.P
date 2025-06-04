@@ -1,0 +1,6 @@
+obj_bzip2_linux32/release/bzip2.o: \
+  /home/guest/Downloads/src/src/utils/bzip2/bzip2.c \
+  /home/guest/Downloads/src/src/utils/bzip2/bzlib_private.h \
+  /home/guest/Downloads/src/src/utils/bzip2/bzlib.h
+/home/guest/Downloads/src/src/utils/bzip2/bzlib_private.h:
+/home/guest/Downloads/src/src/utils/bzip2/bzlib.h:

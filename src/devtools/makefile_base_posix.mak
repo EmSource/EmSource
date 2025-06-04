@@ -92,7 +92,8 @@ ifeq ($(CLANG_BUILD),1)
 	# spot, so turn it up to 900 which is GCC's default as of this writing
 	BASE_CXXFLAGS += -ftemplate-depth=900
 	# Needed for older versions of clang (newer versions are compatible with gcc syntax)
-	PCH_CXXFLAGS += -emit-pch
+	# Mohamed: Excuse me saar, did you mean -Xclang? hm?
+	PCH_CXXFLAGS += -Xclang -emit-pch
 else
 	# GCC specific - better PCH behavior w/ccache and better debugging information
 	BASE_CFLAGS += -fpch-preprocess -fvar-tracking-assignments

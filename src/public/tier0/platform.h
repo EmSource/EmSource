@@ -13,6 +13,8 @@
 #define PLATFORM_64BITS 1
 #endif
 
+#include <emscripten/emscripten.h>
+
 #if defined(__GCC__) || defined(__GNUC__)
 #define COMPILER_GCC 1
 #endif
@@ -1179,6 +1181,8 @@ inline uint64 Plat_Rdtsc()
 	uint32 lo, hi;
 	__asm__ __volatile__ ( "rdtsc" : "=a" (lo), "=d" (hi));
 	return ( ( ( uint64 )hi ) << 32 ) | lo;
+#elif defined(__EMSCRIPTEN__)
+	return emscripten_get_now(); 
 #else
 	#error
 #endif

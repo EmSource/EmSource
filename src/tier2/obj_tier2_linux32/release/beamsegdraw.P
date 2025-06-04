@@ -1,0 +1,118 @@
+obj_tier2_linux32/release/beamsegdraw.o: \
+  /home/guest/Downloads/src/src/tier2/beamsegdraw.cpp \
+  /home/guest/Downloads/src/src/public/tier2/beamsegdraw.h \
+  /home/guest/Downloads/src/src/public/mathlib/vector.h \
+  /home/guest/Downloads/src/src/public/tier0/basetypes.h \
+  /home/guest/Downloads/src/src/public/tier0/commonmacros.h \
+  /home/guest/Downloads/src/src/public/tier0/platform.h \
+  /home/guest/Downloads/src/src/public/tier0/wchartypes.h \
+  /home/guest/Downloads/src/src/public/tier0/valve_off.h \
+  /home/guest/Downloads/src/src/public/tier0/valve_on.h \
+  /home/guest/Downloads/src/src/public/tier0/valve_minmax_on.h \
+  /home/guest/Downloads/src/src/public/tier0/annotations.h \
+  /home/guest/Downloads/src/src/public/tier0/fasttimer.h \
+  /home/guest/Downloads/src/src/public/tier0/protected_things.h \
+  /home/guest/Downloads/src/src/public/tier0/xbox_codeline_defines.h \
+  /home/guest/Downloads/src/src/public/tier0/dbg.h \
+  /home/guest/Downloads/src/src/public/tier0/dbgflag.h \
+  /home/guest/Downloads/src/src/public/tier0/threadtools.h \
+  /home/guest/Downloads/src/src/public/tier0/type_traits.h \
+  /home/guest/Downloads/src/src/public/tier0/vcrmode.h \
+  /home/guest/Downloads/src/src/public/tier0/vcr_shared.h \
+  /home/guest/Downloads/src/src/public/tier0/vprof_telemetry.h \
+  /home/guest/Downloads/src/src/public/mathlib/vector2d.h \
+  /home/guest/Downloads/src/src/public/mathlib/math_pfns.h \
+  /home/guest/Downloads/src/src/public/materialsystem/imesh.h \
+  /home/guest/Downloads/src/src/public/tier1/interface.h \
+  /home/guest/Downloads/src/src/public/materialsystem/imaterial.h \
+  /home/guest/Downloads/src/src/public/bitmap/imageformat.h \
+  /home/guest/Downloads/src/src/public/materialsystem/imaterialsystem.h \
+  /home/guest/Downloads/src/src/public/mathlib/vector4d.h \
+  /home/guest/Downloads/src/src/public/mathlib/vmatrix.h \
+  /home/guest/Downloads/src/src/public/mathlib/vplane.h \
+  /home/guest/Downloads/src/src/public/mathlib/mathlib.h \
+  /home/guest/Downloads/src/src/public/minmax.h \
+  /home/guest/Downloads/src/src/public/tier1/refcount.h \
+  /home/guest/Downloads/src/src/public/appframework/IAppSystem.h \
+  /home/guest/Downloads/src/src/public/texture_group_names.h \
+  /home/guest/Downloads/src/src/public/vtf/vtf.h \
+  /home/guest/Downloads/src/src/public/datamap.h \
+  /home/guest/Downloads/src/src/public/tier1/utlvector.h \
+  /home/guest/Downloads/src/src/public/tier1/utlmemory.h \
+  /home/guest/Downloads/src/src/public/tier0/memalloc.h \
+  /home/guest/Downloads/src/src/public/tier0/mem.h \
+  /home/guest/Downloads/src/src/public/tier0/memdbgon.h \
+  /home/guest/Downloads/src/src/public/tier0/memdbgoff.h \
+  /home/guest/Downloads/src/src/public/tier1/utlblockmemory.h \
+  /home/guest/Downloads/src/src/public/tier1/strtools.h \
+  /home/guest/Downloads/src/src/public/vstdlib/random.h \
+  /home/guest/Downloads/src/src/public/vstdlib/vstdlib.h \
+  /home/guest/Downloads/src/src/public/materialsystem/deformations.h \
+  /home/guest/Downloads/src/src/public/materialsystem/imaterialsystemhardwareconfig.h \
+  /home/guest/Downloads/src/src/public/materialsystem/IColorCorrection.h \
+  /home/guest/Downloads/src/src/public/mathlib/lightdesc.h \
+  /home/guest/Downloads/src/src/public/mathlib/ssemath.h \
+  /home/guest/Downloads/src/src/public/tier2/meshutils.h \
+  /home/guest/Downloads/src/src/public/materialsystem/meshreader.h \
+  /home/guest/Downloads/src/src/public/materialsystem/imaterialvar.h \
+  /home/guest/Downloads/src/src/public/tier1/utlsymbol.h \
+  /home/guest/Downloads/src/src/public/tier1/utlrbtree.h \
+  /home/guest/Downloads/src/src/public/tier1/utlfixedmemory.h
+/home/guest/Downloads/src/src/public/tier2/beamsegdraw.h:
+/home/guest/Downloads/src/src/public/mathlib/vector.h:
+/home/guest/Downloads/src/src/public/tier0/basetypes.h:
+/home/guest/Downloads/src/src/public/tier0/commonmacros.h:
+/home/guest/Downloads/src/src/public/tier0/platform.h:
+/home/guest/Downloads/src/src/public/tier0/wchartypes.h:
+/home/guest/Downloads/src/src/public/tier0/valve_off.h:
+/home/guest/Downloads/src/src/public/tier0/valve_on.h:
+/home/guest/Downloads/src/src/public/tier0/valve_minmax_on.h:
+/home/guest/Downloads/src/src/public/tier0/annotations.h:
+/home/guest/Downloads/src/src/public/tier0/fasttimer.h:
+/home/guest/Downloads/src/src/public/tier0/protected_things.h:
+/home/guest/Downloads/src/src/public/tier0/xbox_codeline_defines.h:
+/home/guest/Downloads/src/src/public/tier0/dbg.h:
+/home/guest/Downloads/src/src/public/tier0/dbgflag.h:
+/home/guest/Downloads/src/src/public/tier0/threadtools.h:
+/home/guest/Downloads/src/src/public/tier0/type_traits.h:
+/home/guest/Downloads/src/src/public/tier0/vcrmode.h:
+/home/guest/Downloads/src/src/public/tier0/vcr_shared.h:
+/home/guest/Downloads/src/src/public/tier0/vprof_telemetry.h:
+/home/guest/Downloads/src/src/public/mathlib/vector2d.h:
+/home/guest/Downloads/src/src/public/mathlib/math_pfns.h:
+/home/guest/Downloads/src/src/public/materialsystem/imesh.h:
+/home/guest/Downloads/src/src/public/tier1/interface.h:
+/home/guest/Downloads/src/src/public/materialsystem/imaterial.h:
+/home/guest/Downloads/src/src/public/bitmap/imageformat.h:
+/home/guest/Downloads/src/src/public/materialsystem/imaterialsystem.h:
+/home/guest/Downloads/src/src/public/mathlib/vector4d.h:
+/home/guest/Downloads/src/src/public/mathlib/vmatrix.h:
+/home/guest/Downloads/src/src/public/mathlib/vplane.h:
+/home/guest/Downloads/src/src/public/mathlib/mathlib.h:
+/home/guest/Downloads/src/src/public/minmax.h:
+/home/guest/Downloads/src/src/public/tier1/refcount.h:
+/home/guest/Downloads/src/src/public/appframework/IAppSystem.h:
+/home/guest/Downloads/src/src/public/texture_group_names.h:
+/home/guest/Downloads/src/src/public/vtf/vtf.h:
+/home/guest/Downloads/src/src/public/datamap.h:
+/home/guest/Downloads/src/src/public/tier1/utlvector.h:
+/home/guest/Downloads/src/src/public/tier1/utlmemory.h:
+/home/guest/Downloads/src/src/public/tier0/memalloc.h:
+/home/guest/Downloads/src/src/public/tier0/mem.h:
+/home/guest/Downloads/src/src/public/tier0/memdbgon.h:
+/home/guest/Downloads/src/src/public/tier0/memdbgoff.h:
+/home/guest/Downloads/src/src/public/tier1/utlblockmemory.h:
+/home/guest/Downloads/src/src/public/tier1/strtools.h:
+/home/guest/Downloads/src/src/public/vstdlib/random.h:
+/home/guest/Downloads/src/src/public/vstdlib/vstdlib.h:
+/home/guest/Downloads/src/src/public/materialsystem/deformations.h:
+/home/guest/Downloads/src/src/public/materialsystem/imaterialsystemhardwareconfig.h:
+/home/guest/Downloads/src/src/public/materialsystem/IColorCorrection.h:
+/home/guest/Downloads/src/src/public/mathlib/lightdesc.h:
+/home/guest/Downloads/src/src/public/mathlib/ssemath.h:
+/home/guest/Downloads/src/src/public/tier2/meshutils.h:
+/home/guest/Downloads/src/src/public/materialsystem/meshreader.h:
+/home/guest/Downloads/src/src/public/materialsystem/imaterialvar.h:
+/home/guest/Downloads/src/src/public/tier1/utlsymbol.h:
+/home/guest/Downloads/src/src/public/tier1/utlrbtree.h:
+/home/guest/Downloads/src/src/public/tier1/utlfixedmemory.h:
