@@ -204,7 +204,7 @@ LINK ?= $(CC)
 
 GEN_SYM ?= $(SRCROOT)/devtools/gendbg.sh
 ifeq ($(CFG),release)
-	STRIP ?= strip $(STRIP_FLAGS) -S
+	STRIP ?= emstrip $(STRIP_FLAGS) -S
 #	CFLAGS += -ffunction-sections -fdata-sections
 #	LDFLAGS += -Wl,--gc-sections -Wl,--print-gc-sections
 else
