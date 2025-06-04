@@ -458,12 +458,15 @@ void inline SinCos( float radians, float *sine, float *cosine )
 	*sine = sin( radians );
 	*cosine = cos( radians );
 #elif defined( POSIX )
-	float s = sinf(radians);
-	float c = cosf(radians);
-	void sincosf(float x, float* sin_out, float* cos_out) {
-	    *sin_out = sinf(x);
-    		*cos_out = cosf(x);
-	}
+	auto sincosf = [](float x, float* sin_out, float* cos_out) {
+        *sin_out = sinf(x);
+        *cos_out = cosf(x);
+    };
+
+    float s, c;
+    sincosf(3.14f, &s, &c);
+
+
 
 #endif
 }

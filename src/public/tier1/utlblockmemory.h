@@ -135,10 +135,11 @@ CUtlBlockMemory<T,I>::~CUtlBlockMemory()
 template< class T, class I >
 void CUtlBlockMemory<T,I>::Swap( CUtlBlockMemory< T, I > &mem )
 {
-	swap( m_pMemory, mem.m_pMemory );
-	swap( m_nBlocks, mem.m_nBlocks );
-	swap( m_nIndexMask, mem.m_nIndexMask );
-	swap( m_nIndexShift, mem.m_nIndexShift );
+	// Mohamed: Emscripten LOVES being angry when it comes to errors
+	std::swap( m_pMemory, mem.m_pMemory );
+	std::swap( m_nBlocks, mem.m_nBlocks );
+	std::swap( m_nIndexMask, mem.m_nIndexMask );
+	std::swap( m_nIndexShift, mem.m_nIndexShift );
 }
 
 
