@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="togl" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f togl_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f togl_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f togl_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f togl_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f togl_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f togl_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="../togl/linuxwin/cglmbuffer.cpp"/>
+      <File Name="../togl/linuxwin/cglmfbo.cpp"/>
+      <File Name="../togl/linuxwin/cglmprogram.cpp"/>
+      <File Name="../togl/linuxwin/cglmquery.cpp"/>
+      <File Name="../togl/linuxwin/cglmtex.cpp"/>
+      <File Name="../togl/linuxwin/dx9asmtogl2.cpp"/>
+      <File Name="../togl/linuxwin/dxabstract.cpp"/>
+      <File Name="../togl/linuxwin/glentrypoints.cpp"/>
+      <File Name="../togl/linuxwin/glmgr.cpp"/>
+      <File Name="../togl/linuxwin/glmgrbasics.cpp"/>
+      <File Name="../togl/linuxwin/glmgrcocoa.mm"/>
+      <File Name="../togl/linuxwin/intelglmallocworkaround.cpp"/>
+      <File Name="../togl/linuxwin/mach_override.c"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/togl/linuxwin/cglmbuffer.h"/>
+      <File Name="../public/togl/linuxwin/cglmfbo.h"/>
+      <File Name="../public/togl/linuxwin/cglmprogram.h"/>
+      <File Name="../public/togl/linuxwin/cglmquery.h"/>
+      <File Name="../public/togl/linuxwin/cglmtex.h"/>
+      <File Name="../public/togl/linuxwin/dxabstract.h"/>
+      <File Name="../public/togl/linuxwin/dxabstract_types.h"/>
+      <File Name="../public/togl/linuxwin/glbase.h"/>
+      <File Name="../public/togl/linuxwin/glentrypoints.h"/>
+      <File Name="../public/togl/linuxwin/glfuncs.h"/>
+      <File Name="../public/togl/linuxwin/glmdebug.h"/>
+      <File Name="../public/togl/linuxwin/glmdisplay.h"/>
+      <File Name="../public/togl/linuxwin/glmdisplaydb.h"/>
+      <File Name="../public/togl/linuxwin/glmgr.h"/>
+      <File Name="../public/togl/linuxwin/glmgrbasics.h"/>
+      <File Name="../public/togl/linuxwin/glmgrext.h"/>
+      <File Name="../public/togl/rendermechanism.h"/>
+      <File Name="../togl/linuxwin/dx9asmtogl2.h"/>
+      <File Name="../togl/linuxwin/intelglmallocworkaround.h"/>
+      <File Name="../togl/linuxwin/mach_override.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="togl.vpc"/>
+      <File Name="togl.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

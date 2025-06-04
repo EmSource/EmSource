@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="filesystem_stdio" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f filesystem_stdio_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f filesystem_stdio_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f filesystem_stdio_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f filesystem_stdio_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f filesystem_stdio_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f filesystem_stdio_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/kevvaluescompiler.cpp"/>
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="../public/zip_utils.cpp"/>
+      <File Name="basefilesystem.cpp"/>
+      <File Name="filesystem_async.cpp"/>
+      <File Name="filesystem_stdio.cpp"/>
+      <File Name="filetracker.cpp"/>
+      <File Name="linux_support.cpp"/>
+      <File Name="packfile.cpp"/>
+      <File Name="QueuedLoader.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/appframework/IAppSystem.h"/>
+      <File Name="../public/bspfile.h"/>
+      <File Name="../public/bspflags.h"/>
+      <File Name="../public/filesystem.h"/>
+      <File Name="../public/filesystem/IQueuedLoader.h"/>
+      <File Name="../public/ifilelist.h"/>
+      <File Name="../public/keyvaluescompiler.h"/>
+      <File Name="../public/mathlib/bumpvects.h"/>
+      <File Name="../public/mathlib/mathlib.h"/>
+      <File Name="../public/mathlib/vector.h"/>
+      <File Name="../public/mathlib/vector2d.h"/>
+      <File Name="../public/mathlib/vector4d.h"/>
+      <File Name="../public/tier0/basetypes.h"/>
+      <File Name="../public/tier0/dbg.h"/>
+      <File Name="../public/tier0/fasttimer.h"/>
+      <File Name="../public/tier0/platform.h"/>
+      <File Name="../public/tier1/characterset.h"/>
+      <File Name="../public/tier1/interface.h"/>
+      <File Name="../public/tier1/strtools.h"/>
+      <File Name="../public/tier1/utlmemory.h"/>
+      <File Name="../public/tier1/utlrbtree.h"/>
+      <File Name="../public/tier1/utlsymbol.h"/>
+      <File Name="../public/tier1/utlvector.h"/>
+      <File Name="../public/vstdlib/vstdlib.h"/>
+      <File Name="basefilesystem.h"/>
+      <File Name="filetracker.h"/>
+      <File Name="packfile.h"/>
+      <File Name="threadsaferefcountedobject.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_cryptlib_include.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="filesystem_stdio.vpc"/>
+      <File Name="filesystem_stdio.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

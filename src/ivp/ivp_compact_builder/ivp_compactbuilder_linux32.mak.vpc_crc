@@ -1,0 +1,11 @@
+[vpc crc file version 2]
+5116e174 ../../devtools/bin/vpc_linux
+_Nc_/vpcgame:hl2_
+5911fe46 ivp_compactbuilder.vpc
+30577f77 ../../vpc_scripts/source_lib_base.vpc
+d752cf80 ../../vpc_scripts/platform_dirs.vpc
+6c4a5ff1 ../../vpc_scripts/source_base.vpc
+e13ff58b ../../vpc_scripts/source_lib_posix_base.vpc
+26cc1549 ../../vpc_scripts/source_posix_base.vpc
+486b766d ../../vpc_scripts/version.vpc
+15cd25e0 ../../vpc_scripts/source_video_base.vpc

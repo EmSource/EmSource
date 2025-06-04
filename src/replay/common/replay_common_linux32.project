@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="replay_common" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f replay_common_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f replay_common_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f replay_common_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f replay_common_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f replay_common_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f replay_common_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="basereplayserializeable.cpp"/>
+      <File Name="performance.cpp"/>
+      <File Name="replay.cpp"/>
+      <File Name="replaylib.cpp"/>
+      <File Name="replaytime.cpp"/>
+      <File Name="replayutils.cpp"/>
+      <File Name="screenshot.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../common/replay/performance.h"/>
+      <File Name="../../common/replay/replay.h"/>
+      <File Name="../../common/replay/replaylib.h"/>
+      <File Name="../../common/replay/replaytime.h"/>
+      <File Name="../../common/replay/replayutils.h"/>
+      <File Name="../../common/replay/screenshot.h"/>
+      <File Name="../../common/replay/shared_defs.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../replay/common/headers.vpc"/>
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="replay_common.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

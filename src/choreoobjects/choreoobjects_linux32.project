@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="choreoobjects" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f choreoobjects_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f choreoobjects_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f choreoobjects_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f choreoobjects_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f choreoobjects_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f choreoobjects_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../game/shared/choreoactor.cpp"/>
+      <File Name="../game/shared/choreochannel.cpp"/>
+      <File Name="../game/shared/choreoevent.cpp"/>
+      <File Name="../game/shared/choreoscene.cpp"/>
+      <File Name="../game/shared/sceneimage.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../game/shared/choreoactor.h"/>
+      <File Name="../game/shared/choreochannel.h"/>
+      <File Name="../game/shared/choreoevent.h"/>
+      <File Name="../game/shared/choreoscene.h"/>
+      <File Name="../game/shared/ichoreoeventcallback.h"/>
+      <File Name="../game/shared/sceneimage.h"/>
+      <File Name="../public/mathlib/mathlib.h"/>
+      <File Name="../public/mathlib/vector.h"/>
+      <File Name="../public/mathlib/vector2d.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="choreoobjects.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

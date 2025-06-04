@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="vguimatsurface" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f vguimatsurface_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f vguimatsurface_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f vguimatsurface_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f vguimatsurface_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f vguimatsurface_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f vguimatsurface_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/filesystem_helpers.cpp"/>
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="../public/vgui_controls/vgui_controls.cpp"/>
+      <File Name="../vgui2/src/vgui_key_translation.cpp"/>
+      <File Name="Clip2D.cpp"/>
+      <File Name="Cursor.cpp"/>
+      <File Name="FontTextureCache.cpp"/>
+      <File Name="Input.cpp"/>
+      <File Name="MatSystemSurface.cpp"/>
+      <File Name="memorybitmap.cpp"/>
+      <File Name="TextureDictionary.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../common/vgui_surfacelib/FontAmalgam.h"/>
+      <File Name="../common/vgui_surfacelib/FontManager.h"/>
+      <File Name="../common/vgui_surfacelib/Win32Font.h"/>
+      <File Name="../public/appframework/IAppSystem.h"/>
+      <File Name="../public/filesystem.h"/>
+      <File Name="../public/filesystem_helpers.h"/>
+      <File Name="../public/materialsystem/imaterial.h"/>
+      <File Name="../public/materialsystem/imaterialsystem.h"/>
+      <File Name="../public/materialsystem/imaterialvar.h"/>
+      <File Name="../public/materialsystem/imesh.h"/>
+      <File Name="../public/materialsystem/itexture.h"/>
+      <File Name="../public/mathlib/vector.h"/>
+      <File Name="../public/mathlib/vector2d.h"/>
+      <File Name="../public/mathlib/vector4d.h"/>
+      <File Name="../public/pixelwriter.h"/>
+      <File Name="../public/tier0/basetypes.h"/>
+      <File Name="../public/tier0/commonmacros.h"/>
+      <File Name="../public/tier1/characterset.h"/>
+      <File Name="../public/tier1/checksum_crc.h"/>
+      <File Name="../public/tier1/interface.h"/>
+      <File Name="../public/tier1/strtools.h"/>
+      <File Name="../public/tier1/utllinkedlist.h"/>
+      <File Name="../public/tier1/utlmemory.h"/>
+      <File Name="../public/tier1/utlrbtree.h"/>
+      <File Name="../public/tier1/utlvector.h"/>
+      <File Name="../public/VGuiMatSurface/IMatSystemSurface.h"/>
+      <File Name="../public/vstdlib/vstdlib.h"/>
+      <File Name="../public/vtf/vtf.h"/>
+      <File Name="../vgui2/src/vgui_key_translation.h"/>
+      <File Name="Clip2D.h"/>
+      <File Name="Cursor.h"/>
+      <File Name="FontTextureCache.h"/>
+      <File Name="Input.h"/>
+      <File Name="MatSystemSurface.h"/>
+      <File Name="memorybitmap.h"/>
+      <File Name="TextureDictionary.h"/>
+      <File Name="vguimatsurface.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="vguimatsurface.vpc"/>
+      <File Name="vguimatsurface.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

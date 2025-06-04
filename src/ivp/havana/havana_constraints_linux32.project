@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="havana_constraints" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f havana_constraints_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f havana_constraints_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f havana_constraints_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f havana_constraints_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f havana_constraints_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f havana_constraints_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ball_socket/ball_socket_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/breakable_constraint/breakable_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/fixed/fixed_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/hinge/hinge_bp_builder.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/hinge/hinge_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/limited_ball_socket/limited_ball_socket_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/local_constraint_system/local_constraint_system.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/prismatic/prismatic_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/pulley/pulley_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ragdoll/ragdoll_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ragdoll/ragdoll_constraint_bp_builder.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/stiff_spring/stiff_spring_constraint.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/core/rigid_body_core.cpp"/>
+      <File Name="../../ivp/havana/havok/hk_physics/effector/rigid_body_binary_effector.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ball_socket/ball_socket_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ball_socket/ball_socket_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/breakable_constraint/breakable_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/breakable_constraint/breakable_constraint_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/constraint_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/constraint_limit.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/fixed/fixed_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/fixed/fixed_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/hinge/hinge_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/hinge/hinge_bp_builder.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/hinge/hinge_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/limited_ball_socket/limited_ball_socket_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/limited_ball_socket/limited_ball_socket_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/local_constraint_system/local_constraint_system.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/local_constraint_system/local_constraint_system_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/prismatic/prismatic_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/prismatic/prismatic_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/pulley/pulley_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/pulley/pulley_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ragdoll/ragdoll_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ragdoll/ragdoll_constraint_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/ragdoll/ragdoll_constraint_bp_builder.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/stiff_spring/stiff_spring_bp.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/stiff_spring/stiff_spring_constraint.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/constraint/util/constraint_limit_util.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/core/vm_query_builder/mass_relative_vector3.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/core/vm_query_builder/vm_query_builder.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/physics.h"/>
+      <File Name="../../ivp/havana/havok/hk_physics/simunit/psi_info.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="havana_constraints.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

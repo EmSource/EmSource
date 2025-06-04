@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="vgui_controls" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f vgui_controls_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f vgui_controls_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f vgui_controls_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f vgui_controls_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f vgui_controls_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f vgui_controls_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../public/filesystem_helpers.cpp"/>
+      <File Name="../../vgui2/src/vgui_key_translation.cpp"/>
+      <File Name="AnalogBar.cpp"/>
+      <File Name="AnimatingImagePanel.cpp"/>
+      <File Name="AnimationController.cpp"/>
+      <File Name="BitmapImagePanel.cpp"/>
+      <File Name="BuildFactoryHelper.cpp"/>
+      <File Name="BuildGroup.cpp"/>
+      <File Name="BuildModeDialog.cpp"/>
+      <File Name="Button.cpp"/>
+      <File Name="CheckButton.cpp"/>
+      <File Name="CheckButtonList.cpp"/>
+      <File Name="CircularProgressBar.cpp"/>
+      <File Name="ComboBox.cpp"/>
+      <File Name="consoledialog.cpp"/>
+      <File Name="ControllerMap.cpp"/>
+      <File Name="controls.cpp"/>
+      <File Name="cvartogglecheckbutton.cpp"/>
+      <File Name="DirectorySelectDialog.cpp"/>
+      <File Name="Divider.cpp"/>
+      <File Name="EditablePanel.cpp"/>
+      <File Name="ExpandButton.cpp"/>
+      <File Name="FileOpenDialog.cpp"/>
+      <File Name="FileOpenStateMachine.cpp"/>
+      <File Name="FocusNavGroup.cpp"/>
+      <File Name="Frame.cpp"/>
+      <File Name="GraphPanel.cpp"/>
+      <File Name="HTML.cpp"/>
+      <File Name="Image.cpp"/>
+      <File Name="ImageList.cpp"/>
+      <File Name="ImagePanel.cpp"/>
+      <File Name="InputDialog.cpp"/>
+      <File Name="KeyBindingHelpDialog.cpp"/>
+      <File Name="KeyBoardEditorDialog.cpp"/>
+      <File Name="KeyRepeat.cpp"/>
+      <File Name="Label.cpp"/>
+      <File Name="ListPanel.cpp"/>
+      <File Name="ListViewPanel.cpp"/>
+      <File Name="Menu.cpp"/>
+      <File Name="MenuBar.cpp"/>
+      <File Name="MenuButton.cpp"/>
+      <File Name="MenuItem.cpp"/>
+      <File Name="MessageBox.cpp"/>
+      <File Name="MessageDialog.cpp"/>
+      <File Name="Panel.cpp"/>
+      <File Name="PanelListPanel.cpp"/>
+      <File Name="PerforceFileExplorer.cpp"/>
+      <File Name="PerforceFileList.cpp"/>
+      <File Name="perforcefilelistframe.cpp"/>
+      <File Name="ProgressBar.cpp"/>
+      <File Name="ProgressBox.cpp"/>
+      <File Name="PropertyDialog.cpp"/>
+      <File Name="PropertyPage.cpp"/>
+      <File Name="PropertySheet.cpp"/>
+      <File Name="QueryBox.cpp"/>
+      <File Name="RadioButton.cpp"/>
+      <File Name="RichText.cpp"/>
+      <File Name="RotatingProgressBar.cpp"/>
+      <File Name="savedocumentquery.cpp"/>
+      <File Name="ScalableImagePanel.cpp"/>
+      <File Name="ScrollableEditablePanel.cpp"/>
+      <File Name="ScrollBar.cpp"/>
+      <File Name="ScrollBarSlider.cpp"/>
+      <File Name="SectionedListPanel.cpp"/>
+      <File Name="Slider.cpp"/>
+      <File Name="Splitter.cpp"/>
+      <File Name="subrectimage.cpp"/>
+      <File Name="TextEntry.cpp"/>
+      <File Name="TextImage.cpp"/>
+      <File Name="ToggleButton.cpp"/>
+      <File Name="Tooltip.cpp"/>
+      <File Name="ToolWindow.cpp"/>
+      <File Name="TreeView.cpp"/>
+      <File Name="TreeViewListControl.cpp"/>
+      <File Name="URLLabel.cpp"/>
+      <File Name="WizardPanel.cpp"/>
+      <File Name="WizardSubPanel.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../public/Color.h"/>
+      <File Name="../../public/filesystem.h"/>
+      <File Name="../../public/filesystem_helpers.h"/>
+      <File Name="../../public/tier0/memdbgoff.h"/>
+      <File Name="../../public/tier0/memdbgon.h"/>
+      <File Name="../../public/tier1/interface.h"/>
+      <File Name="../../public/tier1/KeyValues.h"/>
+      <File Name="../../public/tier1/mempool.h"/>
+      <File Name="../../public/tier1/utlmemory.h"/>
+      <File Name="../../public/tier1/utlrbtree.h"/>
+      <File Name="../../public/tier1/utlvector.h"/>
+      <File Name="../../public/vgui_controls/AnalogBar.h"/>
+      <File Name="../../public/vgui_controls/AnimatingImagePanel.h"/>
+      <File Name="../../public/vgui_controls/AnimationController.h"/>
+      <File Name="../../public/vgui_controls/BitmapImagePanel.h"/>
+      <File Name="../../public/vgui_controls/BuildGroup.h"/>
+      <File Name="../../public/vgui_controls/BuildModeDialog.h"/>
+      <File Name="../../public/vgui_controls/Button.h"/>
+      <File Name="../../public/vgui_controls/CheckButton.h"/>
+      <File Name="../../public/vgui_controls/CheckButtonList.h"/>
+      <File Name="../../public/vgui_controls/CircularProgressBar.h"/>
+      <File Name="../../public/vgui_controls/ComboBox.h"/>
+      <File Name="../../public/vgui_controls/consoledialog.h"/>
+      <File Name="../../public/vgui_controls/ControllerMap.h"/>
+      <File Name="../../public/vgui_controls/Controls.h"/>
+      <File Name="../../public/vgui_controls/cvartogglecheckbutton.h"/>
+      <File Name="../../public/vgui_controls/DialogManager.h"/>
+      <File Name="../../public/vgui_controls/DirectorySelectDialog.h"/>
+      <File Name="../../public/vgui_controls/Divider.h"/>
+      <File Name="../../public/vgui_controls/EditablePanel.h"/>
+      <File Name="../../public/vgui_controls/ExpandButton.h"/>
+      <File Name="../../public/vgui_controls/FileOpenDialog.h"/>
+      <File Name="../../public/vgui_controls/FileOpenStateMachine.h"/>
+      <File Name="../../public/vgui_controls/FocusNavGroup.h"/>
+      <File Name="../../public/vgui_controls/Frame.h"/>
+      <File Name="../../public/vgui_controls/GraphPanel.h"/>
+      <File Name="../../public/vgui_controls/HTML.h"/>
+      <File Name="../../public/vgui_controls/Image.h"/>
+      <File Name="../../public/vgui_controls/ImageList.h"/>
+      <File Name="../../public/vgui_controls/ImagePanel.h"/>
+      <File Name="../../public/vgui_controls/InputDialog.h"/>
+      <File Name="../../public/vgui_controls/KeyBindingHelpDialog.h"/>
+      <File Name="../../public/vgui_controls/KeyBindingMap.h"/>
+      <File Name="../../public/vgui_controls/KeyBoardEditorDialog.h"/>
+      <File Name="../../public/vgui_controls/KeyRepeat.h"/>
+      <File Name="../../public/vgui_controls/Label.h"/>
+      <File Name="../../public/vgui_controls/ListPanel.h"/>
+      <File Name="../../public/vgui_controls/ListViewPanel.h"/>
+      <File Name="../../public/vgui_controls/Menu.h"/>
+      <File Name="../../public/vgui_controls/MenuBar.h"/>
+      <File Name="../../public/vgui_controls/MenuButton.h"/>
+      <File Name="../../public/vgui_controls/MenuItem.h"/>
+      <File Name="../../public/vgui_controls/MessageBox.h"/>
+      <File Name="../../public/vgui_controls/MessageDialog.h"/>
+      <File Name="../../public/vgui_controls/MessageMap.h"/>
+      <File Name="../../public/vgui_controls/Panel.h"/>
+      <File Name="../../public/vgui_controls/PanelAnimationVar.h"/>
+      <File Name="../../public/vgui_controls/PanelListPanel.h"/>
+      <File Name="../../public/vgui_controls/PerforceFileExplorer.h"/>
+      <File Name="../../public/vgui_controls/PerforceFileList.h"/>
+      <File Name="../../public/vgui_controls/perforcefilelistframe.h"/>
+      <File Name="../../public/vgui_controls/PHandle.h"/>
+      <File Name="../../public/vgui_controls/ProgressBar.h"/>
+      <File Name="../../public/vgui_controls/ProgressBox.h"/>
+      <File Name="../../public/vgui_controls/PropertyDialog.h"/>
+      <File Name="../../public/vgui_controls/PropertyPage.h"/>
+      <File Name="../../public/vgui_controls/PropertySheet.h"/>
+      <File Name="../../public/vgui_controls/QueryBox.h"/>
+      <File Name="../../public/vgui_controls/RadioButton.h"/>
+      <File Name="../../public/vgui_controls/RichText.h"/>
+      <File Name="../../public/vgui_controls/RotatingProgressBar.h"/>
+      <File Name="../../public/vgui_controls/savedocumentquery.h"/>
+      <File Name="../../public/vgui_controls/ScalableImagePanel.h"/>
+      <File Name="../../public/vgui_controls/ScrollableEditablePanel.h"/>
+      <File Name="../../public/vgui_controls/ScrollBar.h"/>
+      <File Name="../../public/vgui_controls/ScrollBarSlider.h"/>
+      <File Name="../../public/vgui_controls/SectionedListPanel.h"/>
+      <File Name="../../public/vgui_controls/Slider.h"/>
+      <File Name="../../public/vgui_controls/Splitter.h"/>
+      <File Name="../../public/vgui_controls/subrectimage.h"/>
+      <File Name="../../public/vgui_controls/TextEntry.h"/>
+      <File Name="../../public/vgui_controls/TextImage.h"/>
+      <File Name="../../public/vgui_controls/ToggleButton.h"/>
+      <File Name="../../public/vgui_controls/Tooltip.h"/>
+      <File Name="../../public/vgui_controls/ToolWindow.h"/>
+      <File Name="../../public/vgui_controls/TreeView.h"/>
+      <File Name="../../public/vgui_controls/TreeViewListControl.h"/>
+      <File Name="../../public/vgui_controls/URLLabel.h"/>
+      <File Name="../../public/vgui_controls/WizardPanel.h"/>
+      <File Name="../../public/vgui_controls/WizardSubPanel.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/protobuf_builder.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="vgui_controls.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

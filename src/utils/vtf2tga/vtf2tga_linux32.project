@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="vtf2tga" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f vtf2tga_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f vtf2tga_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f vtf2tga_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f vtf2tga_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f vtf2tga_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f vtf2tga_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../public/tier0/memoverride.cpp"/>
+      <File Name="vtf2tga.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../public/mathlib/amd3dx.h"/>
+      <File Name="../../public/mathlib/mathlib.h"/>
+      <File Name="../../public/mathlib/vector.h"/>
+      <File Name="../../public/mathlib/vector2d.h"/>
+      <File Name="../../public/string_t.h"/>
+      <File Name="../../public/tier0/basetypes.h"/>
+      <File Name="../../public/tier0/commonmacros.h"/>
+      <File Name="../../public/tier0/dbg.h"/>
+      <File Name="../../public/tier0/fasttimer.h"/>
+      <File Name="../../public/tier0/memdbgon.h"/>
+      <File Name="../../public/tier0/platform.h"/>
+      <File Name="../../public/tier0/protected_things.h"/>
+      <File Name="../../public/tier1/strtools.h"/>
+      <File Name="../../public/tier1/utlbuffer.h"/>
+      <File Name="../../public/tier1/utlmemory.h"/>
+      <File Name="../../public/vstdlib/vstdlib.h"/>
+      <File Name="../../public/vtf/vtf.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/loadaddress.vpc"/>
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_exe_con_base.vpc"/>
+      <File Name="../../vpc_scripts/source_exe_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="vtf2tga.vpc"/>
+      <File Name="vtf2tga.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

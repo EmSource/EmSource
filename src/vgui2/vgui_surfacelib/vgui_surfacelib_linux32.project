@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="vgui_surfacelib" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f vgui_surfacelib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f vgui_surfacelib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f vgui_surfacelib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f vgui_surfacelib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f vgui_surfacelib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f vgui_surfacelib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="BitmapFont.cpp"/>
+      <File Name="FontAmalgam.cpp"/>
+      <File Name="FontEffects.cpp"/>
+      <File Name="FontManager.cpp"/>
+      <File Name="linuxfont.cpp"/>
+      <File Name="osxfont.cpp"/>
+      <File Name="Win32Font.cpp"/>
+      <File Name="Win32Font_x360.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../common/vgui_surfacelib/BitmapFont.h"/>
+      <File Name="../../common/vgui_surfacelib/FontAmalgam.h"/>
+      <File Name="../../common/vgui_surfacelib/FontManager.h"/>
+      <File Name="../../common/vgui_surfacelib/osxfont.h"/>
+      <File Name="../../common/vgui_surfacelib/vguifont.h"/>
+      <File Name="../../common/vgui_surfacelib/Win32Font.h"/>
+      <File Name="../../public/appframework/IAppSystem.h"/>
+      <File Name="../../public/mathlib/vector2d.h"/>
+      <File Name="../../public/tier0/basetypes.h"/>
+      <File Name="../../public/tier1/interface.h"/>
+      <File Name="../../public/tier1/strtools.h"/>
+      <File Name="../../public/tier1/utlbuffer.h"/>
+      <File Name="../../public/tier1/utlmemory.h"/>
+      <File Name="../../public/tier1/utlvector.h"/>
+      <File Name="../../public/vstdlib/vstdlib.h"/>
+      <File Name="FontEffects.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="vgui_surfacelib.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

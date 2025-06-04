@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="vphysics" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f vphysics_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f vphysics_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f vphysics_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f vphysics_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f vphysics_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f vphysics_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/filesystem_helpers.cpp"/>
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="convert.cpp"/>
+      <File Name="ledgewriter.cpp"/>
+      <File Name="main.cpp"/>
+      <File Name="physics_airboat.cpp"/>
+      <File Name="physics_collide.cpp"/>
+      <File Name="physics_constraint.cpp"/>
+      <File Name="physics_controller_raycast_vehicle.cpp"/>
+      <File Name="physics_environment.cpp"/>
+      <File Name="physics_fluid.cpp"/>
+      <File Name="physics_friction.cpp"/>
+      <File Name="physics_material.cpp"/>
+      <File Name="physics_motioncontroller.cpp"/>
+      <File Name="physics_object.cpp"/>
+      <File Name="physics_shadow.cpp"/>
+      <File Name="physics_spring.cpp"/>
+      <File Name="physics_vehicle.cpp"/>
+      <File Name="physics_virtualmesh.cpp"/>
+      <File Name="stdafx.cpp"/>
+      <File Name="trace.cpp"/>
+      <File Name="vcollide_parse.cpp"/>
+      <File Name="vphysics_saverestore.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/datamap.h"/>
+      <File Name="../public/filesystem_helpers.h"/>
+      <File Name="../public/vcollide.h"/>
+      <File Name="../public/vcollide_parse.h"/>
+      <File Name="../public/vphysics/collision_set.h"/>
+      <File Name="../public/vphysics/constraints.h"/>
+      <File Name="../public/vphysics/friction.h"/>
+      <File Name="../public/vphysics/object_hash.h"/>
+      <File Name="../public/vphysics/performance.h"/>
+      <File Name="../public/vphysics/player_controller.h"/>
+      <File Name="../public/vphysics/stats.h"/>
+      <File Name="../public/vphysics/vehicles.h"/>
+      <File Name="../public/vphysics_interface.h"/>
+      <File Name="../public/vphysics_interfaceV30.h"/>
+      <File Name="cbase.h"/>
+      <File Name="convert.h"/>
+      <File Name="linear_solver.h"/>
+      <File Name="physics_airboat.h"/>
+      <File Name="physics_constraint.h"/>
+      <File Name="physics_controller_raycast_vehicle.h"/>
+      <File Name="physics_environment.h"/>
+      <File Name="physics_fluid.h"/>
+      <File Name="physics_friction.h"/>
+      <File Name="physics_material.h"/>
+      <File Name="physics_motioncontroller.h"/>
+      <File Name="physics_object.h"/>
+      <File Name="physics_shadow.h"/>
+      <File Name="physics_spring.h"/>
+      <File Name="physics_trace.h"/>
+      <File Name="physics_vehicle.h"/>
+      <File Name="vcollide_parse_private.h"/>
+      <File Name="vphysics_internal.h"/>
+      <File Name="vphysics_saverestore.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="vphysics.vpc"/>
+      <File Name="vphysics.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

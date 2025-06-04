@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="hk_base" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f hk_base_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f hk_base_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f hk_base_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f hk_base_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f hk_base_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f hk_base_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="array/array.cpp"/>
+      <File Name="base_types.cpp"/>
+      <File Name="console.cpp"/>
+      <File Name="hash/hash.cpp"/>
+      <File Name="id_server/id_server.cpp"/>
+      <File Name="memory/memory.cpp"/>
+      <File Name="memory/memory_util.cpp"/>
+      <File Name="stopwatch/stopwatch.cpp"/>
+      <File Name="string/string.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="array/array.h"/>
+      <File Name="array/pre_allocated_array.h"/>
+      <File Name="base.h"/>
+      <File Name="base_types.h"/>
+      <File Name="console.h"/>
+      <File Name="hash/hash.h"/>
+      <File Name="id_server/id_server.h"/>
+      <File Name="memory/memory.h"/>
+      <File Name="memory/memory_managed_virtual_class.h"/>
+      <File Name="memory/memory_util.h"/>
+      <File Name="stdafx.h"/>
+      <File Name="stopwatch/stopwatch.h"/>
+      <File Name="string/string.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../../../vpc_scripts/version.vpc"/>
+      <File Name="hk_base.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

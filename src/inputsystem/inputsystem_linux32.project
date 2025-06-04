@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="inputsystem" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f inputsystem_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f inputsystem_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f inputsystem_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f inputsystem_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f inputsystem_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f inputsystem_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="inputsystem.cpp"/>
+      <File Name="joystick_sdl.cpp"/>
+      <File Name="key_translation.cpp"/>
+      <File Name="novint.cpp"/>
+      <File Name="steamcontroller.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../dx9sdk/include/xinput.h"/>
+      <File Name="../public/inputsystem/AnalogCode.h"/>
+      <File Name="../public/inputsystem/ButtonCode.h"/>
+      <File Name="../public/inputsystem/iinputsystem.h"/>
+      <File Name="../public/inputsystem/InputEnums.h"/>
+      <File Name="inputsystem.h"/>
+      <File Name="key_translation.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="inputsystem.vpc"/>
+      <File Name="inputsystem.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

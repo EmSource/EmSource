@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="ivp_compactbuilder" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f ivp_compactbuilder_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f ivp_compactbuilder_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f ivp_compactbuilder_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f ivp_compactbuilder_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f ivp_compactbuilder_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f ivp_compactbuilder_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../ivp/ivp_compact_builder/3dsimport_co.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_cutfac.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_cvdec3.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_drdec3.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_dsphdc.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_edght.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_initcb.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_insed3.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_insfac.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_insvr3.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_prime.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_ptpolg.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack_resedg.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_compact_ledge_gen.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_compact_modify.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_compact_recursive.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_convex_decompositor.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_halfspacesoup.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_i_fpoint_vhash.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_i_point_vhash.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_object_polygon_tetra.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_rot_inertia_solver.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_halfspacesoup.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_ledge_soup.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_pointsoup.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_polygon_convex.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_polyhdrn_cncv.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_q12.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_templates_intern.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_tetra_intrude.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivv_cluster_min_hash.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_geom.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_geom2.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_global.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_io.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_mem.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_merge.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_poly.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_poly2.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_qset.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_stat.cxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_user.cxx"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../ivp/ivp_compact_builder/3dsimport_load.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/geompack.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_compact_ledge_gen.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_compact_modify.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_compact_recursive.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_convex_decompositor.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_halfspacesoup.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_i_fpoint_vhash.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_i_point_vhash.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_object_polygon_tetra.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_rot_inertia_solver.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_3ds.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_halfspacesoup.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_ledge_soup.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_pointsoup.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_polygon_convex.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_polyhdrn_cncv.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_surbuild_q12.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_templates_intern.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_tetra_intrude.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivp_triangle_gen.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/ivv_cluster_min_hash.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_a.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_geom.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_io.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_mem.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_merge.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_poly.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_qset.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_stat.hxx"/>
+      <File Name="../../ivp/ivp_compact_builder/qhull_user.hxx"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="ivp_compactbuilder.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

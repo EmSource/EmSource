@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="jpeglib" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f jpeglib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f jpeglib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f jpeglib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f jpeglib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f jpeglib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f jpeglib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="jaricom.c"/>
+      <File Name="jcapimin.c"/>
+      <File Name="jcapistd.c"/>
+      <File Name="jcarith.c"/>
+      <File Name="jccoefct.c"/>
+      <File Name="jccolor.c"/>
+      <File Name="jcdctmgr.c"/>
+      <File Name="jchuff.c"/>
+      <File Name="jcinit.c"/>
+      <File Name="jcmainct.c"/>
+      <File Name="jcmarker.c"/>
+      <File Name="jcmaster.c"/>
+      <File Name="jcomapi.c"/>
+      <File Name="jcparam.c"/>
+      <File Name="jcprepct.c"/>
+      <File Name="jcsample.c"/>
+      <File Name="jctrans.c"/>
+      <File Name="jdapimin.c"/>
+      <File Name="jdapistd.c"/>
+      <File Name="jdarith.c"/>
+      <File Name="jdatadst.c"/>
+      <File Name="jdatasrc.c"/>
+      <File Name="jdcoefct.c"/>
+      <File Name="jdcolor.c"/>
+      <File Name="jddctmgr.c"/>
+      <File Name="jdhuff.c"/>
+      <File Name="jdinput.c"/>
+      <File Name="jdmainct.c"/>
+      <File Name="jdmarker.c"/>
+      <File Name="jdmaster.c"/>
+      <File Name="jdmerge.c"/>
+      <File Name="jdpostct.c"/>
+      <File Name="jdsample.c"/>
+      <File Name="jdtrans.c"/>
+      <File Name="jerror.c"/>
+      <File Name="jfdctflt.c"/>
+      <File Name="jfdctfst.c"/>
+      <File Name="jfdctint.c"/>
+      <File Name="jidctflt.c"/>
+      <File Name="jidctfst.c"/>
+      <File Name="jidctint.c"/>
+      <File Name="jmemmgr.c"/>
+      <File Name="jmemnobs.c"/>
+      <File Name="jquant1.c"/>
+      <File Name="jquant2.c"/>
+      <File Name="jutils.c"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../public/jpeglib/jconfig.h"/>
+      <File Name="../../public/jpeglib/jpeglib.h"/>
+      <File Name="jdct.h"/>
+      <File Name="jerror.h"/>
+      <File Name="jinclude.h"/>
+      <File Name="jmemsys.h"/>
+      <File Name="jmorecfg.h"/>
+      <File Name="jpegint.h"/>
+      <File Name="jversion.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="jpeglib.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

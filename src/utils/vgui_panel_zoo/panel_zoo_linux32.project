@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="panel_zoo" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f panel_zoo_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f panel_zoo_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f panel_zoo_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f panel_zoo_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f panel_zoo_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f panel_zoo_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../public/tier0/memoverride.cpp"/>
+      <File Name="../../public/vgui_controls/vgui_controls.cpp"/>
+      <File Name="AnimatingImagePanelDemo.cpp"/>
+      <File Name="ButtonDemo.cpp"/>
+      <File Name="ButtonDemo2.cpp"/>
+      <File Name="CascadingMenu.cpp"/>
+      <File Name="CControlCatalog.cpp"/>
+      <File Name="CheckButtonDemo.cpp"/>
+      <File Name="ComboBox2.cpp"/>
+      <File Name="ComboBoxDemo.cpp"/>
+      <File Name="DefaultColors.cpp"/>
+      <File Name="DemoPage.cpp"/>
+      <File Name="EditablePanel2Demo.cpp"/>
+      <File Name="EditablePanelDemo.cpp"/>
+      <File Name="FileOpenDialogDemo.cpp"/>
+      <File Name="FrameDemo.cpp"/>
+      <File Name="HTMLDemo.cpp"/>
+      <File Name="HTMLDemo2.cpp"/>
+      <File Name="ImageDemo.cpp"/>
+      <File Name="ImagePanelDemo.cpp"/>
+      <File Name="Label2Demo.cpp"/>
+      <File Name="LabelDemo.cpp"/>
+      <File Name="ListPanelDemo.cpp"/>
+      <File Name="MenuBarDemo.cpp"/>
+      <File Name="MenuDemo.cpp"/>
+      <File Name="MenuDemo2.cpp"/>
+      <File Name="MessageBoxDemo.cpp"/>
+      <File Name="ProgressBarDemo.cpp"/>
+      <File Name="QueryBoxDemo.cpp"/>
+      <File Name="RadioButtonDemo.cpp"/>
+      <File Name="SampleButtons.cpp"/>
+      <File Name="SampleCheckButtons.cpp"/>
+      <File Name="SampleDropDowns.cpp"/>
+      <File Name="SampleEditFields.cpp"/>
+      <File Name="SampleListCategories.cpp"/>
+      <File Name="SampleListPanelBoth.cpp"/>
+      <File Name="SampleListPanelColumns.cpp"/>
+      <File Name="SampleMenus.cpp"/>
+      <File Name="SampleRadioButtons.cpp"/>
+      <File Name="SampleSliders.cpp"/>
+      <File Name="SampleTabs.cpp"/>
+      <File Name="ScrollBar2Demo.cpp"/>
+      <File Name="ScrollBarDemo.cpp"/>
+      <File Name="testfile.cpp"/>
+      <File Name="TextEntryDemo.cpp"/>
+      <File Name="TextEntryDemo2.cpp"/>
+      <File Name="TextEntryDemo3.cpp"/>
+      <File Name="TextEntryDemo4.cpp"/>
+      <File Name="TextEntryDemo5.cpp"/>
+      <File Name="TextImageDemo.cpp"/>
+      <File Name="ToggleButtonDemo.cpp"/>
+      <File Name="TooltipDemo.cpp"/>
+      <File Name="WizardPanelDemo.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../public/tier1/interface.h"/>
+      <File Name="CControlCatalog.h"/>
+      <File Name="DemoPage.h"/>
+      <File Name="MenuDemo.h"/>
+      <File Name="SampleListPanelBoth.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../game/protobuf_include.vpc"/>
+      <File Name="../../vpc_scripts/loadaddress.vpc"/>
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_exe_base.vpc"/>
+      <File Name="../../vpc_scripts/source_exe_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="panel_zoo.vpc"/>
+      <File Name="panel_zoo.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

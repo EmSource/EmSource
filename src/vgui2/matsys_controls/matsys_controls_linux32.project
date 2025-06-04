@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="matsys_controls" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f matsys_controls_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f matsys_controls_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f matsys_controls_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f matsys_controls_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f matsys_controls_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f matsys_controls_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="assetpicker.cpp"/>
+      <File Name="baseassetpicker.cpp"/>
+      <File Name="colorpickerpanel.cpp"/>
+      <File Name="curveeditorpanel.cpp"/>
+      <File Name="gamefiletreeview.cpp"/>
+      <File Name="manipulator.cpp"/>
+      <File Name="matsyscontrols.cpp"/>
+      <File Name="mdlpanel.cpp"/>
+      <File Name="mdlpicker.cpp"/>
+      <File Name="mdlsequencepicker.cpp"/>
+      <File Name="picker.cpp"/>
+      <File Name="potterywheelpanel.cpp"/>
+      <File Name="proceduraltexturepanel.cpp"/>
+      <File Name="QCGenerator.cpp"/>
+      <File Name="sequencepicker.cpp"/>
+      <File Name="tgapreviewpanel.cpp"/>
+      <File Name="vmtpanel.cpp"/>
+      <File Name="vmtpicker.cpp"/>
+      <File Name="vmtpreviewpanel.cpp"/>
+      <File Name="vtfpicker.cpp"/>
+      <File Name="vtfpreviewpanel.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../public/matsys_controls/assetpicker.h"/>
+      <File Name="../../public/matsys_controls/baseassetpicker.h"/>
+      <File Name="../../public/matsys_controls/colorpickerpanel.h"/>
+      <File Name="../../public/matsys_controls/gamefiletreeview.h"/>
+      <File Name="../../public/matsys_controls/manipulator.h"/>
+      <File Name="../../public/matsys_controls/matsyscontrols.h"/>
+      <File Name="../../public/matsys_controls/mdlpanel.h"/>
+      <File Name="../../public/matsys_controls/mdlpicker.h"/>
+      <File Name="../../public/matsys_controls/mdlsequencepicker.h"/>
+      <File Name="../../public/matsys_controls/picker.h"/>
+      <File Name="../../public/matsys_controls/potterywheelpanel.h"/>
+      <File Name="../../public/matsys_controls/proceduraltexturepanel.h"/>
+      <File Name="../../public/matsys_controls/QCGenerator.h"/>
+      <File Name="../../public/matsys_controls/sequencepicker.h"/>
+      <File Name="../../public/matsys_controls/tgapreviewpanel.h"/>
+      <File Name="../../public/matsys_controls/vmtpanel.h"/>
+      <File Name="../../public/matsys_controls/vmtpicker.h"/>
+      <File Name="../../public/matsys_controls/vmtpreviewpanel.h"/>
+      <File Name="../../public/matsys_controls/vtfpicker.h"/>
+      <File Name="../../public/matsys_controls/vtfpreviewpanel.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="matsys_controls.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

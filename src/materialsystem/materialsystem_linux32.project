@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="materialsystem" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f materialsystem_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f materialsystem_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f materialsystem_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f materialsystem_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f materialsystem_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f materialsystem_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/filesystem_helpers.cpp"/>
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="CColorCorrection.cpp"/>
+      <File Name="cmaterial.cpp"/>
+      <File Name="cmaterialdict.cpp"/>
+      <File Name="CMaterialSubRect.cpp"/>
+      <File Name="cmaterialsystem.cpp"/>
+      <File Name="cmaterialvar.cpp"/>
+      <File Name="cmaterial_queuefriendly.cpp"/>
+      <File Name="cmatlightmaps.cpp"/>
+      <File Name="cmatnullrendercontext.cpp"/>
+      <File Name="cmatqueuedrendercontext.cpp"/>
+      <File Name="cmatrendercontext.cpp"/>
+      <File Name="colorspace.cpp"/>
+      <File Name="ctexture.cpp"/>
+      <File Name="ctexturecompositor.cpp"/>
+      <File Name="imagepacker.cpp"/>
+      <File Name="materialsystem_global.cpp"/>
+      <File Name="mat_stub.cpp"/>
+      <File Name="morph.cpp"/>
+      <File Name="occlusionquerymgr.cpp"/>
+      <File Name="pch_materialsystem.cpp"/>
+      <File Name="shadersystem.cpp"/>
+      <File Name="texturemanager.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../common/cstringhash.h"/>
+      <File Name="../public/appframework/IAppSystem.h"/>
+      <File Name="../public/const.h"/>
+      <File Name="../public/crtmemdebug.h"/>
+      <File Name="../public/filesystem.h"/>
+      <File Name="../public/materialsystem/combineoperations.h"/>
+      <File Name="../public/materialsystem/IColorCorrection.h"/>
+      <File Name="../public/materialsystem/imaterial.h"/>
+      <File Name="../public/materialsystem/imaterialproxy.h"/>
+      <File Name="../public/materialsystem/imaterialproxyfactory.h"/>
+      <File Name="../public/materialsystem/imaterialsystem.h"/>
+      <File Name="../public/materialsystem/imaterialsystemhardwareconfig.h"/>
+      <File Name="../public/materialsystem/imaterialsystemstub.h"/>
+      <File Name="../public/materialsystem/imaterialvar.h"/>
+      <File Name="../public/materialsystem/imesh.h"/>
+      <File Name="../public/materialsystem/imorph.h"/>
+      <File Name="../public/materialsystem/IShader.h"/>
+      <File Name="../public/materialsystem/ishaderapi.h"/>
+      <File Name="../public/materialsystem/itexture.h"/>
+      <File Name="../public/materialsystem/itexturecompositor.h"/>
+      <File Name="../public/materialsystem/materialsystem_config.h"/>
+      <File Name="../public/mathlib/amd3dx.h"/>
+      <File Name="../public/mathlib/bumpvects.h"/>
+      <File Name="../public/mathlib/mathlib.h"/>
+      <File Name="../public/mathlib/vector.h"/>
+      <File Name="../public/mathlib/vector2d.h"/>
+      <File Name="../public/mathlib/vector4d.h"/>
+      <File Name="../public/mathlib/vmatrix.h"/>
+      <File Name="../public/mathlib/vplane.h"/>
+      <File Name="../public/pixelwriter.h"/>
+      <File Name="../public/renderparm.h"/>
+      <File Name="../public/shaderapi/ishaderutil.h"/>
+      <File Name="../public/tier0/basetypes.h"/>
+      <File Name="../public/tier1/convar.h"/>
+      <File Name="../public/tier1/interface.h"/>
+      <File Name="../public/tier1/KeyValues.h"/>
+      <File Name="../public/tier1/mempool.h"/>
+      <File Name="../public/tier1/strtools.h"/>
+      <File Name="../public/tier1/utlbuffer.h"/>
+      <File Name="../public/tier1/utlmemory.h"/>
+      <File Name="../public/tier1/utlrbtree.h"/>
+      <File Name="../public/tier1/utlsymbol.h"/>
+      <File Name="../public/tier1/utlvector.h"/>
+      <File Name="../public/vstdlib/vstdlib.h"/>
+      <File Name="../public/vtf/vtf.h"/>
+      <File Name="cmaterialdict.h"/>
+      <File Name="cmaterialsystem.h"/>
+      <File Name="cmaterial_queuefriendly.h"/>
+      <File Name="cmatlightmaps.h"/>
+      <File Name="cmatnullrendercontext.h"/>
+      <File Name="cmatqueuedrendercontext.h"/>
+      <File Name="cmatrendercontext.h"/>
+      <File Name="colorspace.h"/>
+      <File Name="ctexturecompositor.h"/>
+      <File Name="IHardwareConfigInternal.h"/>
+      <File Name="imagepacker.h"/>
+      <File Name="imaterialinternal.h"/>
+      <File Name="imaterialsysteminternal.h"/>
+      <File Name="imatrendercontextinternal.h"/>
+      <File Name="imorphinternal.h"/>
+      <File Name="IShaderSystem.h"/>
+      <File Name="itextureinternal.h"/>
+      <File Name="materialsystem_global.h"/>
+      <File Name="occlusionquerymgr.h"/>
+      <File Name="shadersystem.h"/>
+      <File Name="shader_dll_verify.h"/>
+      <File Name="texturemanager.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="materialsystem.vpc"/>
+      <File Name="materialsystem.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

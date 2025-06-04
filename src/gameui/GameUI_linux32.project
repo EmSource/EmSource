@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="gameui" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f GameUI_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f GameUI_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f GameUI_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f GameUI_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f GameUI_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f GameUI_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../common/GameUI/cvarslider.cpp"/>
+      <File Name="../common/GameUI/ObjectList.cpp"/>
+      <File Name="../common/GameUI/scriptobject.cpp"/>
+      <File Name="../common/imageutils.cpp"/>
+      <File Name="../common/language.cpp"/>
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="../public/vgui_controls/vgui_controls.cpp"/>
+      <File Name="BackgroundMenuButton.cpp"/>
+      <File Name="BasePanel.cpp"/>
+      <File Name="BaseSaveGameDialog.cpp"/>
+      <File Name="BenchmarkDialog.cpp"/>
+      <File Name="BitmapImagePanel.cpp"/>
+      <File Name="BonusMapsDatabase.cpp"/>
+      <File Name="BonusMapsDialog.cpp"/>
+      <File Name="ChangeGameDialog.cpp"/>
+      <File Name="CommandCheckButton.cpp"/>
+      <File Name="CommentaryDialog.cpp"/>
+      <File Name="CommentaryExplanationDialog.cpp"/>
+      <File Name="ContentControlDialog.cpp"/>
+      <File Name="ControllerDialog.cpp"/>
+      <File Name="CreateMultiplayerGameBotPage.cpp"/>
+      <File Name="CreateMultiplayerGameDialog.cpp"/>
+      <File Name="CreateMultiplayerGameGameplayPage.cpp"/>
+      <File Name="CreateMultiplayerGameServerPage.cpp"/>
+      <File Name="CustomTabExplanationDialog.cpp"/>
+      <File Name="CvarNegateCheckButton.cpp"/>
+      <File Name="CvarTextEntry.cpp"/>
+      <File Name="CvarToggleCheckButton.cpp"/>
+      <File Name="GameConsole.cpp"/>
+      <File Name="GameConsoleDialog.cpp"/>
+      <File Name="GameUI_Interface.cpp"/>
+      <File Name="gameui_util.cpp"/>
+      <File Name="HapticControlBox.cpp"/>
+      <File Name="KeyToggleCheckButton.cpp"/>
+      <File Name="LabeledCommandComboBox.cpp"/>
+      <File Name="LoadCommentaryDialog.cpp"/>
+      <File Name="LoadGameDialog.cpp"/>
+      <File Name="LoadGameDialog_Xbox.cpp"/>
+      <File Name="LoadingDialog.cpp"/>
+      <File Name="LogoFile.cpp"/>
+      <File Name="matchmaking/achievementsdialog.cpp"/>
+      <File Name="matchmaking/basedialog.cpp"/>
+      <File Name="matchmaking/dialogmenu.cpp"/>
+      <File Name="matchmaking/leaderboarddialog.cpp"/>
+      <File Name="matchmaking/matchmakingbasepanel.cpp"/>
+      <File Name="matchmaking/pausedialog.cpp"/>
+      <File Name="matchmaking/sessionbrowserdialog.cpp"/>
+      <File Name="matchmaking/sessionlobbydialog.cpp"/>
+      <File Name="matchmaking/sessionoptionsdialog.cpp"/>
+      <File Name="matchmaking/welcomedialog.cpp"/>
+      <File Name="ModInfo.cpp"/>
+      <File Name="MouseMessageForwardingPanel.cpp"/>
+      <File Name="MultiplayerAdvancedDialog.cpp"/>
+      <File Name="NewGameDialog.cpp"/>
+      <File Name="OptionsDialog.cpp"/>
+      <File Name="OptionsDialog_Xbox.cpp"/>
+      <File Name="OptionsSubAudio.cpp"/>
+      <File Name="OptionsSubDifficulty.cpp"/>
+      <File Name="OptionsSubGame.cpp"/>
+      <File Name="OptionsSubHaptics.cpp"/>
+      <File Name="OptionsSubKeyboard.cpp"/>
+      <File Name="OptionsSubMouse.cpp"/>
+      <File Name="OptionsSubMultiplayer.cpp"/>
+      <File Name="OptionsSubPortal.cpp"/>
+      <File Name="OptionsSubVideo.cpp"/>
+      <File Name="OptionsSubVoice.cpp"/>
+      <File Name="PanelListPanel.cpp"/>
+      <File Name="PlayerListDialog.cpp"/>
+      <File Name="RunGameEngine.cpp"/>
+      <File Name="SaveGameBrowserDialog.cpp"/>
+      <File Name="SaveGameDialog.cpp"/>
+      <File Name="SaveGameDialog_Xbox.cpp"/>
+      <File Name="Sys_Utils.cpp"/>
+      <File Name="TextEntryBox.cpp"/>
+      <File Name="TGAImagePanel.cpp"/>
+      <File Name="URLButton.cpp"/>
+      <File Name="vcontrolslistpanel.cpp"/>
+      <File Name="VGuiSystemModuleLoader.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../common/GameUI/cvarslider.h"/>
+      <File Name="../common/GameUI/IGameUI.h"/>
+      <File Name="../common/GameUI/ObjectList.h"/>
+      <File Name="../common/GameUI/scriptobject.h"/>
+      <File Name="../common/imageutils.h"/>
+      <File Name="../common/IObjectContainer.h"/>
+      <File Name="../common/IRunGameEngine.h"/>
+      <File Name="../common/IVguiModule.h"/>
+      <File Name="../common/IVGuiModuleLoader.h"/>
+      <File Name="../common/language.h"/>
+      <File Name="../common/ValveCDKeyGameAndTerritoryCodes.h"/>
+      <File Name="../public/game/client/IGameClientExports.h"/>
+      <File Name="../public/iachievementmgr.h"/>
+      <File Name="../public/IGameUIFuncs.h"/>
+      <File Name="../public/savegame_version.h"/>
+      <File Name="../public/tier1/interface.h"/>
+      <File Name="../vgui2/src/Memorybitmap.h"/>
+      <File Name="BackgroundMenuButton.h"/>
+      <File Name="BasePanel.h"/>
+      <File Name="BaseSaveGameDialog.h"/>
+      <File Name="BenchmarkDialog.h"/>
+      <File Name="BitmapImagePanel.h"/>
+      <File Name="BonusMapsDatabase.h"/>
+      <File Name="BonusMapsDialog.h"/>
+      <File Name="CDKeyEntryDialog.h"/>
+      <File Name="ChangeGameDialog.h"/>
+      <File Name="CommandCheckButton.h"/>
+      <File Name="CommentaryDialog.h"/>
+      <File Name="CommentaryExplanationDialog.h"/>
+      <File Name="ContentControlDialog.h"/>
+      <File Name="ControllerDialog.h"/>
+      <File Name="CreateMultiplayerGameBotPage.h"/>
+      <File Name="CreateMultiplayerGameDialog.h"/>
+      <File Name="CreateMultiplayerGameGameplayPage.h"/>
+      <File Name="CreateMultiplayerGameServerPage.h"/>
+      <File Name="CustomTabExplanationDialog.h"/>
+      <File Name="CvarNegateCheckButton.h"/>
+      <File Name="CvarTextEntry.h"/>
+      <File Name="CvarToggleCheckButton.h"/>
+      <File Name="EngineInterface.h"/>
+      <File Name="GameConsole.h"/>
+      <File Name="GameConsoleDialog.h"/>
+      <File Name="GameUI_Interface.h"/>
+      <File Name="gameui_util.h"/>
+      <File Name="HapticControlBox.h"/>
+      <File Name="KeyToggleCheckButton.h"/>
+      <File Name="LabeledCommandComboBox.h"/>
+      <File Name="LoadGameDialog.h"/>
+      <File Name="LoadingDialog.h"/>
+      <File Name="matchmaking/achievementsdialog.h"/>
+      <File Name="matchmaking/basedialog.h"/>
+      <File Name="matchmaking/dialogmenu.h"/>
+      <File Name="matchmaking/leaderboarddialog.h"/>
+      <File Name="matchmaking/matchmakingbasepanel.h"/>
+      <File Name="matchmaking/pausedialog.h"/>
+      <File Name="matchmaking/sessionbrowserdialog.h"/>
+      <File Name="matchmaking/sessionlobbydialog.h"/>
+      <File Name="matchmaking/sessionoptionsdialog.h"/>
+      <File Name="matchmaking/welcomedialog.h"/>
+      <File Name="ModInfo.h"/>
+      <File Name="MouseMessageForwardingPanel.h"/>
+      <File Name="MultiplayerAdvancedDialog.h"/>
+      <File Name="NewGameDialog.h"/>
+      <File Name="OptionsDialog.h"/>
+      <File Name="OptionsSubAudio.h"/>
+      <File Name="OptionsSubDifficulty.h"/>
+      <File Name="OptionsSubGame.h"/>
+      <File Name="OptionsSubHaptics.h"/>
+      <File Name="OptionsSubKeyboard.h"/>
+      <File Name="OptionsSubMouse.h"/>
+      <File Name="OptionsSubMultiplayer.h"/>
+      <File Name="OptionsSubPortal.h"/>
+      <File Name="OptionsSubVideo.h"/>
+      <File Name="OptionsSubVoice.h"/>
+      <File Name="PanelListPanel.h"/>
+      <File Name="PlayerListDialog.h"/>
+      <File Name="SaveGameBrowserDialog.h"/>
+      <File Name="SaveGameDialog.h"/>
+      <File Name="Sys_Utils.h"/>
+      <File Name="TextEntryBox.h"/>
+      <File Name="TGAImagePanel.h"/>
+      <File Name="URLButton.h"/>
+      <File Name="vcontrolslistpanel.h"/>
+      <File Name="VGuiSystemModuleLoader.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_cryptlib_include.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_saxxyawards.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="GameUI.vpc"/>
+      <File Name="GameUI.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

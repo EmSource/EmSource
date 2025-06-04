@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="vstdlib" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f vstdlib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f vstdlib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f vstdlib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f vstdlib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f vstdlib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f vstdlib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="coroutine.cpp"/>
+      <File Name="cvar.cpp"/>
+      <File Name="jobthread.cpp"/>
+      <File Name="KeyValuesSystem.cpp"/>
+      <File Name="osversion.cpp"/>
+      <File Name="processutils.cpp"/>
+      <File Name="random.cpp"/>
+      <File Name="vcover.cpp"/>
+      <File Name="xbox/___FirstModule.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/tier1/mempool.h"/>
+      <File Name="../public/vstdlib/coroutine.h"/>
+      <File Name="../public/vstdlib/cvar.h"/>
+      <File Name="../public/vstdlib/IKeyValuesSystem.h"/>
+      <File Name="../public/vstdlib/iprocessutils.h"/>
+      <File Name="../public/vstdlib/jobthread.h"/>
+      <File Name="../public/vstdlib/osversion.h"/>
+      <File Name="../public/vstdlib/random.h"/>
+      <File Name="../public/vstdlib/vcover.h"/>
+      <File Name="../public/vstdlib/vstdlib.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="vstdlib.vpc"/>
+      <File Name="vstdlib.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

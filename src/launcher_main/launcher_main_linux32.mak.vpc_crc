@@ -1,0 +1,12 @@
+[vpc crc file version 2]
+5116e174 ../devtools/bin/vpc_linux
+_Nc_/vpcgame:hl2_
+04e6b676 launcher_main.vpc
+ee573ad2 ../vpc_scripts/source_exe_base.vpc
+d752cf80 ../vpc_scripts/platform_dirs.vpc
+6c4a5ff1 ../vpc_scripts/source_base.vpc
+c18e4e4a ../vpc_scripts/source_exe_posix_base.vpc
+486b766d ../vpc_scripts/version.vpc
+26cc1549 ../vpc_scripts/source_posix_base.vpc
+846102f0 ../vpc_scripts/loadaddress.vpc
+15cd25e0 ../vpc_scripts/source_video_base.vpc

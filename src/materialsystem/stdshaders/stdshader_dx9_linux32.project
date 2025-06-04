@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="stdshader_dx9" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f stdshader_dx9_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f stdshader_dx9_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f stdshader_dx9_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f stdshader_dx9_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f stdshader_dx9_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f stdshader_dx9_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../devtools/bin/checkshaderchecksums.pl"/>
+      <File Name="../../devtools/bin/copyshaders.pl"/>
+      <File Name="../../devtools/bin/fxc_prep.pl"/>
+      <File Name="../../devtools/bin/p4autocheckout.pl"/>
+      <File Name="../../devtools/bin/p4revertshadertargets.pl"/>
+      <File Name="../../devtools/bin/psh_prep.pl"/>
+      <File Name="../../devtools/bin/updateshaders.pl"/>
+      <File Name="../../devtools/bin/valve_perl_helpers.pl"/>
+      <File Name="../../devtools/bin/vsh_prep.pl"/>
+      <File Name="../../public/tier0/memoverride.cpp"/>
+      <File Name="AccumBuff4Sample.cpp"/>
+      <File Name="accumbuff5sample.cpp"/>
+      <File Name="aftershock.cpp"/>
+      <File Name="aftershock_helper.cpp"/>
+      <File Name="BaseVSShader.cpp"/>
+      <File Name="bik_dx90.cpp"/>
+      <File Name="Bloom.cpp"/>
+      <File Name="BlurFilterX.cpp"/>
+      <File Name="BlurFilterY.cpp"/>
+      <File Name="BufferClearObeyStencil_dx9.cpp"/>
+      <File Name="cable_dx9.cpp"/>
+      <File Name="cloak.cpp"/>
+      <File Name="cloak_blended_pass_helper.cpp"/>
+      <File Name="cloak_dx9_helper.cpp"/>
+      <File Name="cloud_dx9.cpp"/>
+      <File Name="colorcorrection.cpp"/>
+      <File Name="color_projection.cpp"/>
+      <File Name="compositor.cpp"/>
+      <File Name="core_dx9.cpp"/>
+      <File Name="debugmorphaccumulator_dx9.cpp"/>
+      <File Name="debugmrttexture.cpp"/>
+      <File Name="DebugTextureView.cpp"/>
+      <File Name="DecalBaseTimesLightmapAlphaBlendSelfIllum_dx9.cpp"/>
+      <File Name="DecalModulate_dx9.cpp"/>
+      <File Name="depthwrite.cpp"/>
+      <File Name="Downsample.cpp"/>
+      <File Name="downsample_nohdr.cpp"/>
+      <File Name="emissive_scroll_blended_pass_helper.cpp"/>
+      <File Name="Engine_Post_dx9.cpp"/>
+      <File Name="eyeglint_dx9.cpp"/>
+      <File Name="eyes_dx8_dx9_helper.cpp"/>
+      <File Name="eyes_dx9.cpp"/>
+      <File Name="eye_refract.cpp"/>
+      <File Name="eye_refract_helper.cpp"/>
+      <File Name="filmdust_dx8_dx9.cpp"/>
+      <File Name="filmgrain_dx8_dx9.cpp"/>
+      <File Name="flesh_interior_blended_pass_helper.cpp"/>
+      <File Name="floatcombine.cpp"/>
+      <File Name="floatcombine_autoexpose.cpp"/>
+      <File Name="floattoscreen.cpp"/>
+      <File Name="floattoscreen_vanilla.cpp"/>
+      <File Name="HDRCombineTo16Bit.cpp"/>
+      <File Name="HDRSelectRange.cpp"/>
+      <File Name="hsl_filmgrain_pass1.cpp"/>
+      <File Name="hsl_filmgrain_pass2.cpp"/>
+      <File Name="hsv.cpp"/>
+      <File Name="introscreenspaceeffect.cpp"/>
+      <File Name="lightmappedgeneric_dx9.cpp"/>
+      <File Name="lightmappedgeneric_dx9_helper.cpp"/>
+      <File Name="lightmappedreflective.cpp"/>
+      <File Name="modulate_dx9.cpp"/>
+      <File Name="MonitorScreen_dx9.cpp"/>
+      <File Name="morphaccumulate_dx9.cpp"/>
+      <File Name="morphweight_dx9.cpp"/>
+      <File Name="motion_blur_dx9.cpp"/>
+      <File Name="occlusion_dx9.cpp"/>
+      <File Name="particlelitgeneric_dx9.cpp"/>
+      <File Name="particlelitgeneric_dx9_helper.cpp"/>
+      <File Name="particlesphere_dx9.cpp"/>
+      <File Name="portal.cpp"/>
+      <File Name="portalstaticoverlay.cpp"/>
+      <File Name="portal_refract.cpp"/>
+      <File Name="portal_refract_helper.cpp"/>
+      <File Name="pyro_vision.cpp"/>
+      <File Name="refract.cpp"/>
+      <File Name="refract_dx9_helper.cpp"/>
+      <File Name="rendertargetblit_x360.cpp"/>
+      <File Name="sample4x4.cpp"/>
+      <File Name="sample4x4_blend.cpp"/>
+      <File Name="screenspace_general.cpp"/>
+      <File Name="sfm_blurfilterx.cpp"/>
+      <File Name="sfm_blurfiltery.cpp"/>
+      <File Name="sfm_downsample.cpp"/>
+      <File Name="sfm_integercombine.cpp"/>
+      <File Name="shadow.cpp"/>
+      <File Name="shadowbuild_dx9.cpp"/>
+      <File Name="shadowmodel_dx9.cpp"/>
+      <File Name="shatteredglass.cpp"/>
+      <File Name="showz.cpp"/>
+      <File Name="skin_dx9_helper.cpp"/>
+      <File Name="sky_dx9.cpp"/>
+      <File Name="sky_hdr_dx9.cpp"/>
+      <File Name="spritecard.cpp"/>
+      <File Name="sprite_dx9.cpp"/>
+      <File Name="teeth.cpp"/>
+      <File Name="TreeLeaf.cpp"/>
+      <File Name="unlitgeneric_dx9.cpp"/>
+      <File Name="unlittwotexture_dx9.cpp"/>
+      <File Name="vertexlitgeneric_dx9.cpp"/>
+      <File Name="vertexlitgeneric_dx9_helper.cpp"/>
+      <File Name="volume_clouds.cpp"/>
+      <File Name="volume_clouds_helper.cpp"/>
+      <File Name="vortwarp_dx9.cpp"/>
+      <File Name="vr_distort_hud.cpp"/>
+      <File Name="vr_distort_texture.cpp"/>
+      <File Name="warp.cpp"/>
+      <File Name="water.cpp"/>
+      <File Name="weapon_sheen_pass_helper.cpp"/>
+      <File Name="windowimposter_dx90.cpp"/>
+      <File Name="wireframe_dx9.cpp"/>
+      <File Name="worldtwotextureblend.cpp"/>
+      <File Name="worldvertexalpha.cpp"/>
+      <File Name="worldvertextransition.cpp"/>
+      <File Name="worldvertextransition_dx8_helper.cpp"/>
+      <File Name="writestencil_dx9.cpp"/>
+      <File Name="writez_dx9.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="BaseVSShader.h"/>
+      <File Name="cloak_dx9_helper.h"/>
+      <File Name="common_fxc.h"/>
+      <File Name="common_hlsl_cpp_consts.h"/>
+      <File Name="common_ps_fxc.h"/>
+      <File Name="common_vertexlitgeneric_dx9.h"/>
+      <File Name="common_vs_fxc.h"/>
+      <File Name="lightmappedgeneric_dx9_helper.h"/>
+      <File Name="lightmappedgeneric_ps2_3_x.h"/>
+      <File Name="particlelitgeneric_dx9_helper.h"/>
+      <File Name="refract_dx9_helper.h"/>
+      <File Name="shader_constant_register_map.h"/>
+      <File Name="skin_dx9_helper.h"/>
+      <File Name="vertexlitgeneric_dx95_helper.h"/>
+      <File Name="vortwarp_vs20_helper.h"/>
+      <File Name="water_ps2x_helper.h"/>
+      <File Name="worldvertextransition_dx8_helper.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="stdshader_dx9.vpc"/>
+      <File Name="stdshader_dx9.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="tier0" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f tier0_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f tier0_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f tier0_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f tier0_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f tier0_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f tier0_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../public/tier0/memoverride.cpp"/>
+      <File Name="../tier1/pathmatch.cpp"/>
+      <File Name="assert_dialog.cpp"/>
+      <File Name="assert_dialog.rc"/>
+      <File Name="commandline.cpp"/>
+      <File Name="cpu.cpp"/>
+      <File Name="cpumonitoring.cpp"/>
+      <File Name="cpu_posix.cpp"/>
+      <File Name="cpu_usage.cpp"/>
+      <File Name="dbg.cpp"/>
+      <File Name="dynfunction.cpp"/>
+      <File Name="etwprof.cpp"/>
+      <File Name="fasttimer.cpp"/>
+      <File Name="mem.cpp"/>
+      <File Name="memdbg.cpp"/>
+      <File Name="memstd.cpp"/>
+      <File Name="memvalidate.cpp"/>
+      <File Name="mem_helpers.cpp"/>
+      <File Name="minidump.cpp"/>
+      <File Name="pch_tier0.cpp"/>
+      <File Name="platform.cpp"/>
+      <File Name="platform_posix.cpp"/>
+      <File Name="pmc360.cpp"/>
+      <File Name="pme.cpp"/>
+      <File Name="PMELib.cpp"/>
+      <File Name="pme_posix.cpp"/>
+      <File Name="progressbar.cpp"/>
+      <File Name="security.cpp"/>
+      <File Name="stacktools.cpp"/>
+      <File Name="systeminformation.cpp"/>
+      <File Name="thread.cpp"/>
+      <File Name="threadtools.cpp"/>
+      <File Name="tier0_strtools.cpp"/>
+      <File Name="tslist.cpp"/>
+      <File Name="vcrmode.cpp"/>
+      <File Name="vcrmode_posix.cpp"/>
+      <File Name="vprof.cpp"/>
+      <File Name="win32consoleio.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/tier0/basetypes.h"/>
+      <File Name="../public/tier0/commonmacros.h"/>
+      <File Name="../public/tier0/cpumonitoring.h"/>
+      <File Name="../public/tier0/dbg.h"/>
+      <File Name="../public/tier0/dbgflag.h"/>
+      <File Name="../public/tier0/etwprof.h"/>
+      <File Name="../public/tier0/EventMasks.h"/>
+      <File Name="../public/tier0/EventModes.h"/>
+      <File Name="../public/tier0/fasttimer.h"/>
+      <File Name="../public/tier0/ia32detect.h"/>
+      <File Name="../public/tier0/icommandline.h"/>
+      <File Name="../public/tier0/IOCTLCodes.h"/>
+      <File Name="../public/tier0/K8PerformanceCounters.h"/>
+      <File Name="../public/tier0/l2cache.h"/>
+      <File Name="../public/tier0/mem.h"/>
+      <File Name="../public/tier0/memalloc.h"/>
+      <File Name="../public/tier0/memdbgoff.h"/>
+      <File Name="../public/tier0/memdbgon.h"/>
+      <File Name="../public/tier0/minidump.h"/>
+      <File Name="../public/tier0/P4PerformanceCounters.h"/>
+      <File Name="../public/tier0/P5P6PerformanceCounters.h"/>
+      <File Name="../public/tier0/platform.h"/>
+      <File Name="../public/tier0/pmc360.h"/>
+      <File Name="../public/tier0/PMELib.h"/>
+      <File Name="../public/tier0/progressbar.h"/>
+      <File Name="../public/tier0/protected_things.h"/>
+      <File Name="../public/tier0/systeminformation.h"/>
+      <File Name="../public/tier0/threadtools.h"/>
+      <File Name="../public/tier0/tslist.h"/>
+      <File Name="../public/tier0/validator.h"/>
+      <File Name="../public/tier0/valobject.h"/>
+      <File Name="../public/tier0/valve_off.h"/>
+      <File Name="../public/tier0/valve_on.h"/>
+      <File Name="../public/tier0/vcrmode.h"/>
+      <File Name="../public/tier0/vcr_shared.h"/>
+      <File Name="../public/tier0/vprof.h"/>
+      <File Name="../public/tier0/wchartypes.h"/>
+      <File Name="../public/tier0/xbox_codeline_defines.h"/>
+      <File Name="mem_helpers.h"/>
+      <File Name="pch_tier0.h"/>
+      <File Name="resource.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_base.vpc"/>
+      <File Name="../vpc_scripts/source_dll_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="tier0.vpc"/>
+      <File Name="tier0.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

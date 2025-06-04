@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="gcsdk" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f gcsdk_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f gcsdk_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f gcsdk_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f gcsdk_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f gcsdk_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f gcsdk_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../common/debug_lib_check.cpp"/>
+      <File Name="../gcsdk/generated_proto/gcsdk_gcmessages.pb.cc"/>
+      <File Name="../gcsdk/generated_proto/gcsystemmsgs.pb.cc"/>
+      <File Name="../gcsdk/generated_proto/steammessages.pb.cc"/>
+      <File Name="../thirdparty/JSON_parser/JSON_parser.c"/>
+      <File Name="gcclient.cpp"/>
+      <File Name="gcclient_sharedobjectcache.cpp"/>
+      <File Name="gcconstants.cpp"/>
+      <File Name="gclogger.cpp"/>
+      <File Name="gcmsg.cpp"/>
+      <File Name="job.cpp"/>
+      <File Name="jobmgr.cpp"/>
+      <File Name="jobtime.cpp"/>
+      <File Name="messagelist.cpp"/>
+      <File Name="msgprotobuf.cpp"/>
+      <File Name="netpacket.cpp"/>
+      <File Name="netpacketpool.cpp"/>
+      <File Name="protobufsharedobject.cpp"/>
+      <File Name="sharedobject.cpp"/>
+      <File Name="sharedobjectcache.cpp"/>
+      <File Name="stdafx.cpp"/>
+      <File Name="steamextra/misc.cpp"/>
+      <File Name="steamextra/rtime.cpp"/>
+      <File Name="steamextra/steamid.cpp"/>
+      <File Name="steamextra/tier1/hashglobals.cpp"/>
+      <File Name="steamextra/tier1/tsmempool.cpp"/>
+      <File Name="steamextra/tier1/tsmultimempool.cpp"/>
+      <File Name="webapi_response.cpp"/>
+      <File Name="workthreadpool.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../gcsdk/generated_proto/gcsdk_gcmessages.pb.h"/>
+      <File Name="../gcsdk/generated_proto/gcsystemmsgs.pb.h"/>
+      <File Name="../gcsdk/generated_proto/steammessages.pb.h"/>
+      <File Name="../public/gcsdk/enumutils.h"/>
+      <File Name="../public/gcsdk/gcclient.h"/>
+      <File Name="../public/gcsdk/gcclientjob.h"/>
+      <File Name="../public/gcsdk/gcclientsdk.h"/>
+      <File Name="../public/gcsdk/gcclient_sharedobjectcache.h"/>
+      <File Name="../public/gcsdk/gcconstants.h"/>
+      <File Name="../public/gcsdk/gclogger.h"/>
+      <File Name="../public/gcsdk/gcmsg.h"/>
+      <File Name="../public/gcsdk/gcschema.h"/>
+      <File Name="../public/gcsdk/gcsdk.h"/>
+      <File Name="../public/gcsdk/gcsession.h"/>
+      <File Name="../public/gcsdk/gcsystemmsgs.h"/>
+      <File Name="../public/gcsdk/job.h"/>
+      <File Name="../public/gcsdk/jobmgr.h"/>
+      <File Name="../public/gcsdk/jobtime.h"/>
+      <File Name="../public/gcsdk/messagelist.h"/>
+      <File Name="../public/gcsdk/msgbase.h"/>
+      <File Name="../public/gcsdk/msgprotobuf.h"/>
+      <File Name="../public/gcsdk/netpacket.h"/>
+      <File Name="../public/gcsdk/netpacketpool.h"/>
+      <File Name="../public/gcsdk/protobufsharedobject.h"/>
+      <File Name="../public/gcsdk/refcount.h"/>
+      <File Name="../public/gcsdk/sharedobject.h"/>
+      <File Name="../public/gcsdk/sharedobjectcache.h"/>
+      <File Name="../public/gcsdk/workthreadpool.h"/>
+      <File Name="stdafx.h"/>
+      <File Name="steamextra/clientenums.h"/>
+      <File Name="steamextra/gamecoordinator/igamecoordinator.h"/>
+      <File Name="steamextra/gamecoordinator/igamecoordinatorhost.h"/>
+      <File Name="steamextra/gamecoordinator/igcsqlquery.h"/>
+      <File Name="steamextra/gamecoordinator/igcsqlresultsetlist.h"/>
+      <File Name="steamextra/misc.h"/>
+      <File Name="steamextra/rtime.h"/>
+      <File Name="steamextra/steam/isteamgamecoordinator.h"/>
+      <File Name="steamextra/tier0/t0constants.h"/>
+      <File Name="steamextra/tier1/pearsonshash.h"/>
+      <File Name="steamextra/tier1/tsmempool.h"/>
+      <File Name="steamextra/tier1/tsmultimempool.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../gcsdk/gcsdk_gcmessages_include.vpc"/>
+      <File Name="../gcsdk/steammessages_include.vpc"/>
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/protobuf_builder.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="gcsdk_game.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

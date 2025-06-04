@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="particles" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f particles_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f particles_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f particles_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f particles_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f particles_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f particles_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="addbuiltin_ops.cpp"/>
+      <File Name="builtin_constraints.cpp"/>
+      <File Name="builtin_initializers.cpp"/>
+      <File Name="builtin_particle_emitters.cpp"/>
+      <File Name="builtin_particle_forces.cpp"/>
+      <File Name="builtin_particle_ops.cpp"/>
+      <File Name="builtin_particle_render_ops.cpp"/>
+      <File Name="particles.cpp"/>
+      <File Name="particle_sort.cpp"/>
+      <File Name="psheet.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/particles/particles.h"/>
+      <File Name="particles_internal.h"/>
+      <File Name="random_floats.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="particles.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

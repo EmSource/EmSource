@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="ivp_physics" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f ivp_physics_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f ivp_physics_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f ivp_physics_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f ivp_physics_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f ivp_physics_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f ivp_physics_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../../ivp/ivp_collision/ivp_3d_solver.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_longrange.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_lrange_hash.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_visualizer.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_visual_hash.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_collision_filter.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_coll_del_root_mindist.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_compact_ledge.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_compact_ledge_solver.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_i_collision_vhash.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_debug.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_event.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_mcases.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_minimize.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_recursive.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_oo_watcher.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_range_manager.cxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_ray_solver.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_actuator.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_actuator_spring.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_buoyancy_solver.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_car_system.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint_car.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint_fixed_keyed.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint_local.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_airboat.cpp"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_buoyancy.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_floating.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_motion.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_raycast_car.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_stiff_spring.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_world_frict.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_forcefield.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_multidimensional_interp.cxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_template_constraint.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_ball.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_calc_next_psi_solver.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_controller_phantom.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_core.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_environment.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_friction.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_friction_gaps.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_great_matrix.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_hull_manager.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_impact.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_i_friction_hash.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_i_object_vhash.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_merge_core.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_mindist_friction.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_object.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_object_attach.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_physic.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_physic_private.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_polygon.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_sim_unit.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_solver_core_reaction.cxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_time.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_anomaly_manager.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_betterdebugmanager.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_betterstatisticsmanager.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_cache_object.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_liquid_surface_descript.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_material.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_performancecounter.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_stat_manager_cback_con.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_surface_manager.cxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_templates.cxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_compact_surface.cxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_gridbuild_array.cxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_surman_grid.cxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_surman_polygon.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_active_value.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_bigvector.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_geometry.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_hash.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_memory.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_min_hash.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_min_list.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_os_dep.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_quat.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_string.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_types.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_vector.cxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_vhash.cxx"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../../ivp/ivp_collision/ivp_3d_solver.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_cache_ledge_point.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_longrange.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_lrange_hash.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_visualizer.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_clustering_visual_hash.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_collision.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_collision_filter.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_compact_ledge.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_compact_ledge_solver.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_i_collision_vhash.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_listener_collision.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_event.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_intern.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_macros.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_mindist_minimize.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_range_manager.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_ray_solver.hxx"/>
+      <File Name="../../ivp/ivp_collision/ivp_universe_manager.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_actuator.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_actuator_info.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_actuator_spring.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_attacher_to_cores.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_buoyancy_solver.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_car_system.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint_car.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint_fixed_keyed.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint_local.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_constraint_types.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_airboat.h"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_buoyancy.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_floating.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_golem.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_motion.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_raycast_car.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_stiff_spring.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_controller_world_frict.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_forcefield.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_multidimensional_interp.hxx"/>
+      <File Name="../../ivp/ivp_controller/ivp_template_constraint.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_calc_next_psi_solver.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_friction.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_friction_solver.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_hull_manager_macros.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_impact.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_i_controller_vhash.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_i_friction_hash.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_i_object_vhash.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_merge_core.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_physic_private.hxx"/>
+      <File Name="../../ivp/ivp_intern/ivp_sim_unit.hxx"/>
+      <File Name="../../ivp/ivp_physics/ive_graphics.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_anomaly_manager.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_authenticity.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_ball.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_betterdebugmanager.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_betterstatisticsmanager.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_cache_object.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_contact_situation.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_core.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_core_macros.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_debug.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_debug_manager.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_environment.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_great_matrix.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_hull_manager.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_liquid_surface_descript.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_listener_hull.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_listener_object.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_listener_psi.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_material.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_object.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_object_attach.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_performancecounter.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_phantom.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_physics.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_polygon.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_radar.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_radar_appl.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_real_object.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_solver_core_reaction.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_stat_manager_cback_con.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_surface_manager.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_templates.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_time.hxx"/>
+      <File Name="../../ivp/ivp_physics/ivp_time_event.hxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_compact_grid.hxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_compact_surface.hxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_gridbuild_array.hxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_surman_grid.hxx"/>
+      <File Name="../../ivp/ivp_surface_manager/ivp_surman_polygon.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_active_value.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_active_value_hash.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_bigvector.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_diff_hash.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_float.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_fvector.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_geometry.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_hash.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear_double.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear_macros.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear_piii.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear_ps2.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear_software.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_linear_willamette.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_list.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_mapping.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_matrix_macros.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_memory.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_min_hash.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_min_list.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_ps2.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_quat.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_set.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_string.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_string_hash.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_types.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_vector.hxx"/>
+      <File Name="../../ivp/ivp_utility/ivu_vhash.hxx"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../vpc_scripts/version.vpc"/>
+      <File Name="ivp_physics.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

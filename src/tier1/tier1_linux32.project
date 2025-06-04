@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="tier1" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f tier1_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f tier1_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f tier1_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f tier1_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f tier1_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f tier1_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="../utils/lzma/C/LzmaDec.c"/>
+      <File Name="bitbuf.cpp"/>
+      <File Name="byteswap.cpp"/>
+      <File Name="characterset.cpp"/>
+      <File Name="checksum_crc.cpp"/>
+      <File Name="checksum_md5.cpp"/>
+      <File Name="checksum_sha1.cpp"/>
+      <File Name="commandbuffer.cpp"/>
+      <File Name="convar.cpp"/>
+      <File Name="datamanager.cpp"/>
+      <File Name="diff.cpp"/>
+      <File Name="generichash.cpp"/>
+      <File Name="ilocalize.cpp"/>
+      <File Name="interface.cpp"/>
+      <File Name="KeyValues.cpp"/>
+      <File Name="keyvaluesjson.cpp"/>
+      <File Name="kvpacker.cpp"/>
+      <File Name="lzmaDecoder.cpp"/>
+      <File Name="lzss.cpp"/>
+      <File Name="mempool.cpp"/>
+      <File Name="memstack.cpp"/>
+      <File Name="NetAdr.cpp"/>
+      <File Name="newbitbuf.cpp"/>
+      <File Name="pathmatch.cpp"/>
+      <File Name="processor_detect_linux.cpp"/>
+      <File Name="qsort_s.cpp"/>
+      <File Name="rangecheckedvar.cpp"/>
+      <File Name="reliabletimer.cpp"/>
+      <File Name="snappy-sinksource.cpp"/>
+      <File Name="snappy-stubs-internal.cpp"/>
+      <File Name="snappy.cpp"/>
+      <File Name="sparsematrix.cpp"/>
+      <File Name="splitstring.cpp"/>
+      <File Name="stringpool.cpp"/>
+      <File Name="strtools.cpp"/>
+      <File Name="strtools_unicode.cpp"/>
+      <File Name="tier1.cpp"/>
+      <File Name="tokenreader.cpp"/>
+      <File Name="uniqueid.cpp"/>
+      <File Name="utlbinaryblock.cpp"/>
+      <File Name="utlbuffer.cpp"/>
+      <File Name="utlbufferutil.cpp"/>
+      <File Name="utlstring.cpp"/>
+      <File Name="utlsymbol.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../common/xbox/xboxstubs.h"/>
+      <File Name="../public/datamap.h"/>
+      <File Name="../public/tier1/bitbuf.h"/>
+      <File Name="../public/tier1/byteswap.h"/>
+      <File Name="../public/tier1/callqueue.h"/>
+      <File Name="../public/tier1/characterset.h"/>
+      <File Name="../public/tier1/checksum_crc.h"/>
+      <File Name="../public/tier1/checksum_md5.h"/>
+      <File Name="../public/tier1/checksum_sha1.h"/>
+      <File Name="../public/tier1/CommandBuffer.h"/>
+      <File Name="../public/tier1/convar.h"/>
+      <File Name="../public/tier1/datamanager.h"/>
+      <File Name="../public/tier1/delegates.h"/>
+      <File Name="../public/tier1/diff.h"/>
+      <File Name="../public/tier1/fmtstr.h"/>
+      <File Name="../public/tier1/functors.h"/>
+      <File Name="../public/tier1/generichash.h"/>
+      <File Name="../public/tier1/iconvar.h"/>
+      <File Name="../public/tier1/ilocalize.h"/>
+      <File Name="../public/tier1/interface.h"/>
+      <File Name="../public/tier1/KeyValues.h"/>
+      <File Name="../public/tier1/keyvaluesjson.h"/>
+      <File Name="../public/tier1/kvpacker.h"/>
+      <File Name="../public/tier1/lzmaDecoder.h"/>
+      <File Name="../public/tier1/lzss.h"/>
+      <File Name="../public/tier1/mempool.h"/>
+      <File Name="../public/tier1/memstack.h"/>
+      <File Name="../public/tier1/netadr.h"/>
+      <File Name="../public/tier1/processor_detect.h"/>
+      <File Name="../public/tier1/rangecheckedvar.h"/>
+      <File Name="../public/tier1/refcount.h"/>
+      <File Name="../public/tier1/smartptr.h"/>
+      <File Name="../public/tier1/snappy-sinksource.h"/>
+      <File Name="../public/tier1/snappy.h"/>
+      <File Name="../public/tier1/stringpool.h"/>
+      <File Name="../public/tier1/strtools.h"/>
+      <File Name="../public/tier1/tier1.h"/>
+      <File Name="../public/tier1/tokenreader.h"/>
+      <File Name="../public/tier1/uniqueid.h"/>
+      <File Name="../public/tier1/utlbidirectionalset.h"/>
+      <File Name="../public/tier1/utlbinaryblock.h"/>
+      <File Name="../public/tier1/utlblockmemory.h"/>
+      <File Name="../public/tier1/utlbuffer.h"/>
+      <File Name="../public/tier1/utlbufferutil.h"/>
+      <File Name="../public/tier1/utlcommon.h"/>
+      <File Name="../public/tier1/utldict.h"/>
+      <File Name="../public/tier1/utlenvelope.h"/>
+      <File Name="../public/tier1/utlfixedmemory.h"/>
+      <File Name="../public/tier1/utlhandletable.h"/>
+      <File Name="../public/tier1/utlhash.h"/>
+      <File Name="../public/tier1/utlhashtable.h"/>
+      <File Name="../public/tier1/utllinkedlist.h"/>
+      <File Name="../public/tier1/utlmap.h"/>
+      <File Name="../public/tier1/utlmemory.h"/>
+      <File Name="../public/tier1/utlmultilist.h"/>
+      <File Name="../public/tier1/utlpriorityqueue.h"/>
+      <File Name="../public/tier1/utlqueue.h"/>
+      <File Name="../public/tier1/utlrbtree.h"/>
+      <File Name="../public/tier1/UtlSortVector.h"/>
+      <File Name="../public/tier1/utlstack.h"/>
+      <File Name="../public/tier1/utlstring.h"/>
+      <File Name="../public/tier1/UtlStringMap.h"/>
+      <File Name="../public/tier1/utlsymbol.h"/>
+      <File Name="../public/tier1/utlsymbollarge.h"/>
+      <File Name="../public/tier1/utlvector.h"/>
+      <File Name="../utils/lzma/C/7zTypes.h"/>
+      <File Name="../utils/lzma/C/LzmaDec.h"/>
+      <File Name="snappy-internal.h"/>
+      <File Name="snappy-stubs-internal.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="tier1.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

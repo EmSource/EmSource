@@ -1,5 +1,5 @@
 #
-# Base makefile for Linux.
+# Base makefile for Linux & Emscripten.
 #
 # !!!!! Note to future editors !!!!!
 # 
@@ -39,10 +39,11 @@ HOSTNAME := $($(SHELL) $(TOOL_PATH)hostname)
 -include $(SRCROOT)/devtools/steam_def.mak
 -include $(SRCROOT)/devtools/sourcesdk_def.mak
 
-# To build with clang, set the following in your environment:
-#   CC = clang
-#   CXX = clang++
-ifneq (,$(findstring clang,$(CXX)))
+# To build with emscripten, set the following in your environment:
+# Kinda hacky to do it this way:
+   CC = emcc -sWASM=1
+   CXX = em++ -sWASM=1
+ifneq (,$(findstring emcc,$(CC)))
 	CLANG_BUILD = 1
 endif
 
@@ -132,8 +133,8 @@ ifdef MAKE_CHROOT
 	CRYPTOPPDIR=ubuntu12_32_gcc48
 else ifeq ($(USE_VALVE_BINDIR),1)
 	# Using /valve/bin directory.
-	export STEAM_RUNTIME_PATH ?= /valve
-	GCC_VER = -4.6
+	export STEAM_RUNTIME_PATH ?= /usr
+	GCC_VER = 
 	P4BIN = $(SRCROOT)/devtools/bin/linux/p4
 	CRYPTOPPDIR=linux32
 else
@@ -144,11 +145,7 @@ else
 	CRYPTOPPDIR=ubuntu12_32
 endif
 
-ifeq ($(TARGET_PLATFORM),linux64)
-	MARCH_TARGET = core2
-else
 	MARCH_TARGET = pentium4
-endif
 
 ifeq ($(USE_VALVE_BINDIR),1)
 	# On dedicated servers, some plugins depend on global variable symbols in addition to functions.
@@ -162,7 +159,7 @@ endif
 ifeq ($(CLANG_BUILD),1)
 	# Clang does not support -mfpmath=sse because it uses whatever
 	# instruction set extensions are available by default.
-	SSE_GEN_FLAGS = -msse2
+	SSE_GEN_FLAGS = -msse2 -msimd128
 else
 	SSE_GEN_FLAGS = -msse2 -mfpmath=sse
 endif
@@ -183,55 +180,26 @@ endif
 
 # If not specified by environment, use steam runtime compilers + in-tree ccache
 ifneq ($(filter default undefined,$(origin AR)),)
-	AR = ar crs
+	AR = emar crs
 endif
 ifneq ($(filter default undefined,$(origin CC)),)
-	CC = gcc -m32
+	CC = emcc
 endif
 ifneq ($(filter default undefined,$(origin CXX)),)
-	CXX = g++ -m32
+	CXX = em++
 endif
 
 LINK ?= $(CC)
 
-ifeq ($(STEAM_BRANCH),1)
-	WARN_FLAGS = -Wall -Wextra -Wshadow -Wno-invalid-offsetof
-else
-	WARN_FLAGS = -Wall -Wno-invalid-offsetof -Wno-multichar -Wno-overloaded-virtual
-	WARN_FLAGS += -Wno-write-strings
-	WARN_FLAGS += -Wno-unused-variable
-	WARN_FLAGS += -Wno-unused-function
-	# Additional warnings to -Wall
-	WARN_FLAGS += -Winvalid-pch -Wswitch
-endif
+	# Emscripten has enough warnings as it is
+	WARN_FLAGS = 
 
-ifeq ($(CLANG_BUILD),1)
-	# Clang specific flags
-	WARN_FLAGS += -Wno-unused-const-variable -Wno-unused-local-typedef
-else ifeq ($(GCC_VER),-4.8)
-	WARN_FLAGS += -Wno-unused-result
-	WARN_FLAGS += -Wno-unused-but-set-variable
-	# WARN_FLAGS += -Wno-unused-function
-endif
-
-WARN_FLAGS += -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-value
-WARN_FLAGS += -Wno-invalid-offsetof -Wno-float-equal -Wno-reorder -Werror=return-type
-WARN_FLAGS += -fdiagnostics-show-option -Wformat -Wformat-security
-
-ifeq ($(TARGET_PLATFORM),linux64)
-	# nocona = pentium4 + 64bit + MMX, SSE, SSE2, SSE3 - no SSSE3 (that's three s's - added in core2)
-	ARCH_FLAGS += -march=$(MARCH_TARGET) -mtune=core2
-	LD_SO = ld-linux-x86_64.so.2
-	LIBSTDCXX := $(shell $(CXX) -print-file-name=libstdc++.a)
-	LIBSTDCXXPIC := $(shell $(CXX) -print-file-name=libstdc++-pic.a)
-else
 	# pentium4 = MMX, SSE, SSE2 - no SSE3 (added in prescott) # -msse3 -mfpmath=sse
 	ARCH_FLAGS += -m32 -march=$(MARCH_TARGET) -mtune=core2 $(SSE_GEN_FLAGS)
 	LD_SO = ld-linux.so.2
 	LIBSTDCXX := $(shell $(CXX) $(ARCH_FLAGS) -print-file-name=libstdc++.so)
 	LIBSTDCXXPIC := $(shell $(CXX) $(ARCH_FLAGS) -print-file-name=libstdc++.so)
 	LDFLAGS += -m32
-endif
 
 GEN_SYM ?= $(SRCROOT)/devtools/gendbg.sh
 ifeq ($(CFG),release)

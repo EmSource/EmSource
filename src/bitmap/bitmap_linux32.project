@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="bitmap" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f bitmap_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f bitmap_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f bitmap_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f bitmap_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f bitmap_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f bitmap_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="bitmap.cpp"/>
+      <File Name="colorconversion.cpp"/>
+      <File Name="float_bm.cpp"/>
+      <File Name="float_bm2.cpp"/>
+      <File Name="float_bm3.cpp"/>
+      <File Name="float_bm4.cpp"/>
+      <File Name="float_bm_bilateral_filter.cpp"/>
+      <File Name="float_cube.cpp"/>
+      <File Name="ImageByteSwap.cpp"/>
+      <File Name="imageformat.cpp"/>
+      <File Name="psd.cpp"/>
+      <File Name="resample.cpp"/>
+      <File Name="tgaloader.cpp"/>
+      <File Name="tgawriter.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/bitmap/bitmap.h"/>
+      <File Name="../public/bitmap/float_bm.h"/>
+      <File Name="../public/bitmap/imageformat.h"/>
+      <File Name="../public/bitmap/psd.h"/>
+      <File Name="../public/bitmap/tgaloader.h"/>
+      <File Name="../public/bitmap/tgawriter.h"/>
+      <File Name="../thirdparty/stb/stb_dxt.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="bitmap.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

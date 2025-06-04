@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="hk_math" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f hk_math_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f hk_math_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f hk_math_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f hk_math_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f hk_math_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f hk_math_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="densematrix.cpp"/>
+      <File Name="densematrix_util.cpp"/>
+      <File Name="eulerangles.cpp"/>
+      <File Name="gauss_elimination/gauss_elimination.cpp"/>
+      <File Name="incr_lu/incr_lu.cpp"/>
+      <File Name="lcp/lcp_solver.cpp"/>
+      <File Name="math.cpp"/>
+      <File Name="matrix3.cpp"/>
+      <File Name="odesolve.cpp"/>
+      <File Name="plane.cpp"/>
+      <File Name="quaternion/quaternion.cpp"/>
+      <File Name="quaternion/quaternion_util.cpp"/>
+      <File Name="rotation.cpp"/>
+      <File Name="spatial_matrix.cpp"/>
+      <File Name="spatial_vector.cpp"/>
+      <File Name="transform.cpp"/>
+      <File Name="vector3/vector3.cpp"/>
+      <File Name="vector3/vector3_util.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="base_math.h"/>
+      <File Name="densematrix.h"/>
+      <File Name="densematrix_util.h"/>
+      <File Name="dense_vector.h"/>
+      <File Name="eulerangles.h"/>
+      <File Name="gauss_elimination/gauss_elimination.h"/>
+      <File Name="incr_lu/incr_lu.h"/>
+      <File Name="interval.h"/>
+      <File Name="lcp/lcp_solver.h"/>
+      <File Name="matrix/matrix_inverter.h"/>
+      <File Name="matrix3.h"/>
+      <File Name="odesolve.h"/>
+      <File Name="plane.h"/>
+      <File Name="qtransform.h"/>
+      <File Name="quaternion/quaternion.h"/>
+      <File Name="quaternion/quaternion_util.h"/>
+      <File Name="ray.h"/>
+      <File Name="rotation.h"/>
+      <File Name="spatial_matrix.h"/>
+      <File Name="spatial_vector.h"/>
+      <File Name="stdafx.h"/>
+      <File Name="transform.h"/>
+      <File Name="types.h"/>
+      <File Name="vecmath.h"/>
+      <File Name="vector3/vector3.h"/>
+      <File Name="vector3/vector3_util.h"/>
+      <File Name="vector4.h"/>
+      <File Name="vector_fpu/vector_fpu.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../../../../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../../../../vpc_scripts/source_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../../../../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../../../../vpc_scripts/version.vpc"/>
+      <File Name="hk_math.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>
