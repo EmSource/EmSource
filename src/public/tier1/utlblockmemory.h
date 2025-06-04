@@ -138,10 +138,20 @@ void CUtlBlockMemory<T,I>::Swap( CUtlBlockMemory< T, I > &mem )
 	// Mohamed: Emscripten LOVES being angry when it comes to errors
 	std::swap( m_pMemory, mem.m_pMemory );
 	std::swap( m_nBlocks, mem.m_nBlocks );
-	std::swap( m_nIndexMask, mem.m_nIndexMask );
-	std::swap( m_nIndexShift, mem.m_nIndexShift );
-}
 
+	// Bit-field manual swap dance
+	{
+		int tmp = m_nIndexMask;
+		m_nIndexMask = mem.m_nIndexMask;
+		mem.m_nIndexMask = tmp;
+	}
+
+	{
+		int tmp = m_nIndexShift;
+		m_nIndexShift = mem.m_nIndexShift;
+		mem.m_nIndexShift = tmp;
+	}
+}
 
 //-----------------------------------------------------------------------------
 // Set the size by which the memory grows - round up to the next power of 2

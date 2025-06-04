@@ -57,12 +57,7 @@ ifeq ($(CFG), release)
 	#  There also was no speed difference running at 1280x1024. May 2012, mikesart.
 	#  tonyp: The size increase was likely caused by -finline-functions and -fipa-cp-clone getting switched on with -O3.
 	# -fno-omit-frame-pointer: need this for stack traces with perf.
-	OptimizerLevel_CompilerSpecific = -O2 -fno-strict-aliasing -ffast-math -fno-omit-frame-pointer -ftree-vectorize
-	ifeq ($(CLANG_BUILD),1)
-		OptimizerLevel_CompilerSpecific += -funswitch-loops
-	else
-		OptimizerLevel_CompilerSpecific += -fpredictive-commoning -funswitch-loops
-	endif
+	OptimizerLevel_CompilerSpecific = -Oz
 else
 	OptimizerLevel_CompilerSpecific = -O0
 	#-O1 -finline-functions
@@ -94,6 +89,8 @@ ifeq ($(CLANG_BUILD),1)
 	# Needed for older versions of clang (newer versions are compatible with gcc syntax)
 	# Mohamed: Excuse me saar, did you mean -Xclang? hm?
 	PCH_CXXFLAGS += -Xclang -emit-pch
+	# Do not rely on emstrip.
+	CPPFLAGS += --closure
 else
 	# GCC specific - better PCH behavior w/ccache and better debugging information
 	BASE_CFLAGS += -fpch-preprocess -fvar-tracking-assignments
@@ -204,7 +201,7 @@ LINK ?= $(CC)
 
 GEN_SYM ?= $(SRCROOT)/devtools/gendbg.sh
 ifeq ($(CFG),release)
-	STRIP ?= emstrip $(STRIP_FLAGS) -S
+	STRIP ?= true #emstrip $(STRIP_FLAGS) -S
 #	CFLAGS += -ffunction-sections -fdata-sections
 #	LDFLAGS += -Wl,--gc-sections -Wl,--print-gc-sections
 else

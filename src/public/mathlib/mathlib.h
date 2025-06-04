@@ -1275,10 +1275,10 @@ FORCEINLINE unsigned long RoundFloatToUnsignedLong(float f)
 		}
 	#elif POSIX
 		// Portablify
-	int nResult = (int)nearbyintf(f);
+	int nFloatResult = (int)nearbyintf(f);
 	#endif
 
-		return *((unsigned long*)nResult);
+		return *((unsigned long*)nFloatResult);
 #endif // PLATFORM_WINDOWS_PC64
 #endif // !X360
 }
