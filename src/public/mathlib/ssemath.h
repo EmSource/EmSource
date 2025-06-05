@@ -2415,8 +2415,8 @@ FORCEINLINE void ConvertStoreAsIntsSIMD(intx4 * RESTRICT pDest, const fltx4 &vSr
 	(*pDest)[3] = SubFloat( vSrc, 3 );
 
 #else
-	__m64 bottom = _mm_cvttps_pi32( vSrc );
-	__m64 top    = _mm_cvttps_pi32( _mm_movehl_ps(vSrc,vSrc) );
+	__m128i intVec = _mm_cvttps_epi32(vSrc); // truncate and convert float -> int
+	_mm_storeu_si128((__m128i*)pDest, intVec); // store 4 ints
 
 	*reinterpret_cast<__m64 *>(&(*pDest)[0]) = bottom;
 	*reinterpret_cast<__m64 *>(&(*pDest)[2]) = top;
