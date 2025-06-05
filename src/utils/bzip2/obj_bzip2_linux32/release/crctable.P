@@ -1,6 +1,0 @@
-obj_bzip2_linux32/release/crctable.o: \
-  /home/guest/Downloads/src/src/utils/bzip2/crctable.c \
-  /home/guest/Downloads/src/src/utils/bzip2/bzlib_private.h \
-  /home/guest/Downloads/src/src/utils/bzip2/bzlib.h
-/home/guest/Downloads/src/src/utils/bzip2/bzlib_private.h:
-/home/guest/Downloads/src/src/utils/bzip2/bzlib.h:

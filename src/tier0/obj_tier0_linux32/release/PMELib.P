@@ -1,2 +1,0 @@
-obj_tier0_linux32/release/PMELib.o: \
-  /home/guest/Downloads/src/src/tier0/PMELib.cpp

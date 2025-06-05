@@ -1,4 +1,0 @@
-obj_tier1_linux32/release/checksum_sha1.o: \
-  /home/guest/Downloads/src/src/tier1/checksum_sha1.cpp \
-  /home/guest/Downloads/src/src/public/tier1/checksum_sha1.h
-/home/guest/Downloads/src/src/public/tier1/checksum_sha1.h:
