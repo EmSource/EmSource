@@ -23,6 +23,10 @@
 #include <dlfcn.h>
 #endif
 
+#if defined(__EMSCRIPTEN__)
+#include <emscripten.h>
+#endif
+
 #if defined( LINUX ) || defined( USE_SDL )
 
 // We lazily load the SDL shared object, and only reference functions if it's
@@ -388,7 +392,15 @@ DBG_INTERFACE bool ShouldUseNewAssertDialog()
 
 #if defined( POSIX )
 
-#include <execinfo.h>
+	#if !defined(__EMSCRIPTEN__)
+		#include <execinfo.h>
+	#else
+		void backtrace() {
+    			char *stack = emscripten_get_callstack(EM_LOG_C_STACK | EM_LOG_DEMANGLE);
+    			printf("Backtrace:\n%s\n", stack);
+    			free(stack);
+		}
+	#endif
 
 static void SpewBacktrace()
 {

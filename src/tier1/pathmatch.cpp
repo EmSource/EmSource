@@ -34,6 +34,8 @@
 // STEAM3.../src/lib/linux32/release/pathmatch.o - steam3 checked in version
 // STEAM3.../src/devtools/makefile_base_posix.mak - look for the _WRAP references
 
+#include <emscripten.h>
+
 #ifdef LINUX
 
 #include <stdio.h>
@@ -66,7 +68,7 @@
 
 static bool s_bShowDiag;
 #define DEBUG_MSG( ... ) if ( s_bShowDiag ) fprintf( stderr, ##__VA_ARGS__ )
-#define DEBUG_BREAK() __asm__ __volatile__ ( "int $3" )
+#define DEBUG_BREAK() EM_ASM({ debugger; });
 #define _COMPILE_TIME_ASSERT(pred) switch(0){case 0:case pred:;}
 
 #define WRAP( fn, ret, ... ) \
