@@ -12,6 +12,8 @@
 #include "mathlib/mathlib.h"
 #include "mathlib/vector.h"
 #include "sse.h"
+#include <emscripten.h>
+#include <cmath>
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -182,98 +184,28 @@ float _SSE_RSqrtFast(float x)
 		rsqrtss	xmm0, x
 		movss	rroot, xmm0
 	}
-#elif POSIX
+#elif POSIX && !defined(__EMSCRIPTEN__)
 	__asm__ __volatile__( "rsqrtss %0, %1" : "=x" (rroot) : "x" (x) );
 #else
-#error
+	// Cross-platform
+	return 1.0f / sqrtf(x);
 #endif
 
 	return rroot;
 }
 
-float FASTCALL _SSE_VectorNormalize (Vector& vec)
+
+float FASTCALL _SSE_VectorNormalize(Vector& vec)
 {
-	Assert( s_bMathlibInitialized );
-
-	// NOTE: This is necessary to prevent an memory overwrite...
-	// sice vec only has 3 floats, we can't "movaps" directly into it.
-#ifdef _WIN32
-	__declspec(align(16)) float result[4];
-#elif POSIX
-	 float result[4] __attribute__((aligned(16)));
-#endif
-
-	float *v = &vec[0];
-#ifdef _WIN32
-	float *r = &result[0];
-#endif
-
-	float	radius = 0.f;
-	// Blah, get rid of these comparisons ... in reality, if you have all 3 as zero, it shouldn't 
-	// be much of a performance win, considering you will very likely miss 3 branch predicts in a row.
-	if ( v[0] || v[1] || v[2] )
+	float radius = std::sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
+	if (radius > 0.f)
 	{
-#ifdef _WIN32
-	_asm
-		{
-			mov			eax, v
-			mov			edx, r
-#ifdef ALIGNED_VECTOR
-			movaps		xmm4, [eax]			// r4 = vx, vy, vz, X
-			movaps		xmm1, xmm4			// r1 = r4
-#else
-			movups		xmm4, [eax]			// r4 = vx, vy, vz, X
-			movaps		xmm1, xmm4			// r1 = r4
-#endif
-			mulps		xmm1, xmm4			// r1 = vx * vx, vy * vy, vz * vz, X
-			movhlps		xmm3, xmm1			// r3 = vz * vz, X, X, X
-			movaps		xmm2, xmm1			// r2 = r1
-			shufps		xmm2, xmm2, 1		// r2 = vy * vy, X, X, X
-			addss		xmm1, xmm2			// r1 = (vx * vx) + (vy * vy), X, X, X
-			addss		xmm1, xmm3			// r1 = (vx * vx) + (vy * vy) + (vz * vz), X, X, X
-			sqrtss		xmm1, xmm1			// r1 = sqrt((vx * vx) + (vy * vy) + (vz * vz)), X, X, X
-			movss		radius, xmm1		// radius = sqrt((vx * vx) + (vy * vy) + (vz * vz))
-			rcpss		xmm1, xmm1			// r1 = 1/radius, X, X, X
-			shufps		xmm1, xmm1, 0		// r1 = 1/radius, 1/radius, 1/radius, X
-			mulps		xmm4, xmm1			// r4 = vx * 1/radius, vy * 1/radius, vz * 1/radius, X
-			movaps		[edx], xmm4			// v = vx * 1/radius, vy * 1/radius, vz * 1/radius, X
-		}
-#elif POSIX
-		__asm__ __volatile__(
-#ifdef ALIGNED_VECTOR
-            "movaps          %2, %%xmm4 \n\t"
-            "movaps          %%xmm4, %%xmm1 \n\t"
-#else
-            "movups          %2, %%xmm4 \n\t"
-            "movaps          %%xmm4, %%xmm1 \n\t"
-#endif
-            "mulps           %%xmm4, %%xmm1 \n\t"
-            "movhlps         %%xmm1, %%xmm3 \n\t"
-            "movaps          %%xmm1, %%xmm2 \n\t"
-            "shufps          $1, %%xmm2, %%xmm2 \n\t"
-            "addss           %%xmm2, %%xmm1 \n\t"
-            "addss           %%xmm3, %%xmm1 \n\t"
-            "sqrtss          %%xmm1, %%xmm1 \n\t"
-            "movss           %%xmm1, %0 \n\t"
-            "rcpss           %%xmm1, %%xmm1 \n\t"
-            "shufps          $0, %%xmm1, %%xmm1 \n\t"
-            "mulps           %%xmm1, %%xmm4 \n\t"
-            "movaps          %%xmm4, %1 \n\t"
-            : "=m" (radius), "=m" (result)
-            : "m" (*v)
-            : "xmm1", "xmm2", "xmm3", "xmm4"
- 		);
-#else
-	#error "Not Implemented"
-#endif
-		vec.x = result[0];
-		vec.y = result[1];
-		vec.z = result[2];
-
+		float inv = 1.0f / radius;
+		vec.x *= inv;  vec.y *= inv;  vec.z *= inv;
 	}
-
 	return radius;
 }
+#endif
 
 void FASTCALL _SSE_VectorNormalizeFast (Vector& vec)
 {
@@ -307,7 +239,7 @@ float _SSE_InvRSquared(const float* v)
 		rcpss		xmm0, xmm1			// x0 = 1 / max( 1.0, x1 )
 		movss		inv_r2, xmm0		// inv_r2 = x0
 	}
-#elif POSIX
+#elif POSIX && !defined(__EMSCRIPTEN__)
 		__asm__ __volatile__(
 		"movss			 %0, %%xmm5 \n\t"
 #ifdef ALIGNED_VECTOR
@@ -330,7 +262,12 @@ float _SSE_InvRSquared(const float* v)
         : "xmm0", "xmm1", "xmm2", "xmm3", "xmm4", "xmm5"
  		);
 #else
-	#error "Not Implemented"
+		float x = v[0];
+		float y = v[1];
+		float z = v[2];
+		float r2 = x * x + y * y + z * z;
+		r2 = fmaxf(r2, 1.0f);
+		return 1.0f / r2;
 #endif
 
 	return inv_r2;

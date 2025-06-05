@@ -62,6 +62,7 @@ CReliableTimer::CReliableTimer()
 //-----------------------------------------------------------------------------
 // Purpose: Returns current QueryPerformanceCounter value
 //-----------------------------------------------------------------------------
+#if !defined(__EMSCRIPTEN__)
 int64 CReliableTimer::GetPerformanceCountNow()
 {
 	//VPROF_BUDGET( "CReliableTimer::GetPerformanceCountNow", VPROF_BUDGETGROUP_OTHER_UNACCOUNTED );
@@ -91,3 +92,9 @@ int64 CReliableTimer::GetPerformanceCountNow()
 	return (int64)un64;
 #endif
 }
+#elif defined(__EMSCRIPTEN__)
+inline int64_t CReliableTimer::GetPerformanceCountNow()
+{
+	return static_cast<int64_t>(emscripten_get_now(); * 1'000.0); // µs
+}
+#endif

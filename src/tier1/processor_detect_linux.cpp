@@ -6,8 +6,18 @@
 // $NoKeywords: $
 //=============================================================================//
 
+#ifdef __EMSCRIPTEN__
+static inline bool CheckSIMD()  { return true;  }
+
+static inline bool CheckMMXTechnology()  { return false; }
+static inline bool CheckSSETechnology()  { return CheckSIMD(); }
+static inline bool CheckSSE2Technology() { return CheckSIMD(); }
+static inline bool Check3DNowTechnology(){ return false; }
+
+#else
+
 #define cpuid(in,a,b,c,d)												\
-	asm("pushl %%ebx\n\t" "cpuid\n\t" "movl %%ebx,%%esi\n\t" "pop %%ebx": "=a" (a), "=S" (b), "=c" (c), "=d" (d) : "a" (in));
+asm("pushl %%ebx\n\t" "cpuid\n\t" "movl %%ebx,%%esi\n\t" "pop %%ebx": "=a" (a), "=S" (b), "=c" (c), "=d" (d) : "a" (in));
 
 bool CheckMMXTechnology(void)
 {
@@ -40,8 +50,10 @@ bool Check3DNowTechnology(void)
 
     if ( eax > 0x80000000L )
     {
-     	cpuid(0x80000001,unused,unused,unused,eax);
-		return ( eax & 1<<31 );
+        cpuid(0x80000001,unused,unused,unused,eax);
+        return ( eax & 1<<31 );
     }
     return false;
 }
+
+#endif
