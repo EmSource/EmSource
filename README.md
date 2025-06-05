@@ -9,6 +9,8 @@ The Source 2013 Engine branch, from the 2020 leak.
 Yes you may, but credit Mohamed Ashraf in your mod's credits (Unless, you were approved by me before.)
 - **Can I compile on Windows?**
 No, you can't, and I have no plans on supporting platforms other than Linux. But if you'd like to add VS2022 or MSVC support, then you're PR will be greatly appreciated.
+- **Is this compatible with most Source 2013 modifications?**
+Yes, it is supported with most Source 2013 modifications, as long as you compile your DLLs, or SOs as WASM files to be loaded, unless your modification has edited or altered the engine.
 
 
 ## Features
