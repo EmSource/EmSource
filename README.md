@@ -1,37 +1,60 @@
 
-#  Half-Life 2: Javascript
-Half-Life 2: Javascript is a work-in-progress port of Half-Life 2 to Emscripten, and no this isn't going to be some kind of shitty remake of HL2 for the browser, no this is an actual port of it.
+#  Half-Life 2: Javascript <img align="right" width="128" height="128" src="assets/logo.jpg" alt="HL2JS icon" />
 
-## FAQ
-- **What version of Source does this run on?**
-The Source 2013 Engine branch, from the 2020 leak.
-- **Can I use this as a base for my modification?**
-Yes you may, but credit Mohamed Ashraf in your mod's credits (Unless, you were approved by me before.)
-- **Can I compile on Windows?**
-No, you can't, and I have no plans on supporting platforms other than Linux. But if you'd like to add VS2022 or MSVC support, then you're PR will be greatly appreciated.
-- **Is this compatible with most Source 2013 modifications?**
-Yes, it is supported with most Source 2013 modifications, as long as you compile your DLLs, or SOs as WASM files to be loaded, unless your modification has edited or altered the engine.
+## About & Features
 
+**Half-Life 2: Javascript** is a port of the **Source 2013** engine branch for the browser.
 
-## Features
-- Full Emscripten toolset supported (emcc, em++, emar, etc.)
+Features:
+- Emscripten toolset fully supported.
+- Additional WebAssembly support on `gendbg.sh` and `makefile_base_posix.mak`.
 
+Features planned:
+- Source 2013 mod support: To allow modders to port their mods to this platform.
+- Visual Studio 2022+ support.
 
-## Compiling
+## Upgrading mods to HL2JS
+Firstly grab your mods source code, and make sure its running the `singleplayer` branch, and make sure that your modification uses `git`. To check the following run the following commands:
 
-> [!NOTE]
-> Note that this implementation isn't only limited to "Half-Life 2", rather any game that runs on the Source 2013 engine branch.
-
-Firstly, ensure you have all dependencies listed on the Valve Developer Wiki article on developing Source SDK 2013 modifications, and you obviously have to have the Emscripten toolset installed with you.
-
-Firstly clone this repository and enter the src directory.
-
-```bash
-git clone https://github.com/HalfLife2JS/HL2JS
-cd HL2JS/src/
+```
+# Enter your mods directory for this to work
+which git
+ls -a | grep .git/
 ```
 
-Now run the `createallprojects` file then run `make -f everything.mak`, or `make -f <MAKEFILE GENERATED>`.
+Now add HL2JS as a remote.
 
-## License
-There is no license, since this is based on the Source Engine leak. All you really need to do is credit me.
+```
+git remote add hl2js https://github.com/HalfLife2JS/HalfLife2JS
+git merge hl2js/master --allow-unrelated-histories
+```
+
+Resolve any merge issues.
+## Compiling
+
+Firstly, make sure you have the dependencies required from the Valve Developer Wiki's page on building Source 2013 mods, alongside the Emscripten toolsets (emcc, em++, emar, etc).
+
+Secondly, clone the repository with the following command:
+
+```
+git clone https://github.com/HalfLife2JS/HalfLife2JS hl2js
+cd hl2js
+```
+
+Thirdly, enter the `src` directory, and compile it.
+
+```
+./creategameprojects
+make -f everything.make
+```
+## FAQ
+
+#### Will this support Source games running on other engine branches?
+
+No, ASW and the branches after it will not be supported.
+
+#### Will I be able to compile this with the latest Visual Studio and MSVC?
+
+No. We don't have Visual Studio support yet. The only way which I know of to compile this on Windows is to either use `WSL2` or get the [VSExtForEmscripten](https://github.com/nokotan/VSExtForEmscripten) addon for Visual Studio 2017+
+
+
