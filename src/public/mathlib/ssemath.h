@@ -2429,23 +2429,6 @@ FORCEINLINE void ConvertStoreAsIntsSIMD(intx4 * RESTRICT pDest, const fltx4 &vSr
 #endif
 }
 
-
-#else
-
-//typedef int intx4[4];
-//typedef float fltx4[4];
-
-static inline void ConvertStoreAsIntsSIMD(intx4 * RESTRICT pDest, const fltx4 &vSrc)
-{
-	v128_t floatVec = wasm_v128_load(vSrc);
-	v128_t intVec = wasm_i32x4_trunc_sat_f32x4_s(floatVec);
-	wasm_v128_store(*pDest, intVec);
-	int* int64View = (int*)(*pDest);
-	int bottom = int64View[0]; // ints 0,1
-	int top    = int64View[1]; // ints 2,3
-}
-
-
 #endif
 
 
@@ -3122,7 +3105,9 @@ FORCEINLINE int BoxOnPlaneSideSIMD( const fltx4& emins, const fltx4& emaxs, cons
 	fltx4 result2 = MaskedAssign( cmp2, Four_Twos, Four_Zeros );
 	result = AddSIMD( result, result2 );
 	intx4 sides;
+#if !defined(__EMSCRIPTEN__)
 	ConvertStoreAsIntsSIMD( &sides, result );
+#endif
 	return sides[0];
 }
 

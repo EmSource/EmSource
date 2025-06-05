@@ -11,6 +11,11 @@
 #include "tier0/threadtools.h"
 #include "tier0/icommandline.h"
 
+#if defined(__EMSCRIPTEN__)
+#undef LINUX
+#undef _LINUX
+#endif
+
 #include "tier0/valve_off.h"
 
 #if defined( PLATFORM_WINDOWS_PC )
@@ -28,7 +33,9 @@
 #endif
 
 #if defined( LINUX )
-#include <execinfo.h>
+#if !defined(__EMSCRIPTEN)
+	#include <execinfo.h>
+#endif
 #endif
 
 #include "tier0/valve_on.h"

@@ -115,7 +115,7 @@ $Project "tier0"
 		$File	"commandline.cpp"
 		$File	"cpu.cpp"			[!$EMSCRIPTEN]
 		$File	"cpumonitoring.cpp"
-		$File	"cpu_posix.cpp"			[$POSIX]
+		$File	"cpu_posix.cpp"			[$POSIX && !$EMSCRIPTEN]
 		$File	"cpu_usage.cpp"
 		$File	"dbg.cpp"
 		$File	"dynfunction.cpp"

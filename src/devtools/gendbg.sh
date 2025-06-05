@@ -23,6 +23,7 @@ INFILE=$(basename "$1")
 OUTFILEDIR=$INFILEDIR
 OUTFILE=$INFILE.dbg
 
+shift
 while getopts "o:" opt; do
     case $opt in
         o)
@@ -40,7 +41,6 @@ fi
 FILETYPE=$(file "$INFILE")
 if echo "$FILETYPE" | grep -q "WebAssembly"; then
     echo "[gendbg.sh] Handling WebAssembly object archive"
-    # Extract debug info using llvm-objcopy
     $LLVM_OBJCOPY --only-keep-debug "$INFILE" "$OUTFILE"
     $LLVM_OBJCOPY --strip-debug "$INFILE"
     $LLVM_OBJCOPY --add-gnu-debuglink="$OUTFILE" "$INFILE"
@@ -50,18 +50,28 @@ fi
 if [[ "$INFILE" == *.a ]]; then
     echo "[gendbg.sh] Rebuilding archive $INFILE"
     TMPDIR=$(mktemp -d)
+    INFILE_ABS=$(realpath "$INFILE")
     pushd "$TMPDIR" >/dev/null
-    # Extract .o files
-    $EMAR x "$INFILE"
-    # Re-archive them
-    $EMAR rcs "$OUTFILE" $1.o
+    $EMAR x "$INFILE_ABS"
+    OBJFILES=(*.o)
+
+    if [ ${#OBJFILES[@]} -eq 0 ]; then
+        echo "[gendbg.sh] Error: No object files found in archive."
+        echo "Contents of $TMPDIR:"
+        ls -l
+        popd >/dev/null
+        rm -rf "$TMPDIR"
+        exit 1
+    fi
+
+    $EMAR rcs "$OUTFILE" "${OBJFILES[@]}"
     popd >/dev/null
     rm -rf "$TMPDIR"
     exit 0
 fi
 
 pushd "$INFILEDIR" >/dev/null
-$LLVM_OBJCOPY "$INFILE" "$OUTFILE"
+$LLVM_OBJCOPY --only-keep-debug "$INFILE" "$OUTFILE"
+$LLVM_OBJCOPY --strip-debug "$INFILE"
 $LLVM_OBJCOPY --add-gnu-debuglink="$OUTFILE" "$INFILE"
 popd >/dev/null
-

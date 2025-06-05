@@ -7,18 +7,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <emscripten.h>
+#if !defined(__EMSCRIPTEN__)
 #ifdef LINUX
 #include <linux/sysctl.h>
 #else
 #include <sys/sysctl.h>
 #endif
-#include <sys/time.h>
+#endif
+#include <time.h>
 #include <unistd.h>
 #include <tier0/platform.h>
 #include <errno.h>
 
-#define rdtsc(x) \
-	__asm__ __volatile__ ("rdtsc" : "=A" (x))
+#define rdtsc(x) emscripten_get_now();
+
+
+#if defined(__EMSCRIPTEN__)
+static inline uint64_t fake_rdtsc(void) {
+	return (uint64_t)(emscripten_get_now() * 1e6);
+}
+#endif
 
 class TimeVal
 {
@@ -136,30 +145,31 @@ uint64 CalculateCPUFreq()
 	int count;
 	uint64 period, period1 = error * 2, period2 = 0,  period3 = 0;
 
-	for (count = 0; count < max_iterations; count++)
-	{
-		TimeVal start_time, end_time;
-		uint64 start_tsc, end_tsc;
+	for (int count = 0; count < MAX_ITERATIONS; count++) {
+		TimeVal start_time = emscripten_get_now();
+		uint64_t start_tsc = fake_rdtsc();
 
-		gettimeofday( &start_time.m_TimeVal, 0 );
-		rdtsc( start_tsc );
-		usleep( 5000 ); // sleep for 5 msec
-		gettimeofday( &end_time.m_TimeVal, 0 );
-		rdtsc( end_tsc );
-	
-		// end_time - start_time calls into the overloaded TimeVal operator- way above, and returns a double.
-		period3 = ( end_tsc - start_tsc ) / ( end_time - start_time );
+		emscripten_sleep(5);
 
-		if (diff ( period1, period2 ) <= error &&
-			diff ( period2, period3 ) <= error &&
-			diff ( period1, period3 ) <= error )
-		{
+		TimeVal end_time = emscripten_get_now();
+		uint64_t end_tsc = fake_rdtsc();
+
+		double elapsed_time = (end_time - start_time) / 1000.0;
+
+		if (elapsed_time <= 0.0) continue;
+
+		period3 = (end_tsc - start_tsc) / elapsed_time;
+
+		if (count >= 2 &&
+			diff(period1, period2) <= ERROR_TOLERANCE &&
+			diff(period2, period3) <= ERROR_TOLERANCE &&
+			diff(period1, period3) <= ERROR_TOLERANCE) {
 			break;
-		}
+			}
 
-		period1 = period2;
+			period1 = period2;
 		period2 = period3;
-    }
+	}
 
 	if ( count == max_iterations )
     {

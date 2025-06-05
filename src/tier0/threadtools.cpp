@@ -2034,8 +2034,10 @@ void CThread::Yield()
 {
 #ifdef _WIN32
 	::Sleep(0);
-#elif defined(POSIX)
+#elif defined(POSIX) && !defined(__EMSCRIPTEN__)
 	pthread_yield();
+#elif defined(__EMSCRIPTEN__)
+	sched_yield();
 #endif
 }
 

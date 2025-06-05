@@ -53,7 +53,6 @@ CPPFILES= \
     assert_dialog.cpp \
     commandline.cpp \
     cpumonitoring.cpp \
-    cpu_posix.cpp \
     cpu_usage.cpp \
     dbg.cpp \
     dynfunction.cpp \
@@ -139,15 +138,6 @@ endif
 
 $(OBJ_DIR)/cpumonitoring.o : TARGET_PCH_FILE = $(OBJ_DIR)/pch_tier0.h
 $(OBJ_DIR)/cpumonitoring.o : $(abspath cpumonitoring.cpp) $(OBJ_DIR)/pch_tier0.h.gch $(OBJ_DIR)/pch_tier0.h $(PWD)/tier0_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak
-	$(PRE_COMPILE_FILE)
-	$(COMPILE_FILE_WITH_PCH) $(POST_COMPILE_FILE)
-
-ifneq (clean, $(findstring clean, $(MAKECMDGOALS)))
--include $(OBJ_DIR)/cpu_posix.P
-endif
-
-$(OBJ_DIR)/cpu_posix.o : TARGET_PCH_FILE = $(OBJ_DIR)/pch_tier0.h
-$(OBJ_DIR)/cpu_posix.o : $(abspath cpu_posix.cpp) $(OBJ_DIR)/pch_tier0.h.gch $(OBJ_DIR)/pch_tier0.h $(PWD)/tier0_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak
 	$(PRE_COMPILE_FILE)
 	$(COMPILE_FILE_WITH_PCH) $(POST_COMPILE_FILE)
 
@@ -425,7 +415,6 @@ CPPFILES= \
     assert_dialog.cpp \
     commandline.cpp \
     cpumonitoring.cpp \
-    cpu_posix.cpp \
     cpu_usage.cpp \
     dbg.cpp \
     dynfunction.cpp \
@@ -511,15 +500,6 @@ endif
 
 $(OBJ_DIR)/cpumonitoring.o : TARGET_PCH_FILE = $(OBJ_DIR)/pch_tier0.h
 $(OBJ_DIR)/cpumonitoring.o : $(abspath cpumonitoring.cpp) $(OBJ_DIR)/pch_tier0.h.gch $(OBJ_DIR)/pch_tier0.h $(PWD)/tier0_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak
-	$(PRE_COMPILE_FILE)
-	$(COMPILE_FILE_WITH_PCH) $(POST_COMPILE_FILE)
-
-ifneq (clean, $(findstring clean, $(MAKECMDGOALS)))
--include $(OBJ_DIR)/cpu_posix.P
-endif
-
-$(OBJ_DIR)/cpu_posix.o : TARGET_PCH_FILE = $(OBJ_DIR)/pch_tier0.h
-$(OBJ_DIR)/cpu_posix.o : $(abspath cpu_posix.cpp) $(OBJ_DIR)/pch_tier0.h.gch $(OBJ_DIR)/pch_tier0.h $(PWD)/tier0_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak
 	$(PRE_COMPILE_FILE)
 	$(COMPILE_FILE_WITH_PCH) $(POST_COMPILE_FILE)
 
