@@ -209,7 +209,7 @@ $Group "everything"
 	"bugreporter_public"
 	"bugreporter_text"
 	// Emscripten shiit
-	//"bzip2"
+	"bzip2"
 	"captioncompiler"
 	"cardstats"
 	"choreoobjects"
@@ -450,8 +450,7 @@ $Group "everything"
 	"vtfscrew"
 	"vvis_dll"
 	"vvis_launcher"
-    	// In Emscripten shiiit
-	//"zlib"
+	"zlib"
 	"coroutine_osx"
 
 //	"vs_python2.5"

@@ -1,0 +1,36 @@
+obj_tier0_linux32/release/pch_tier0.o: \
+  /home/guest/Downloads/src/src/tier0/pch_tier0.cpp \
+  /home/guest/Downloads/src/src/tier0/pch_tier0.h \
+  /home/guest/Downloads/src/src/public/tier0/basetypes.h \
+  /home/guest/Downloads/src/src/public/tier0/commonmacros.h \
+  /home/guest/Downloads/src/src/public/tier0/platform.h \
+  /home/guest/Downloads/src/src/public/tier0/wchartypes.h \
+  /home/guest/Downloads/src/src/public/tier0/valve_off.h \
+  /home/guest/Downloads/src/src/public/tier0/valve_on.h \
+  /home/guest/Downloads/src/src/public/tier0/valve_minmax_on.h \
+  /home/guest/Downloads/src/src/public/tier0/annotations.h \
+  /home/guest/Downloads/src/src/public/tier0/fasttimer.h \
+  /home/guest/Downloads/src/src/public/tier0/protected_things.h \
+  /home/guest/Downloads/src/src/public/tier0/xbox_codeline_defines.h \
+  /home/guest/Downloads/src/src/public/tier0/dbgflag.h \
+  /home/guest/Downloads/src/src/public/tier0/dbg.h \
+  /home/guest/Downloads/src/src/public/tier0/validator.h \
+  /home/guest/Downloads/src/src/public/tier0/valobject.h \
+  /home/guest/Downloads/src/src/public/tier0/valve_minmax_off.h
+/home/guest/Downloads/src/src/tier0/pch_tier0.h:
+/home/guest/Downloads/src/src/public/tier0/basetypes.h:
+/home/guest/Downloads/src/src/public/tier0/commonmacros.h:
+/home/guest/Downloads/src/src/public/tier0/platform.h:
+/home/guest/Downloads/src/src/public/tier0/wchartypes.h:
+/home/guest/Downloads/src/src/public/tier0/valve_off.h:
+/home/guest/Downloads/src/src/public/tier0/valve_on.h:
+/home/guest/Downloads/src/src/public/tier0/valve_minmax_on.h:
+/home/guest/Downloads/src/src/public/tier0/annotations.h:
+/home/guest/Downloads/src/src/public/tier0/fasttimer.h:
+/home/guest/Downloads/src/src/public/tier0/protected_things.h:
+/home/guest/Downloads/src/src/public/tier0/xbox_codeline_defines.h:
+/home/guest/Downloads/src/src/public/tier0/dbgflag.h:
+/home/guest/Downloads/src/src/public/tier0/dbg.h:
+/home/guest/Downloads/src/src/public/tier0/validator.h:
+/home/guest/Downloads/src/src/public/tier0/valobject.h:
+/home/guest/Downloads/src/src/public/tier0/valve_minmax_off.h:

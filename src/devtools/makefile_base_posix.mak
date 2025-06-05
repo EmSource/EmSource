@@ -1,4 +1,4 @@
-#
+
 # Base makefile for Linux & Emscripten.
 #
 # !!!!! Note to future editors !!!!!
@@ -41,8 +41,8 @@ HOSTNAME := $($(SHELL) $(TOOL_PATH)hostname)
 
 # To build with emscripten, set the following in your environment:
 # Kinda hacky to do it this way:
-   CC = emcc -sWASM=1 -sUSE_SDL=2 -sUSE_ZLIB=1 -sUSE_BZIP2=1
-   CXX = em++ -sWASM=1 -sUSE_SDL=2 -sUSE_ZLIB=1 -sUSE_BZIP2=1
+   CC = emcc -sWASM=1 -sUSE_SDL=2 
+   CXX = em++ -sWASM=1 -sUSE_SDL=2
 ifneq (,$(findstring emcc,$(CC)))
 	CLANG_BUILD = 1
 endif
@@ -89,8 +89,6 @@ ifeq ($(CLANG_BUILD),1)
 	# Needed for older versions of clang (newer versions are compatible with gcc syntax)
 	# Mohamed: Excuse me saar, did you mean -Xclang? hm?
 	PCH_CXXFLAGS += -Xclang -emit-pch
-	# Do not rely on emstrip.
-	CPPFLAGS += --closure
 else
 	# GCC specific - better PCH behavior w/ccache and better debugging information
 	BASE_CFLAGS += -fpch-preprocess -fvar-tracking-assignments
