@@ -22,7 +22,7 @@ const tchar* GetProcessorVendorId();
 
 static bool cpuid(unsigned long function, unsigned long& out_eax, unsigned long& out_ebx, unsigned long& out_ecx, unsigned long& out_edx)
 {
-#if defined(GNUC)
+#if defined(GNUC) || !defined(__EMSCRIPTEN__)
 	asm("mov %%ebx, %%esi\n\t"
 		"cpuid\n\t"
 		"xchg %%esi, %%ebx"
@@ -43,7 +43,7 @@ static bool cpuid(unsigned long function, unsigned long& out_eax, unsigned long&
 	out_ecx = pCPUInfo[2];
 	out_edx = pCPUInfo[3];
 	return true;
-#else
+#elif !defined(__EMSCRIPTEN__)
 	bool retval = true;
 	unsigned long local_eax, local_ebx, local_ecx, local_edx;
 	_asm pushad;
@@ -75,6 +75,8 @@ static bool cpuid(unsigned long function, unsigned long& out_eax, unsigned long&
 	_asm popad
 
 	return retval;
+#elif defined(__EMSCRIPTEN__)
+	// See cpu.js
 #endif
 }
 

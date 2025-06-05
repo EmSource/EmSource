@@ -18,6 +18,12 @@
 #include "tier0/vcrmode.h"
 #include "tier0/vprof_telemetry.h"
 
+
+#if defined(__EMSCRIPTEN__)
+#include <sched.h>
+#include <emscripten.h>
+#endif
+
 #ifdef PLATFORM_WINDOWS_PC
 #include <intrin.h>
 #endif
@@ -141,9 +147,13 @@ inline void ThreadPause()
 #if defined( PLATFORM_WINDOWS_PC )
 	// Intrinsic for __asm pause; from <intrin.h>
 	_mm_pause();
-#elif POSIX
+#elif POSIX && !defined(__EMSCRIPTEN__)
 	__asm __volatile( "pause" );
-#elif defined( _X360 )
+#elif defined( __EMSCRIPTEN__ )
+//	EM_JS(void, js_yield, (), {
+///	});
+
+	sched_yield();
 #else
 #error "implement me"
 #endif

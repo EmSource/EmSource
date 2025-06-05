@@ -54,7 +54,7 @@ if [[ "$INFILE" == *.a ]]; then
     # Extract .o files
     $EMAR x "$INFILE"
     # Re-archive them
-    $EMAR rcs "$OUTFILE" *.o
+    $EMAR rcs "$OUTFILE" $1.o
     popd >/dev/null
     rm -rf "$TMPDIR"
     exit 0

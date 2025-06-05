@@ -386,19 +386,8 @@ DBG_INTERFACE bool ShouldUseNewAssertDialog()
 #endif // DBGFLAG_ASSERTDLG
 }
 
-#if defined( POSIX )
-
-	#if !defined(__EMSCRIPTEN__)
-		#include <execinfo.h>
-	#else
-		
-		#include <emscripten.h>
-		void backtrace() {
-    			char *stack = emscripten_get_callstack(EM_LOG_C_STACK | EM_LOG_DEMANGLE);
-    			printf("Backtrace:\n%s\n", stack);
-    			free(stack);
-		}
-	#endif
+#if defined( POSIX ) && !defined(__EMSCRIPTEN__)
+#include <execinfo.h>
 
 static void SpewBacktrace()
 {
@@ -449,10 +438,12 @@ DBG_INTERFACE bool DoNewAssertDialog( const tchar *pFilename, int line, const tc
 		#define COLOR_END		"\033[0m"
 		fprintf(stderr, COLOR_YELLOW "ASSERT:" COLOR_END " " COLOR_RED "%s" COLOR_GREEN ":%i:" COLOR_END " " COLOR_RED "%s" COLOR_END "\n",
 		        pFilename, line, pExpression);
+	#if !defined(__EMSCRIPTEN__)
 		if ( getenv( "POSIX_ASSERT_BACKTRACE" ) )
 		{
 			SpewBacktrace();
 		}
+	#endif
 	}
 	else
 #endif

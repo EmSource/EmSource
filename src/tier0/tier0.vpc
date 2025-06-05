@@ -113,7 +113,7 @@ $Project "tier0"
 		$File	"assert_dialog.cpp"
 		$File	"assert_dialog.rc"		[$WINDOWS]
 		$File	"commandline.cpp"
-		$File	"cpu.cpp"
+		$File	"cpu.cpp"			[!$EMSCRIPTEN]
 		$File	"cpumonitoring.cpp"
 		$File	"cpu_posix.cpp"			[$POSIX]
 		$File	"cpu_usage.cpp"
