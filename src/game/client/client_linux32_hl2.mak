@@ -31,16 +31,16 @@ SymbolVisibility=hidden
 TreatWarningsAsErrors=false
 OptimizerLevel=$(SAFE_OPTFLAGS_GCC_422)
 SystemLibraries=-lrt 
-DLL_EXT=.so
+DLL_EXT=.wasm
 SYM_EXT=.dbg
 FORCEINCLUDES= 
-DEFINES= -DVPC -DDEBUG -D_DEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=client -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DNO_STRING_T -DCLIENT_DLL -DVECTOR -DVERSION_SAFE_STEAM_API_INTERFACES -DPROTECTED_THINGS_ENABLE -Dstrncpy=use_Q_strncpy_instead -D_snprintf=use_Q_snprintf_instead -DUSE_WEBM_FOR_REPLAY -DHL2_CLIENT_DLL -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/game/client -D_DLL_EXT=.so -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
+DEFINES= -DVPC -DDEBUG -D_DEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=client -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DNO_STRING_T -DCLIENT_DLL -DVECTOR -DVERSION_SAFE_STEAM_API_INTERFACES -DPROTECTED_THINGS_ENABLE -Dstrncpy=use_Q_strncpy_instead -D_snprintf=use_Q_snprintf_instead -DUSE_WEBM_FOR_REPLAY -DHL2_CLIENT_DLL -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/game/client -D_DLL_EXT=.wasm -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
 INCLUDEDIRS += ./hl2 ./hl2/elements ../../game/shared/hl2 ./ ../../common ../../public ../../public/tier0 ../../public/tier1 ../../thirdparty/SDL2 ../../game/client/generated_proto_hl2 ../../thirdparty/protobuf-2.6.1/src ../../vgui2/include ../../vgui2/controls ../../game/shared ./game_controls ../../thirdparty/sixensesdk/include 
 CONFTYPE=dll
 IMPORTLIBRARY=
-GAMEOUTPUTFILE=../../../game/hl2/bin/client.so
+GAMEOUTPUTFILE=../../../game/hl2/bin/client.wasm
 TARGETCOPIES=
-OUTPUTFILE=$(OBJ_DIR)/client.so
+OUTPUTFILE=$(OBJ_DIR)/client.wasm
 
 
 POSTBUILDCOMMAND=/bin/true
@@ -5062,16 +5062,16 @@ SymbolVisibility=hidden
 TreatWarningsAsErrors=false
 OptimizerLevel=$(SAFE_OPTFLAGS_GCC_422)
 SystemLibraries=-lrt 
-DLL_EXT=.so
+DLL_EXT=.wasm
 SYM_EXT=.dbg
 FORCEINCLUDES= 
-DEFINES= -DVPC -DNDEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=client -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DNO_STRING_T -DCLIENT_DLL -DVECTOR -DVERSION_SAFE_STEAM_API_INTERFACES -DPROTECTED_THINGS_ENABLE -Dstrncpy=use_Q_strncpy_instead -D_snprintf=use_Q_snprintf_instead -DUSE_WEBM_FOR_REPLAY -DHL2_CLIENT_DLL -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/game/client -D_DLL_EXT=.so -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
+DEFINES= -DVPC -DNDEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=client -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DNO_STRING_T -DCLIENT_DLL -DVECTOR -DVERSION_SAFE_STEAM_API_INTERFACES -DPROTECTED_THINGS_ENABLE -Dstrncpy=use_Q_strncpy_instead -D_snprintf=use_Q_snprintf_instead -DUSE_WEBM_FOR_REPLAY -DHL2_CLIENT_DLL -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/game/client -D_DLL_EXT=.wasm -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
 INCLUDEDIRS += ./hl2 ./hl2/elements ../../game/shared/hl2 ./ ../../common ../../public ../../public/tier0 ../../public/tier1 ../../thirdparty/SDL2 ../../game/client/generated_proto_hl2 ../../thirdparty/protobuf-2.6.1/src ../../vgui2/include ../../vgui2/controls ../../game/shared ./game_controls ../../thirdparty/sixensesdk/include 
 CONFTYPE=dll
 IMPORTLIBRARY=
-GAMEOUTPUTFILE=../../../game/hl2/bin/client.so
+GAMEOUTPUTFILE=../../../game/hl2/bin/client.wasm
 TARGETCOPIES=
-OUTPUTFILE=$(OBJ_DIR)/client.so
+OUTPUTFILE=$(OBJ_DIR)/client.wasm
 
 
 POSTBUILDCOMMAND=/bin/true

@@ -31,16 +31,16 @@ SymbolVisibility=hidden
 TreatWarningsAsErrors=false
 OptimizerLevel=$(SAFE_OPTFLAGS_GCC_422)
 SystemLibraries=
-DLL_EXT=.so
+DLL_EXT=.wasm
 SYM_EXT=.dbg
 FORCEINCLUDES= 
-DEFINES= -DVPC -DDEBUG -D_DEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vphysics -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DVPHYSICS_EXPORTS -DHAVANA_CONSTRAINTS -DHAVOK_MOPP -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/vphysics -D_DLL_EXT=.so -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
+DEFINES= -DVPC -DDEBUG -D_DEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vphysics -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DVPHYSICS_EXPORTS -DHAVANA_CONSTRAINTS -DHAVOK_MOPP -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/vphysics -D_DLL_EXT=.wasm -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
 INCLUDEDIRS += ../common ../public ../public/tier0 ../public/tier1 ../thirdparty/SDL2 . ../ivp/ivp_intern ../ivp/ivp_collision ../ivp/ivp_physics ../ivp/ivp_surface_manager ../ivp/ivp_utility ../ivp/ivp_controller ../ivp/ivp_compact_builder ../ivp/havana/havok ../ivp/havana 
 CONFTYPE=dll
 IMPORTLIBRARY=
-GAMEOUTPUTFILE=../lib/public/linux32/vphysics.so
+GAMEOUTPUTFILE=../lib/public/linux32/vphysics.wasm
 TARGETCOPIES=
-OUTPUTFILE=$(OBJ_DIR)/vphysics.so
+OUTPUTFILE=$(OBJ_DIR)/vphysics.wasm
 
 
 POSTBUILDCOMMAND=/bin/true
@@ -352,16 +352,16 @@ SymbolVisibility=hidden
 TreatWarningsAsErrors=false
 OptimizerLevel=$(SAFE_OPTFLAGS_GCC_422)
 SystemLibraries=
-DLL_EXT=.so
+DLL_EXT=.wasm
 SYM_EXT=.dbg
 FORCEINCLUDES= 
-DEFINES= -DVPC -DNDEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vphysics -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DVPHYSICS_EXPORTS -DHAVANA_CONSTRAINTS -DHAVOK_MOPP -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/vphysics -D_DLL_EXT=.so -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
+DEFINES= -DVPC -DNDEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vphysics -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -DVPHYSICS_EXPORTS -DHAVANA_CONSTRAINTS -DHAVOK_MOPP -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/vphysics -D_DLL_EXT=.wasm -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
 INCLUDEDIRS += ../common ../public ../public/tier0 ../public/tier1 ../thirdparty/SDL2 . ../ivp/ivp_intern ../ivp/ivp_collision ../ivp/ivp_physics ../ivp/ivp_surface_manager ../ivp/ivp_utility ../ivp/ivp_controller ../ivp/ivp_compact_builder ../ivp/havana/havok ../ivp/havana 
 CONFTYPE=dll
 IMPORTLIBRARY=
-GAMEOUTPUTFILE=../lib/public/linux32/vphysics.so
+GAMEOUTPUTFILE=../lib/public/linux32/vphysics.wasm
 TARGETCOPIES=
-OUTPUTFILE=$(OBJ_DIR)/vphysics.so
+OUTPUTFILE=$(OBJ_DIR)/vphysics.wasm
 
 
 POSTBUILDCOMMAND=/bin/true

@@ -1,5 +1,5 @@
 [vpc crc file version 2]
-bf5b3664 ../devtools/bin/vpc_linux
+64e1cc36 ../devtools/bin/vpc_linux
 _Nc_/vpcgame:hl2_
 e4ac4cc3 dedicated_main.vpc
 ee573ad2 ../vpc_scripts/source_exe_base.vpc

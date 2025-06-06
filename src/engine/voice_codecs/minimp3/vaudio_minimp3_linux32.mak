@@ -31,16 +31,16 @@ SymbolVisibility=hidden
 TreatWarningsAsErrors=false
 OptimizerLevel=$(SAFE_OPTFLAGS_GCC_422)
 SystemLibraries=
-DLL_EXT=.so
+DLL_EXT=.wasm
 SYM_EXT=.dbg
 FORCEINCLUDES= 
-DEFINES= -DVPC -DDEBUG -D_DEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vaudio_minimp3 -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/engine/voice_codecs/minimp3 -D_DLL_EXT=.so -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
+DEFINES= -DVPC -DDEBUG -D_DEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vaudio_minimp3 -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/engine/voice_codecs/minimp3 -D_DLL_EXT=.wasm -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
 INCLUDEDIRS += ../../../common ../../../public ../../../public/tier0 ../../../public/tier1 ../../../thirdparty/SDL2 ../../../thirdparty/minimp3/ ../../../public ../../../public/tier1 ../.. ../../../common ../../audio/public 
 CONFTYPE=dll
 IMPORTLIBRARY=
-GAMEOUTPUTFILE=../../../lib/public/linux32/vaudio_minimp3.so
+GAMEOUTPUTFILE=../../../lib/public/linux32/vaudio_minimp3.wasm
 TARGETCOPIES=
-OUTPUTFILE=$(OBJ_DIR)/vaudio_minimp3.so
+OUTPUTFILE=$(OBJ_DIR)/vaudio_minimp3.wasm
 
 
 POSTBUILDCOMMAND=/bin/true
@@ -115,16 +115,16 @@ SymbolVisibility=hidden
 TreatWarningsAsErrors=false
 OptimizerLevel=$(SAFE_OPTFLAGS_GCC_422)
 SystemLibraries=
-DLL_EXT=.so
+DLL_EXT=.wasm
 SYM_EXT=.dbg
 FORCEINCLUDES= 
-DEFINES= -DVPC -DNDEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vaudio_minimp3 -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/engine/voice_codecs/minimp3 -D_DLL_EXT=.so -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
+DEFINES= -DVPC -DNDEBUG -DGNUC -DPOSIX -DCOMPILER_GCC -D_DLL_EXT=.wasm -D_LINUX -DLINUX -DPOSIX -D_POSIX -DDLLNAME=vaudio_minimp3 -DBINK_VIDEO -DGL_GLEXT_PROTOTYPES -DDX_TO_GL_ABSTRACTION -DUSE_SDL -DDEV_BUILD -DFRAME_POINTER_OMISSION_DISABLED -D_EXTERNAL_DLL_EXT=.wasm -D_EMSCRIPTEN=1 -DVPCGAMECAPS=HL2 -DEMSCRIPTEN=1 -DPROJECTDIR=/home/guest/Downloads/src/src/engine/voice_codecs/minimp3 -D_DLL_EXT=.wasm -DSOURCE1=1 -DVPCGAME=hl2 -D_POSIX=1 -DPOSIX=1 
 INCLUDEDIRS += ../../../common ../../../public ../../../public/tier0 ../../../public/tier1 ../../../thirdparty/SDL2 ../../../thirdparty/minimp3/ ../../../public ../../../public/tier1 ../.. ../../../common ../../audio/public 
 CONFTYPE=dll
 IMPORTLIBRARY=
-GAMEOUTPUTFILE=../../../lib/public/linux32/vaudio_minimp3.so
+GAMEOUTPUTFILE=../../../lib/public/linux32/vaudio_minimp3.wasm
 TARGETCOPIES=
-OUTPUTFILE=$(OBJ_DIR)/vaudio_minimp3.so
+OUTPUTFILE=$(OBJ_DIR)/vaudio_minimp3.wasm
 
 
 POSTBUILDCOMMAND=/bin/true

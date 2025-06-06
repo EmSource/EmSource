@@ -1950,7 +1950,7 @@ void CVPC::SetMacrosAndConditionals()
 		CFmtStrN<128> strDso( "%s%s.so", strSrv, str3264 );
 		CFmtStrN<128> strLib( "%s%s.a", strSrv, str3264 );
 
-		SetMacro( "_DLL_EXT", strDso.Access(), true );
+		SetMacro( "_DLL_EXT", ".wasm", true );
 		SetMacro( "_IMPLIB_EXT", strDso.Access(), false );
 		SetMacro( "_STATICLIB_EXT", strLib.Access(), false );
 
