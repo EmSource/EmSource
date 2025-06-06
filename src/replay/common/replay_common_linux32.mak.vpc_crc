@@ -6,7 +6,7 @@ _Nc_/vpcgame:hl2_
 d752cf80 ../../vpc_scripts/platform_dirs.vpc
 6c4a5ff1 ../../vpc_scripts/source_base.vpc
 e13ff58b ../../vpc_scripts/source_lib_posix_base.vpc
-26cc1549 ../../vpc_scripts/source_posix_base.vpc
+a26fc577 ../../vpc_scripts/source_posix_base.vpc
 486b766d ../../vpc_scripts/version.vpc
 15cd25e0 ../../vpc_scripts/source_video_base.vpc
 005d2b92 ../../replay/common/headers.vpc
