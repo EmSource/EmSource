@@ -76,7 +76,7 @@ BUILDING_MULTI_ARCH = 0
 ENV_CFLAGS := $(CFLAGS)
 ENV_CXXFLAGS := $(CXXFLAGS) -fpermissive
 CPPFLAGS = $(DEFINES) $(addprefix -I, $(abspath $(INCLUDEDIRS) ))
-BASE_CFLAGS = $(ARCH_FLAGS) $(CPPFLAGS) $(WARN_FLAGS) -fvisibility=$(SymbolVisibility) $(OptimizerLevel) -pipe $(GCC_ExtraCompilerFlags) -Usprintf -Ustrncpy -UPROTECTED_THINGS_ENABLE
+BASE_CFLAGS = $(ARCH_FLAGS) $(CPPFLAGS) $(WARN_FLAGS) -fvisibility=$(SymbolVisibility) -fPIC $(OptimizerLevel) -pipe $(GCC_ExtraCompilerFlags) -Usprintf -Ustrncpy -UPROTECTED_THINGS_ENABLE
 BASE_CXXFLAGS = -std=c++11
 # Additional CXXFLAGS when compiling PCH files
 PCH_CXXFLAGS =
@@ -192,10 +192,9 @@ LINK ?= $(CC)
 
 	# pentium4 = MMX, SSE, SSE2 - no SSE3 (added in prescott) # -msse3 -mfpmath=sse
 	ARCH_FLAGS += $(SSE_GEN_FLAGS)
-	LD_SO = ld-linux.so.2
-	LIBSTDCXX := $(shell $(CXX) $(ARCH_FLAGS) -print-file-name=libstdc++.so)
-	LIBSTDCXXPIC := $(shell $(CXX) $(ARCH_FLAGS) -print-file-name=libstdc++.so)
-	LDFLAGS += -m32
+	LD_SO =
+	LIBSTDCXX :=
+	LIBSTDCXXPIC :=
 
 GEN_SYM ?= $(SRCROOT)/devtools/gendbg.sh
 ifeq ($(CFG),release)
@@ -214,7 +213,7 @@ endif
 
 LINK_MAP_FLAGS = -Wl,-Map,$(@:.so=).map
 
-SHLIBLDFLAGS = -shared $(LDFLAGS) -Wl,--no-undefined
+SHLIBLDFLAGS = -s SIDE_MODULE=1 $(LDFLAGS) -Wl
 
 _WRAP := -Xlinker --wrap=
 PATHWRAP = $(_WRAP)fopen $(_WRAP)freopen $(_WRAP)open    $(_WRAP)creat    $(_WRAP)access  $(_WRAP)__xstat \
@@ -241,7 +240,7 @@ LIB_START_EXE = $(PATHWRAP) -static-libgcc -Wl,--start-group
 LIB_END_EXE = -Wl,--end-group -lm -ldl $(LIBSTDCXX) -lpthread
 
 LIB_START_SHLIB = $(PATHWRAP) -static-libgcc -Wl,--start-group
-LIB_END_SHLIB = -Wl,--end-group -lm -ldl $(LIBSTDCXXPIC) -lpthread -l:$(LD_SO) -Wl,--version-script=$(SRCROOT)/devtools/version_script.linux.txt
+LIB_END_SHLIB = -Wl,--end-group -lm -ldl $(LIBSTDCXXPIC) -lpthread -Wl,--version-script=$(SRCROOT)/devtools/version_script.linux.txt
 
 #
 # Profile-directed optimizations.

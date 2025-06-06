@@ -421,7 +421,8 @@ void _SSE_SinCos(float x, float* s, float* c)
 	
 	/* store the integer part of y in mm2:mm3 */
 	xmm3 = _mm_movehl_ps(xmm3, y);
-	mm2 = _mm_cvttps_pi32(y);
+	//mm2 = _mm_cvttps_pi32(y);
+	mm2 = (int)y;
 	mm3 = _mm_cvttps_pi32(xmm3);
 	
 	/* j=(j+1) & (~1) (see the cephes sources) */

@@ -58,3 +58,21 @@ No, ASW and the branches after it will not be supported.
 No. We don't have Visual Studio support yet. The only way which I know of to compile this on Windows is to either use `WSL2` or get the [VSExtForEmscripten](https://github.com/nokotan/VSExtForEmscripten) addon for Visual Studio 2017+
 
 
+## Acknowledgements
+
+ - [Emscripten](https://github.com/emscripten-core/emscripten): The project that made this project possible, and is the compiler that allows us to convert the Source Engine to WebAssembly.
+ 
+ - [Xash3D FWGS](https://github.com/FWGS/xash3d-fwgs): A lot of inspiration from this project.
+## Authors
+
+[@vbsp-exe](https://www.github.com/vbsp-exe) is the  current author of this project.
+
+Optionally, contributors can put their names inside the `AUTHORS` file and the `README`.
+
+
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
