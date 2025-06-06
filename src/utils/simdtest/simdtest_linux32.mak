@@ -14,7 +14,7 @@ ifeq "$(CFG)" ""
 endif
 
 GCC_ExtraCompilerFlags=
-GCC_ExtraLinkerFlags=-Wl,--no-as-needed -Wl,--as-needed
+GCC_ExtraLinkerFlags=-Wl
 GCC_CustomVersionScript=
 EntryPoint=
 IgnoreAllDefaultLibraries=no

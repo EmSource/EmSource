@@ -5,7 +5,7 @@ d2b93c6a panel_zoo.vpc
 ee573ad2 ../../vpc_scripts/source_exe_base.vpc
 d752cf80 ../../vpc_scripts/platform_dirs.vpc
 6c4a5ff1 ../../vpc_scripts/source_base.vpc
-c18e4e4a ../../vpc_scripts/source_exe_posix_base.vpc
+394a688b ../../vpc_scripts/source_exe_posix_base.vpc
 486b766d ../../vpc_scripts/version.vpc
 a26fc577 ../../vpc_scripts/source_posix_base.vpc
 846102f0 ../../vpc_scripts/loadaddress.vpc
