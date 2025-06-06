@@ -95,6 +95,6 @@ int64 CReliableTimer::GetPerformanceCountNow()
 #elif defined(__EMSCRIPTEN__)
 inline int64_t CReliableTimer::GetPerformanceCountNow()
 {
-	return static_cast<int64_t>(emscripten_get_now(); * 1'000.0); // µs
+	return static_cast<int64_t>(emscripten_get_now() * 1000.0); // µs
 }
 #endif
