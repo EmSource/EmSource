@@ -13,6 +13,7 @@
 #include "mathlib/vector.h"
 #include "sse.h"
 #include <emscripten.h>
+#include <emmintrin.h>
 #include <cmath>
 
 // memdbgon must be the last include file in a .cpp file!!!
@@ -311,8 +312,8 @@ typedef union xmm_mm_union {
 #define COPY_MM_TO_XMM(mm0_, mm1_, xmm_) { xmm_mm_union u; u.mm[0]=mm0_; u.mm[1]=mm1_; xmm_ = u.xmm; }
 
 typedef __m128 v4sf;  // vector of 4 float (sse1)
-typedef __m64 v2si;   // vector of 2 int (mmx)
-
+// Mohamed: Nah bro, fuck mmx.
+typedef struct { int a, b; } v2si;
 #endif
 
 void _SSE_SinCos(float x, float* s, float* c)
@@ -421,15 +422,15 @@ void _SSE_SinCos(float x, float* s, float* c)
 	
 	/* store the integer part of y in mm2:mm3 */
 	xmm3 = _mm_movehl_ps(xmm3, y);
-	//mm2 = _mm_cvttps_pi32(y);
-	mm2 = (int)y;
-	mm3 = _mm_cvttps_pi32(xmm3);
+	mm2 = _mm_cvttps_epi32(y);
+	//mm2 = (int)y;
+	mm3 = _mm_cvttps_epi32(xmm3);
 	
 	/* j=(j+1) & (~1) (see the cephes sources) */
-	mm2 = _mm_add_pi32(mm2, *(v2si*)_pi32_1);
-	mm3 = _mm_add_pi32(mm3, *(v2si*)_pi32_1);
-	mm2 = _mm_and_si64(mm2, *(v2si*)_pi32_inv1);
-	mm3 = _mm_and_si64(mm3, *(v2si*)_pi32_inv1);
+	mm2 = _mm_add_epi32(mm2, *(v2si*)_pi32_1);
+	mm3 = _mm_add_epi32(mm3, *(v2si*)_pi32_1);
+	mm2 = _mm_and_si128(mm2, *(v2si*)_pi32_inv1);
+	mm3 = _mm_and_si128(mm3, *(v2si*)_pi32_inv1);
 	
 	y = _mm_cvtpi32x2_ps(mm2, mm3);
 	

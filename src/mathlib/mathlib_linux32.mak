@@ -59,7 +59,6 @@ CPPFILES= \
     simdvectormatrix.cpp \
     sparse_convolution_noise.cpp \
     spherical.cpp \
-    sse.cpp \
     sseconst.cpp \
     ssenoise.cpp \
     vector.cpp \
@@ -209,14 +208,6 @@ ifneq (clean, $(findstring clean, $(MAKECMDGOALS)))
 endif
 
 $(OBJ_DIR)/spherical.o : $(abspath spherical.cpp) $(PWD)/mathlib_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak $(OTHER_DEPENDENCIES)
-	$(PRE_COMPILE_FILE)
-	$(COMPILE_FILE) $(POST_COMPILE_FILE)
-
-ifneq (clean, $(findstring clean, $(MAKECMDGOALS)))
--include $(OBJ_DIR)/sse.P
-endif
-
-$(OBJ_DIR)/sse.o : $(abspath sse.cpp) $(PWD)/mathlib_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak $(OTHER_DEPENDENCIES)
 	$(PRE_COMPILE_FILE)
 	$(COMPILE_FILE) $(POST_COMPILE_FILE)
 

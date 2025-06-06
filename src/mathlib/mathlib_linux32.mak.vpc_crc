@@ -1,7 +1,7 @@
 [vpc crc file version 2]
 64e1cc36 ../devtools/bin/vpc_linux
 _Nc_/vpcgame:hl2_
-42e1c2e3 mathlib.vpc
+4778675e mathlib.vpc
 30577f77 ../vpc_scripts/source_lib_base.vpc
 d752cf80 ../vpc_scripts/platform_dirs.vpc
 6c4a5ff1 ../vpc_scripts/source_base.vpc

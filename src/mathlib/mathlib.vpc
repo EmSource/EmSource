@@ -27,7 +27,7 @@ $Project "mathlib"
 		$File	"powsse.cpp"
 		$File	"sparse_convolution_noise.cpp"
 		$File	"sseconst.cpp"
-		$File	"sse.cpp"					[$WINDOWS||$POSIX]
+		$File	"sse.cpp"					[$WINDOWS||$POSIX && !$EMSCRIPTEN]
 		$File	"ssenoise.cpp"				
 		$File	"3dnow.cpp"					[$WINDOWS||$LINUX]
 		$File	"anorms.cpp"
