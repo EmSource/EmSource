@@ -610,7 +610,9 @@ void Coroutine_ReleaseThreadMemory()
 {
 	AUTO_LOCK( g_ThreadMutexCoroutineMgr );
 
-	if ( g_ThreadLocalCoroutineMgr != NULL )
+	// From CSGO
+	if ( g_ThreadLocalCoroutineMgr != static_cast<const void*>( nullptr ) )
+	//if ( g_ThreadLocalCoroutineMgr != NULL )
 	{
 		int iCoroutineMgr = g_VecPCoroutineMgr.Find( g_ThreadLocalCoroutineMgr );
 		delete g_VecPCoroutineMgr[iCoroutineMgr];
