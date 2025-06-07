@@ -1,7 +1,7 @@
 [vpc crc file version 2]
 64e1cc36 ../../devtools/bin/vpc_linux
 _Nc_/vpcgame:hl2_
-323e5abf client_hl2.vpc
+17384089 client_hl2.vpc
 0cd7c980 ../../game/client/client_base.vpc
 4832e67a ../../vpc_scripts/source_dll_base.vpc
 d752cf80 ../../vpc_scripts/platform_dirs.vpc

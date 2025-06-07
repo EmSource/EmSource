@@ -1152,7 +1152,9 @@ inline void CDmaElement<T>::Init( CDmElement *pOwner, const char *pAttributeName
 template <class T>
 inline UtlSymId_t CDmaElement<T>::GetElementType() const
 {
-	return this->Data().m_ElementType;
+	// TODO: Fix this shit
+	//return this->Data().m_ElementType;
+	return true;
 }
 
 template <class T>

@@ -5,6 +5,7 @@
 //=============================================================================
 
 #include "cbase.h"
+#if !defined(__EMSCRIPTEN__)
 #include <vgui_controls/Controls.h>
 #include <vgui_controls/Panel.h>
 #include <vgui/ISurface.h>
@@ -454,3 +455,4 @@ void CAvatarImagePanel::ApplySettings( KeyValues *inResourceData )
 
 	BaseClass::ApplySettings(inResourceData);
 }
+#endif
