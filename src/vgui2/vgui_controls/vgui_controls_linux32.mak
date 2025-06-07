@@ -70,7 +70,6 @@ CPPFILES= \
     FocusNavGroup.cpp \
     Frame.cpp \
     GraphPanel.cpp \
-    HTML.cpp \
     Image.cpp \
     ImageList.cpp \
     ImagePanel.cpp \
@@ -353,14 +352,6 @@ ifneq (clean, $(findstring clean, $(MAKECMDGOALS)))
 endif
 
 $(OBJ_DIR)/GraphPanel.o : $(abspath GraphPanel.cpp) $(PWD)/vgui_controls_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak $(OTHER_DEPENDENCIES)
-	$(PRE_COMPILE_FILE)
-	$(COMPILE_FILE) $(POST_COMPILE_FILE)
-
-ifneq (clean, $(findstring clean, $(MAKECMDGOALS)))
--include $(OBJ_DIR)/HTML.P
-endif
-
-$(OBJ_DIR)/HTML.o : $(abspath HTML.cpp) $(PWD)/vgui_controls_linux32.mak $(SRCROOT)/devtools/makefile_base_posix.mak $(OTHER_DEPENDENCIES)
 	$(PRE_COMPILE_FILE)
 	$(COMPILE_FILE) $(POST_COMPILE_FILE)
 

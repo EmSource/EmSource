@@ -57,7 +57,6 @@
       <File Name="FocusNavGroup.cpp"/>
       <File Name="Frame.cpp"/>
       <File Name="GraphPanel.cpp"/>
-      <File Name="HTML.cpp"/>
       <File Name="Image.cpp"/>
       <File Name="ImageList.cpp"/>
       <File Name="ImagePanel.cpp"/>

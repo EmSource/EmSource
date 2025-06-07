@@ -1,6 +1,13 @@
 
 #  Half-Life 2: Javascript <img align="right" width="128" height="128" src="assets/logo.jpg" alt="HL2JS icon" />
 
+# ATTENTION!!!
+There is a far superior project released by a friend of mine, which is completed and FAR superior than this implementation will ever be.
+
+Here is the link: https://github.com/weliveinhell/source-engine
+
+This means that HL2JS will no longer be in development, and development will be CEASED,
+
 ## Screenshot
 
 ![proof of concept](https://github.com/user-attachments/assets/6a470acd-09ca-4c13-a6a5-2f3828fce610)

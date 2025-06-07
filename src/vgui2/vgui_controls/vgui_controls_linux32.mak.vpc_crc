@@ -1,7 +1,7 @@
 [vpc crc file version 2]
 64e1cc36 ../../devtools/bin/vpc_linux
 _Nc_/vpcgame:hl2_
-58d0fb3c vgui_controls.vpc
+eb01b3bd vgui_controls.vpc
 30577f77 ../../vpc_scripts/source_lib_base.vpc
 d752cf80 ../../vpc_scripts/platform_dirs.vpc
 6c4a5ff1 ../../vpc_scripts/source_base.vpc

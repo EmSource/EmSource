@@ -146,17 +146,7 @@ m_HideTooltip( this, &HTML::BrowserHideToolTip )
 	SetPostChildPaintEnabled( true );
 
 	m_unBrowserHandle = INVALID_HTMLBROWSER;
-	m_SteamAPIContext.Init();
-	if ( m_SteamAPIContext.SteamHTMLSurface() )
-	{
-		m_SteamAPIContext.SteamHTMLSurface()->Init();
-		SteamAPICall_t hSteamAPICall = m_SteamAPIContext.SteamHTMLSurface()->CreateBrowser( surface()->GetWebkitHTMLUserAgentString(), NULL );
-		m_SteamCallResultBrowserReady.Set( hSteamAPICall, this, &HTML::OnBrowserReady );
-	}
-	else
-	{
-		Warning("Unable to access SteamHTMLSurface");
-	}
+	Warning("Unable to access SteamHTMLSurface");
 	m_iScrollBorderX=m_iScrollBorderY=0;
 	m_bScrollBarEnabled = true;
 	m_bContextMenuEnabled = true; 
@@ -216,11 +206,6 @@ HTML::~HTML()
 {
 	m_pContextMenu->MarkForDeletion();
 
-	if ( m_SteamAPIContext.SteamHTMLSurface() )
-	{
-		m_SteamAPIContext.SteamHTMLSurface()->RemoveBrowser( m_unBrowserHandle );
-	}
-	
 	FOR_EACH_VEC( m_vecHCursor, i )
 	{
 		// BR FIXME!
